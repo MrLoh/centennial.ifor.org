@@ -1,0 +1,46 @@
+.form-padding {
+	padding-left: 11px;
+}
+
+.form h1 {
+	text-transform: uppercase;
+}
+
+.form {
+	padding: 20px;
+	border-radius: 10px;
+	margin: 2.5% 0;
+	background: #f6891f;
+}
+
+.submit {
+	margin-top: 1em;
+}
+
+form {
+	font-size: 120%;
+}
+
+label {
+	font-weight:700;
+	display: block;
+	margin-bottom: 0.25em;
+	margin-top: 0.5em;
+}
+
+input {
+	font-family: 'Ideal Sans', open-sans, 'Helvetica', 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 4px 8px;
+	border: none;
+	box-shadow: inset rgba(0,0,0,0.3) 0 0 1px 1px;
+	border-radius: 8px;
+	color: #3881a7;
+}
+
+
+
+
+main {
+}

@@ -16,6 +16,7 @@ header {
 	margin: 0;
 	padding: 0.5em 0 ;
 	position: relative;
+	z-index: 3;
 	box-shadow: rgba(0,0,0,0.3) 0 0 5px 5px;
 }
 
@@ -72,11 +73,12 @@ a:hover {
 	margin: 0 auto;
 	overflow: hidden;
 	background: #3881a7;
-	height: 100%;
 	box-shadow: rgba(0,0,0,1) 0 0 5px;
 }
 
-#hero img {
+.background img {
+	position: absolute;
+	z-index: -1;
 	width: 100%;
 }
 
@@ -86,4 +88,40 @@ footer {
 	padding: 0.5em 0 ;
 	position: relative;
 	box-shadow: rgba(0,0,0,0.3) 0 0 5px 5px;
+}
+
+.about {
+	position: relative;
+	z-index: 3;
+	width: 100%;
+	padding: 3em 0;
+}
+.about p {
+	font-style: italic;
+	font-size: 1.2em;
+	font-weight: 600;
+	text-align: justify;
+	width: 90%; 
+	max-width: 32em;
+	margin: 0 auto;
+	padding: 0.5em;
+}
+
+
+
+
+
+.logo img {
+	width: 25em;
+	margin: 5%;
+}
+
+.join-us {
+	margin: 0 auto;
+	width: 80%;
+	font-style: italic;
+	font-weight: 700;
+	font-size: 2em;
+	color: #1f6c8f;
+	text-align: center;
 }

@@ -3,16 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>IFOR Centennial</title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="_ressources/css/styles.css">
 	<script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
-<body>
-	<div id="centered">
+<body id="skrollr-body">
+	<div class="background">
+		<img src="_ressources/img/background.jpg" alt="Background Image">
+	</div>
+	<div class="logo">
+		<img src="_ressources/img/centennial-logo.svg" alt="Background Image">
+	</div>
+	
+<!--
 		<header>
 			<nav>
 				<ul>
-					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Registration</a></li>
 					<li><a href="#">Programme</a></li>
@@ -20,14 +26,11 @@
 				</ul>
 			</nav>
 		</header>
-		<main>
-			<div id="hero">
-				<img src="_ressources/img/hero.jpg" alt="Image of Lake Konstanz">
-			</div>
-		</main>
-		<footer>
-			
-		</footer>
-	</div>
+-->
+<!--Load Scripts-->
+<script type="text/javascript" src="skrollr.min.js"></script>
+<script type="text/javascript">
+	var s = skrollr.init();
+</script>
 </body>
 </html>

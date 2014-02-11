@@ -4,33 +4,31 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
-	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="../_ressources/css/styles.css">
+	<link rel="stylesheet" href="../_ressources/css/form.css">
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-	<main>
-		<div class="form">
-		<h1 class="form-padding">Persönliche Angaben</h1>
-	
+	<main class="form">
+		<h1>Registration</h1>
 		<form action="">
-			<div class="field">
-				<label class="form-padding" for="first-name">Vorname</label>
-				<input type="text" id="first-name">
-			</div>
-			<div class="field">
-				<label class="form-padding" for="last-name">Nachname</label>
-				<input type="text" id="first-name">
-			</div>
-
-						
-			<div class="submit">
-				<input class="button" type="submit" value="next >"><br>
-			</div>
+			<section>
+				<h1>1 - Personal Information</h1>
+				<p>
+					<label for="first-name">First name</label>
+					<input type="text" name="first-name">
+				</p>
+				<p>
+					<label for="last-name">Last name</label>
+					<input type="text" name="last-name">
+				</p>
+				<p>
+					<label for="birthday">Date of Birth</label>
+					<input type="date" name="birthday">
+				</p>
+			</section>
+			
 		</form>
-	</div>
 	</main>
-	<footer>
-		
-	</footer>
 </body>
 </html>

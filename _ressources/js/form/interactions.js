@@ -15,11 +15,31 @@ $(document).ready(function(){
 	});
 	
 	//Auto Input Fee Amount
-	var fee = $("#fee").data("fee");
-	$("#fee").text(fee);
-	
-	$("#participation-fee").change(function() {
-		$("#fee").text("50");
+	$("#fee").toggleClass("hidden");
+	function getFee() {
+		var fee = 0;
+		if($("#u16").is(":checked")){
+			fee = 0;
+		}else {
+			if($("#participation-fr").is(":checked")) {
+				fee += 20;
+			};
+			if($("#participation-sa").is(":checked")) {
+				fee += 20;
+			};
+			if($("#participation-su").is(":checked")) {
+				fee += 15;
+			};
+			if( fee == 55 ) {
+				fee = 50;
+			};
+		};
+		var feetext = " of €"+fee;
+		return feetext;
+	};
+	$("#fee-change").click(function() {
+		$("#fee").text(getFee());
+		$("#participation-fee").fadeIn();
 	});
 	
 	//Confirm Council Only Participation
@@ -70,8 +90,11 @@ $(document).ready(function(){
 	});
 	
 	//Toggle Accomodation Help
-	$("#accomodation-help").change(function() {
-		$("#if-accomodation-help").slideToggle("slow");
+	$("#accomodation-help-yes").change(function() {
+		$("#if-accomodation-help-yes").slideDown("slow");
+	});
+	$("#accomodation-help-no").change(function() {
+		$("#if-accomodation-help-yes").slideUp();
 	});
 	
 	//Autofocus Roommate

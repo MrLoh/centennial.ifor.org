@@ -16,7 +16,7 @@
 		<h1 class="form-title">Registration</h1>
 		<form action="">
 			<section class="top">
-				<h1>1 - Personal Information</h1>
+				<h1>&blacktriangleright; Personal Information</h1>
 				<p class="info bottom-margin">
 					Please fill out one form for each person. For large group registrations please contact the Centennial Office.
 				</p>
@@ -33,8 +33,15 @@
 					<label for="birthday">Date of Birth</label>
 				</p>
 				<p class="bottom-margin">
-					<label class="simple"><input type="radio" name="gender" vaue="male"> male</label>
-					<label class="simple"><input type="radio" name="gender" value="femal"> female</label>
+					<label class="simple">
+						<input type="radio" name="gender" vaue="male"> 
+						male
+					</label>
+					<span class="tab-1em"></span>
+					<label class="simple">
+						<input type="radio" name="gender" value="femal"> 
+						female
+					</label>
 				</p>
 				<p>
 					<input type="text" name="address" id="address">
@@ -49,7 +56,7 @@
 					<label for="city">City</label>
 				</p>
 				<p>
-					<input type="text" name="post-code" id="post-code">
+					<input type="tel" name="post-code" id="post-code">
 					<label for="post-code">Post / ZIP Code</label>
 				</p>
 				<p>
@@ -82,7 +89,7 @@
 				</p>
 			</section>
 			<section>
-				<h1>2 - Organization &amp; Responsibilities</h1>
+				<h1>&blacktriangleright; Organization &amp; Responsibilities</h1>
 				<p class="info bottom-margin">
 					We would like to know which organization you come from and please let us know, if you have assumed any responisibilites at the centennial. 
 				</p>
@@ -104,12 +111,12 @@
 				</div>
 			</section>
 			<section>
-				<h1>3 - Languages &amp; Translation</h1>
+				<h1>&blacktriangleright; Languages &amp; Interpretation</h1>
 				<p class="info bottom-margin">
 					The event on Friday evening, August 1, will offer simultaneous translation into German, English, French, and Spanish. During the workshops on Saturday, 2 August, there will be whispered and personal translation, for which we need interpreters.
 				</p>
 				<p class="bottom-margin">
-					<label for="languages">I am confident to communicate in the following languages:</label>
+					<label for="languages">I am confident to communicate in the following languages:</label> <br>
 					<label class="simple">
 						<input type="checkbox" value="En" name="languages">English
 					</label>
@@ -161,13 +168,12 @@
 				</div>
 			</section>
 			<section>
-				<h1>4 - Meals</h1>
+				<h1>&blacktriangleright; Meals</h1>
 				<p class="info bottom-margin">
 					Lunch and dinner will be served for &euro;6-&euro;9 per meal at the Landratsamt in Konstanz. A snack after the inter- faith celebration on Sunday is included in the registration fee for the weekend.
 				</p>
 				<p class="bottom-margin">
 					<label for="">I would like to book the following meals:</label><br>
-					</label>
 					<label class="simple">
 						<input type="checkbox" name="dinner-th">Thursday Dinner<br>
 					</label>
@@ -186,7 +192,6 @@
 				</p>
 				<p>
 					<label>I have the following special food preferences:</label><br>
-					</label>
 					<label class="simple">
 						<input type="radio" name="food" value="omnivore" id="food-omnivore"
 						checked="checked">
@@ -208,7 +213,7 @@
 				</p>
 			</section>
 			<section>
-				<h1>6 - Programme Participatation</h1>
+				<h1>&blacktriangleright; Programme Participatation</h1>
 				<p class="info bottom-margin">
 					We need to estimate the attendace so we can plan. Please help us by indicating which events you will attend.
 				</p>
@@ -256,30 +261,32 @@
 				</p>
 			</section>
 			<section>
-				<h1>7 - Registration Fee</h1>
+				<h1>&blacktriangleright; Registration Fee</h1>
 				<p class="info bottom-margin">
 					The registration fee for the Centennial weekend (children under 16 are free) is &euro;50 for the whole weekend; for par- tial participation the fee is &euro;20 for Friday and Saturday each, and &euro;15 for Sunday. This fee includes participation in all programme events, the city tour, the exhibitions, the concert, and the shuttle service to the event on Saturday. Not included in this fee are food, accommodation and the costs for transportation within Konstanz. Please indi- cate the registration fee that applies to you and indicate how it will be paid for on the next page.
 				</p>
-				<p class="border-margin" id="participation-fee" data-fee="-- ">
-					<label for="">I register for the following days is 
-					&euro;<span id="fee"></span>: </label><br>
-					<label class="simple">
-						<input type="checkbox" value="fr" name="participation" data-fee="20">
-						Friday
-					</label>
-					<label class="simple">
-						<input type="checkbox" value="sa" name="participation" data-fee="20">
-						Saturday
-					</label>
-					<label class="simple">
-						<input type="checkbox" value="su" name="participation" data-fee="15">
-						Sunday
-					</label>
-					<span class="tab-large"></span>
-					<label class="simple">
-						<input type="checkbox" value="u16" name="u16" data-fee="0">
-						I am under 16
-					</label>
+				<p class="border-margin">
+					<label>I register for the following days:</label><br>
+					<span id="fee-change">
+						<label class="simple">
+							<input type="checkbox" name="participation-fr" id="participation-fr">
+							Friday
+						</label>
+						<label class="simple">
+							<input type="checkbox" name="participation-sa" id="participation-sa">
+							Saturday
+						</label>
+						<label class="simple">
+							<input type="checkbox" name="participation-su" id="participation-su">
+							Sunday
+						</label>
+						<span class="tab-large"></span>
+						<label class="simple">
+							<input type="checkbox" value="u16" name="u16" id="u16">
+							I am under 16
+						</label>
+					</span>
+					<label id="participation-fee" class="hide">And I will pay the registration fee<span id="fee" class="hidden"> of &euro; 0</span>.</label>
 				</p>
 				<h2>Subsequent IFOR Council</h2>
 				<p class="info border-margin">
@@ -398,18 +405,25 @@
 						</p>
 					</div>
 				</div>
-				
 			</section>
 			<section>
-				<h1>8 - Accomodations</h1>
+				<h1>&blacktriangleright; Accomodations</h1>
 				<p class="info bottom-margin">
 					During the high season it is difficult to find a room in Konstanz. Therefore IFOR has reserved rooms in different categories of accommodations for you.
 				</p>
 				<p>
-					<input type="checkbox" name="accomodation-help" id="accomodation-help">
-					<label for="accomodation-help">I want IFOR's help to find a place to sleep</label>
+					<label for="accomodation-help">Do you want IFOR's help to find an accomodation?</label><br>
+					<label class="simple">
+						<input type="radio" name="accomodation-help" value="yes" id="accomodation-help-yes">
+						Yes
+					</label>
+					<span class="tab-1em"></span>
+					<label class="simple">
+						<input type="radio" name="accomodation-help" value="no" id="accomodation-help-no">
+						No
+					</label>
 				</p>
-				<div id="if-accomodation-help" class="hide">
+				<div id="if-accomodation-help-yes" class="hide">
 					<h2>Budget</h2>
 					<p class="info bottom-margin">
 						Please choose the categorie you would like to reserve a room in.
@@ -523,7 +537,7 @@
 				</div>
 			</section>
 			<section class="bottom">
-				<h1>9 - Arrival &amp; Departure</h1>
+				<h1>&blacktriangleright; Arrival &amp; Departure</h1>
 				<p class="info bottom-margin">
 					Konstanz can easily be reached by train. The local trans- portation system is very well developed. Parking space in the center is scarce and usually not free of charge. Travel information will be available online.
 				</p>

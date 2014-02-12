@@ -1,4 +1,133 @@
+body {
+	font-family: open-sans, 'Helvetica', 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	background: #F57B05;
+	color: white;
+}
+
+form section h1 {
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size: 1.3em;
+	margin: 0 0 0 -1.1em;
+}
 
 form section {
-	
+	background: #1F6C8F;
+	padding: 2em 2em 2em 3em;
+	margin: -3px auto;
+	border: solid white 3px;
+	width: 30em;	
+}
+
+form section.top {
+	border-radius: 2em 2em 0 0;
+}
+
+form section.bottom {
+	border-radius: 0 0 2em 2em;
+}
+
+p {
+	margin: 0.5em;
+}
+
+input {
+	background: inherit;
+	font: inherit;
+	color: inherit;
+	border: none;
+}
+
+input[type="text"], input[type="tel"], input[type="email"] {
+	border-bottom: solid white 0.1em;
+	width: 10em;
+}
+
+input[type="radio"] {
+	background: none;
+}
+
+label {
+	font-size: 1em;
+	font-weight: 700;
+	font-style: italic;
+}
+
+form section h2 {
+	font-size: 1em;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 0.5em 0 1em 3.5em;
+	margin: 2em 0 -1em -3em;
+	width: 31.6em;
+	border-top: dashed white 0.2em;
+}
+
+.form-title {
+	display: block;
+	text-transform: uppercase;
+	font-size: 2em;
+	font-weight: 900;
+	width: 15em;
+	margin: 0 auto;
+}
+
+input.newline {
+	display: block;
+	width: 20em;
+}
+
+::-webkit-input-placeholder {
+	font-style: italic;
+	font-weight: 500;
+	color: #F57B05;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	font-style: italic;
+	font-weight: 500;
+	color: #F57B05;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	font-style: italic;
+	font-weight: 500;
+	color: #F57B05;
+}
+
+:-ms-input-placeholder {  
+	font-style: italic;
+	font-weight: 500;
+	color: #F57B05;
+}
+
+p.info {
+	font-style: italic;
+	line-height: 1.3em;
+}
+
+.bottom-margin {
+	margin-bottom: 1.3em;
+}
+
+
+
+.hide {
+	display: none;
+}
+
+form section p a {
+	text-decoration: none;
+	font-weight: 900;
+	color: #F57B05;
+}
+
+form section p a:hover {
+	color: white;
+}
+
+input.short {
+	width: 5em;
 }

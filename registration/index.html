@@ -4,30 +4,405 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
-	<link rel="stylesheet" href="../_ressources/css/styles.css">
+<!--	<link rel="stylesheet" href="../_ressources/css/styles.css">-->
 	<link rel="stylesheet" href="../_ressources/css/form.css">
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
 	<main class="form">
-		<h1>Registration</h1>
+		<h1 class="form-title">Registration</h1>
 		<form action="">
-			<section>
+			<section class="top">
 				<h1>1 - Personal Information</h1>
-				<p>
-					<label for="first-name">First name</label>
-					<input type="text" name="first-name">
+				<p class="info bottom-margin">
+					Please fill out one form for each person. For large group registrations please contact the Centennial Office.
 				</p>
 				<p>
-					<label for="last-name">Last name</label>
+					<input type="text" name="first-name" placeholder="Click here to type!">
+					<label for="first-name">First Name</label>
+				</p>
+				<p class="bottom-margin">
 					<input type="text" name="last-name">
+					<label for="last-name">Last Name</label>
 				</p>
 				<p>
-					<label for="birthday">Date of Birth</label>
 					<input type="date" name="birthday">
+					<label for="birthday">Date of Birth</label>
+				</p>
+				<p class="bottom-margin">
+					<input type="radio" name="gender" vaue="male"> male
+					<input type="radio" name="gender" value="femal"> female
+				</p>
+				<p>
+					<input type="text" name="address">
+					<label for="address">Street Address</label>
+				</p>
+				<p>
+					<input type="text" name="address-2">
+					<label for="address">Street Address Line 2</label>
+				</p>
+				<p>
+					<input type="text" name="city"><label for="city">City</label>
+				</p>
+				<p>
+					<input type="text" name="post-code">
+					<label for="post-code">Post / ZIP Code</label>
+				</p>
+				<p>
+					<input type="text" name="state">
+					<label for="state">State / Province</label>
+				</p>
+				<p>
+					<input type="text" name="country">
+					<label for="country">Country</label>
+				</p>
+				<h2>Contact Information</h2>
+				<p class="info bottom-margin">
+					 We need your Email, to send you a registration confirmation. Please also enter at least one further contact information, so we can contact you in case of any questions. 
+				</p>
+				<p>
+					<input type="tel" name="tel">
+					<label for="tel">Telephone</label>
+				</p>
+				<p>
+					<input type="tel" name="mobile">
+					<label for="mobile">Mobile Phone</label>
+				</p>
+				<p>
+					<input type="text" name="skype">
+					<label for="skype">Skype Name</label>
+				</p>
+				<p>
+					<input type="email" name="email">
+					<label for="email">Email</label>
 				</p>
 			</section>
-			
+			<section>
+				<h1>2 - Organization &amp; Responsibilities</h1>
+				<p class="info bottom-margin">
+					We would like to know which organization you come from and please let us know, if you have assumed any responisibilites at the centennial. 
+				</p>
+				<p class="bottom-margin">
+					<label for="organization">I belong to the following organization:</label>
+					<input type="text" name="organization" class="newline">
+				</p>
+				<div>
+					<p class="bottom-margin">
+						<input type="checkbox">
+						<label for="">I have assumed responsibilities at the Centennial</label>
+					</p>
+					<p>
+						<label for="responsibility">Please enter those responsibilities, one per line: </label>
+						<input type="text" name="responsibility-1" class="newline"> 
+						<input type="text" name="responsibility-2" class="newline">
+						<input type="text" name="responsibility-3" class="newline">
+					</p>
+				</div>
+			</section>
+			<section>
+				<h1>3 - Languages &amp; Translation</h1>
+				<p class="info bottom-margin">
+					The event on Friday evening, August 1, will offer simultaneous translation into German, English, French, and Spanish. During the workshops on Saturday, 2 August, there will be whispered and personal translation, for which we need interpreters.
+				</p>
+				<p class="bottom-margin">
+					<label for="languages">I am confident to communicate in the following languages:</label>
+					<input type="checkbox" value="En" name="language">English
+					<input type="checkbox" value="De" name="language">German
+					<input type="checkbox" value="Fr" name="language">French
+					<input type="checkbox" value="Es" name="language">Spanish
+				</p>
+				<p>
+					<input type="checkbox" name="interpreter">
+					<label for="interpreter">I am willing to interpret.</label>
+				</p>
+				<p>
+					<label for="">from:</label>
+					<input type="checkbox" value="En" name="language">English
+					<input type="checkbox" value="De" name="language">German
+					<input type="checkbox" value="Fr" name="language">French
+					<input type="checkbox" value="Es" name="language">Spanish<br>
+					<label for="">to:</label> 
+					<input type="checkbox" value="En" name="language">English
+					<input type="checkbox" value="De" name="language">German
+					<input type="checkbox" value="Fr" name="language">French
+					<input type="checkbox" value="Es" name="language">Spanish
+				</p>
+			</section>
+			<section>
+				<h1>4 - Meals</h1>
+				<p class="info bottom-margin">
+					Lunch and dinner will be served for &euro;6-&euro;9 per meal at the Landratsamt in Konstanz. A snack after the inter- faith celebration on Sunday is included in the registration fee for the weekend.
+				</p>
+				<p class="bottom-margin">
+					<label for="">I would like to book the following meals:</label><br>
+					<input type="checkbox" name="dinner-th">Thursday Dinner<br>
+					<input type="checkbox" name="lunch-fr">Friday Lunch<br>
+					<input type="checkbox" name="dinner-fr">Friday Dinner<br>
+					<input type="checkbox" name="lunch-sa">Saturday Lunch<br>
+					<input type="checkbox" name="dinner-sa">Saturday Dinner<br>
+				</p>
+				<p>
+					<label for="">I have the following special food preferences:</label><br>
+					<input type="radio" name="food" value="omnivore" checked="checked">I eat basically everything.<br>
+					<input type="radio" name="food" value="vegetarian">I eat vegetarian.<br>
+					<input type="radio" name="food" value="vegan">I eat vegan.<br>
+					<input type="radio" name="food" value="other">I have the following preferences: <input type="text">
+				</p>
+			</section>
+			<section>
+				<h1>6 - Programme Participatation</h1>
+				<p class="info bottom-margin">
+					We need to estimate the attendace so we can plan. Please help us by indicating which events you will attend.
+				</p>
+				<p class="bottom-margin">
+					<label for="">I plan to participate in the following events:</label><br>
+					<input type="checkbox">Nonviolence in Action - Friday afternoon<br>
+					<input type="checkbox">City Tour - Friday afternoon<br>
+					<input type="checkbox">Centennial Celebration - Friday evening<br>
+					<input type="checkbox">IFOR in Action - all day Saturday<br>
+					<input type="checkbox">Luka Bloom Concert - Saturday evening<br>
+					<input type="checkbox">Interfaith Celebration - Sunday morning<br>
+					<input type="checkbox">Snack at the End (incl.) - Sunday noon<br>
+				</p>
+				<p class="info">
+					Details about the programme will be sent to those registered two months before the centennial and will also be available online.
+				</p>
+				<h2>Art Event</h2>
+				<p class="info bottom-margin">
+					On Friday and Saturday, Jan Piet van den Berg will cre- ate a sculpture in the centre of Konstanz with centenniel participants. Each participant is asked to bring a piece of cloth 100cm x 60cm in size.
+				</p>
+				<p>
+					<input type="checkbox" name="cloth">
+					<label for="cloth">I will bring a piece of cloth.</label>
+				</p>
+			</section>
+			<section>
+				<h1>7 - Registration Fee</h1>
+				<p class="info bottom-margin">
+					The registration fee for the Centennial weekend (children under 16 are free) is &euro;50 for the whole weekend; for par- tial participation the fee is &euro;20 for Friday and Saturday each, and &euro;15 for Sunday. This fee includes participation in all programme events, the city tour, the exhibitions, the concert, and the shuttle service to the event on Saturday. Not included in this fee are food, accommodation and the costs for transportation within Konstanz. Please indi- cate the registration fee that applies to you and indicate how it will be paid for on the next page.
+				</p>
+				<p class="border-margin">
+					<label for="">My regisration fee for the following days is &euro;0 :</label><br>
+					<input type="checkbox" value="fr" name="">Friday
+					<input type="checkbox" value="sa" name="">Saturday
+					<input type="checkbox" value="su" name="">Sunday --- 
+					<input type="checkbox" value="u16" name="">I am under 16
+				</p>
+				<h2>Subsequent IFOR Council</h2>
+				<p class="info border-margin">
+					Subsequent to the Centennial the IFOR Council will take place from August 3-9. Only delegates and invited guests can participate in the Council.
+				</p>
+				<p class="bottom-margin">
+					<input type="checkbox" name="council">
+					<label for="council">I will attend the IFOR Council.</label>
+				</p>
+				<div id="if-council" class="-hide">
+					<p class="bottom-margin">
+						<input type="radio" name="delegate" value="delegate">
+						I am a delegate for:
+						<input type="text">.<br>
+						<input type="radio" name="delegate" value="delegate">
+						I am participating in the Council as a guest.
+					</p>
+					<p class="bottom-margin">
+						<input type="checkbox" name="no-centennial">
+						<label for="no-centennial">I will only attend the Council and not the Centennial.</label>
+					</p>
+					<p class="info bottom-margin">
+						Participation in the council including 6 nights in a hotel with full board and fees costs &euro;750 (+&euro;360 for a single room). Participation in the Centennial including 2 nights in a hotel and the registration fee costs an additional &euro;290 (+&euro;120 for a single room). If you register for both, the all-in-one fee is &euro;1000. You can apply for financial assistance from IFOR at <a href="http://www.ifor.org/council">ifor.org/council</a>.
+					</p>
+					<p class="bottom-margin">
+						<label for="">Indicate how you will pay the participation fee.</label><br>
+						<input type="radio" name="council-payment" value="personal">
+						I will indicate below how I pay for the participation. <br>
+						<input type="radio" name="council-payment" value="IFOR">
+						I will apply for financial assistance from IFOR.
+					</p>
+					<p class="info">
+						Additional information about the Council will be sent to participants separately from the Centennial materials.
+					</p>
+				</div>
+				<h2>Payment</h2>
+				<p class="info border-margin">
+					Please indicate how your registration fee will be paid (including the Council participation fee if it applies).
+				</p>
+				<p class="bottom-margin">
+					<label for="">Indicate who will pay your registration fee:</label><br>
+					<input type="radio" name="payment" value="selfpayment">
+					I will pay for myself. <br>
+					<input type="radio" name="payment" value="otherpayer">
+					Someone else will pay for me.
+				</p>
+				<div id="if-otherpayer" class="hide">
+					<p class="bottom-margin">
+						<label for="">The following person / organization pays for me:</label>
+						<input type="text" class="newline">
+					</p>
+				</div>
+				<div id="if-selfpayment" class="-hide">
+					<p class="bottom-margin">
+						<input type="checkbox" name="paying-for-others">
+						<label for="paying-for-others">I will also pay for other people.</label>
+					</p>
+					<div id="if-paying-for-others" class="-hide">
+						<p class="bottom-margin">
+							<label for="paying-for">I pay for the following persons:</label>
+							<input type="text" name="paying-for-1" class="newline">
+							<input type="text" name="paying-for-2" class="newline">
+							<input type="text" name="paying-for-2" class="newline">
+						</p>
+					</div>
+					<p class="bottom-margin">
+						<label for="payment-amount">Payment Amount:</label>
+						&euro;<input type="tel" name="payment-amount" class="short">
+					</p>
+					<p class="bottom-margin">
+						<label for="payment-method">Payment Method:</label><br>
+						<input type="radio" name="payment-method" value="paypal">
+						PayPal / Credit Card Payment<br>
+						<input type="radio" name="payment-method" value="paypal">
+						Wire Transfer<br>
+						<input type="radio" name="payment-method" value="paypal">
+						Cash Payment
+					</p>
+					<div id="if-paypal" class="-hide">
+						<p class="info">
+							You will be redirected to <a href="http://www.centennial.ifor.org/payment">centennial.ifor.org/payment</a> after submitting this form for further directions.
+						</p>
+					</div>
+					<div id="if-wire" class="-hide">
+						<p class="info">
+							Please wire the money to the following account: BIC: INGBNL2A, IBAN: NL11 INGB 0002 7041 82, indicating “IFOR Centennial 2014” as the subject.
+						</p>
+					</div>
+					<div id="if-cash" class="-hide">
+						<p class="info">
+							The entire amount must be paid upon arrival at the regis- teration desk in Konstanz.
+						</p>
+					</div>
+				</div>
+				
+			</section>
+			<section>
+				<h1>8 - Accomodations</h1>
+				<p class="info bottom-margin">
+					During the high season it is difficult to find a room in Konstanz. Therefore IFOR has reserved rooms in different categories of accommodations for you.
+				</p>
+				<p>
+					<input type="checkbox" name="accomodation">
+					<label for="accomodation">I want IFOR's help to find a place to sleep</label>
+				</p>
+				<div id="if-accomodation" class="-hide">
+					<h2>Budget</h2>
+					<p class="info bottom-margin">
+						Please choose the categorie you would like to reserve a room in.
+					</p>
+					<p>
+						<label for="">My budget per person and night is approximately:</label><br>
+						<input type="radio" name="budget" value="15">&euro;15 per person and night – church hall (without breakfast)<br>
+						<input type="radio" name="budget" value="30">&euro;30 per person and night – guesthouse or basic hotel<br>
+						<input type="radio" name="budget" value="40">&euro;40 per person and night – middle class hotel<br>
+						<input type="radio" name="budget" value="90">&euro;90 per person and night – high class hotel
+					</p>
+					<h2>Double Rooms</h2>
+					<p class="info bottom-margin">
+						Participants will generally be accomodated in double rooms. If you want a single room surcharges of up to 70% will apply — even for delegates. The delegates for the IFOR Council meeting after the Centennial will be accommodated together.
+					</p>
+					<p>
+						<label for="">Please choose your room preference:</label><br>
+						<input type="radio" name="doubles" value="indicated">
+						I would like to share a room with:
+						<input type="text">.<br>
+						<input type="radio" name="doubles" value="IFOR">
+						IFOR may assign me a roommate.<br>
+						<input type="radio" name="doubles" value="single">
+						I do not wish to share a room and will pay the surcharge.
+					</p>
+					<h2>Additional Wishes</h2>
+					<p class="info bottom-margin">
+						If yuo would like to be in the same accomodation like a friend, you can indicate this below. You can also indicate other special wishes here like family accommodation, lift in the hotel, allergies, diet, or something alike.
+					</p>
+					<p>
+						<label for="accomodation-friend">I would like to be in one accommodation with:</label>
+						<input type="text" name="accomodation-friend-1" class="newline">
+						<input type="text" name="accomodation-friend-2" class="newline">
+					</p>
+					<p>
+						<label for="accomodation-wishes">I have the following special accomodation wishes:</label>
+						<input type="text" name="accomodation-wishes" class="newline">
+					</p>
+					<h2>Payment</h2>
+					<p class="info bottom-margin">
+						Please indicate wether you will pay personally or wether your organization will cover the costs.
+					</p>
+					<p class="bottom-margin">
+						<input type="radio">I will pay for my own accommodation. <br>
+						<input type="radio">My organization will cover the cost.
+					</p>
+					<p>
+						<label for="">The billing address is:</label><br>
+						<input type="checkbox" name="samebilling">
+						The same as my address above<br>
+					</p>
+					<div id="unless-samebilling">
+						<p>
+							<input type="text" name="billing-name">
+							<label for="billing-name">Name</label>
+						</p>
+						<p>
+							<input type="text" name="billing-address">
+							<label for="billing-address">Street Address</label>
+						</p>
+						<p>
+							<input type="text" name="billing-address-2">
+							<label for="billing-address-2">Street Address Line 2</label>
+						</p>
+						<p>
+							<input type="text" name="billing-city">
+							<label for="billing-city">City</label>
+						</p>
+						<p>
+							<input type="text" name="billing-post-code">
+							<label for="billing-post-code">Post / ZIP Code</label>
+						</p>
+						<p>
+							<input type="text" name="billing-state">
+							<label for="billing-state">State / Province</label>
+						</p>
+						<p>
+							<input type="text" name="billing-country">
+							<label for="billing-country">Country</label>
+						</p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h1>9 - Arrival &amp; Departure</h1>
+				<p class="info bottom-margin">
+					Konstanz can easily be reached by train. The local trans- portation system is very well developed. Parking space in the center is scarce and usually not free of charge. Travel information will be available online.
+				</p>
+				<p>
+					Arrival:
+					<input type="date" value="2014-07-31" min="2014-07-27" max="2014-08-09">
+					<select name="" id="">
+						<option value="morning">morning</option>
+						<option value="evening">evening</option>
+						<option value="afternoon">afternoon</option>
+					</select>
+				</p>
+				<p>
+					Departure:
+					<input type="date" value="2014-08-03" min="2014-07-27" max="2014-08-09">
+					<select name="" id="">
+						<option value="afternoon">afternoon</option>
+						<option value="evening">evening</option>
+						<option value="morning">morning</option>
+					</select>
+				</p>
+			</section>
+			<section class="bottom">
+				<button>Submit</button>
+			</section>
 		</form>
 	</main>
 </body>

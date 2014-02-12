@@ -21,6 +21,10 @@ form section {
 	width: 30em;	
 }
 
+form section.top-bottom {
+	border-radius: 2em;
+}
+
 form section.top {
 	border-radius: 2em 2em 0 0;
 }
@@ -30,7 +34,8 @@ form section.bottom {
 }
 
 p {
-	margin: 0.5em;
+	padding: 0.25em; 
+	margin: 0;
 }
 
 input {
@@ -47,6 +52,22 @@ input[type="text"], input[type="tel"], input[type="email"] {
 
 input[type="radio"] {
 	background: none;
+}
+input[type="submit"] {
+	background: white;
+	color: #1F6C8F;
+	font-size: 2em;
+	font-weight: 900;
+	text-transform: uppercase;
+	width: 5em;
+	border-radius: 0 0 0.7em 0.7em;
+	margin: 0em 0 1em 15em;
+	border: solid white 3px;
+}
+
+input[type="submit"]:hover {
+	background: #F57B05;
+	color: white;
 }
 
 label {
@@ -114,9 +135,7 @@ p.info {
 
 
 
-.hide {
-	display: none;
-}
+
 
 form section p a {
 	text-decoration: none;
@@ -130,4 +149,53 @@ form section p a:hover {
 
 input.short {
 	width: 5em;
+}
+
+
+
+
+
+
+
+noscript {
+	font-style: italic;
+	display: block;
+	width: 27em;
+	margin: 2em auto;
+}
+noscript a {
+	color: white;
+}
+
+.top-margin {
+	margin-top: 1.3em;
+}
+
+.tab-3em {
+	display: inline-block;
+	width: 3em;
+}
+
+.tab-large {
+	display: inline-block;
+	width: 4.5em;
+}
+
+.tab-6em {
+	display: inline-block;
+	width: 6em;
+}
+
+.hidden {
+	display: none;
+}
+
+label.simple {
+	font-size: 1em;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.doubleckeck {
+	margin-top: -1.5em;
 }

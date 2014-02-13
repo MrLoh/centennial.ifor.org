@@ -66,6 +66,9 @@ input[type="date"] {
 	border-bottom: solid white 0.1em;
 	width: 10em;
 }
+input[type="date"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 input[type="radio"] {
 	background: none;
@@ -230,4 +233,29 @@ label.simple {
 	transform: rotate(90deg);
 	-webkit-transform: rotate(90deg);
 	text-align: center;
+}
+
+button.next {
+	background: white;
+	border: solid white 0.2em;
+	border-radius: 0.5em;
+	box-shadow: none;
+	color: #1F6C8F;
+	font-family: inherit;
+	font-size: 1em;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin: 1.5em 0 -1em 0;
+	padding: 0 1em;
+}
+
+button.next:hover {
+	background: none;
+	color: white;
+}
+
+i.done {
+	display: inline-block;
+	font-size: 1.4em;
+	float: right;
 }

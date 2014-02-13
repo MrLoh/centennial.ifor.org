@@ -119,4 +119,12 @@ $(document).ready(function(){
 	$("form section h1").first().next().slideToggle();
 	$("form section h1").first().find("span").toggleClass("turn");
 	
+	$("button.next").click(function() {
+		event.preventDefault();
+		$(".section-content").slideUp();
+		$(".section-content").parent().find("h1").find("span").removeClass("turn");
+		$(this).parent().parent().next().find(".section-content").slideDown();
+		$(this).parent().parent().next().find("h1").find("span").addClass("turn");
+		$(this).parent().parent().find("h1").append("<i class='done fa fa-check-circle'></i>");
+	});	
 });

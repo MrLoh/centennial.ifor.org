@@ -107,4 +107,16 @@ $(document).ready(function(){
 		$("#unless-samebilling").slideToggle("slow");
 	});
 	
+	//Toggle Sections
+	$(".section-content").hide();
+	$("form section h1 span").text("▸");
+	$("form section h1").click(function(){
+		$(this).next().slideToggle();
+		$(this).find("span").toggleClass("turn");
+	});
+	
+	//Guide
+	$("form section h1").first().next().slideToggle();
+	$("form section h1").first().find("span").toggleClass("turn");
+	
 });

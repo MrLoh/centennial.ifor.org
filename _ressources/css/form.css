@@ -10,15 +10,24 @@ form section h1 {
 	text-transform: uppercase;
 	font-weight: 900;
 	font-size: 1.3em;
-	margin: 0 0 0 -0.65em;
+	margin: 0 0 0 -1em;
+	padding: 0;
+}
+
+form section h1 span {
+	width: 1em;
+	height: 1.3em;
+	text-align: center;
+	display: inline-block;
+	transition: all 0.4s ease;
 }
 
 form section {
 	background: #1F6C8F;
-	padding: 2em 2em 2em 3em;
+	padding: 0.7em 2em 0.7em 3em;
 	margin: -3px auto;
 	border: solid white 3px;
-	width: 30em;	
+	width: 30em;
 }
 
 form section.top-bottom {
@@ -27,10 +36,12 @@ form section.top-bottom {
 
 form section.top {
 	border-radius: 2em 2em 0 0;
+	padding-top: 1em;
 }
 
 form section.bottom {
 	border-radius: 0 0 2em 2em;
+	padding-bottom: 1em;
 }
 
 p {
@@ -209,4 +220,14 @@ label.simple {
 
 .doubleckeck {
 	margin-top: -1.5em;
+}
+
+.section-content {
+	margin: 1em 0;
+}
+
+.turn {
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	text-align: center;
 }

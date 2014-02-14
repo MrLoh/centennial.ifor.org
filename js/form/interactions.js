@@ -16,6 +16,7 @@ $("#interpreter").change(function() {
 //Autofocus Other Food Input
 $("#food-other").change(function() {
 	$("#other-food").focus();
+	$("#other-food").attr("data-validation-engine", "validate[required]");
 });
 
 //Auto Input Fee Amount

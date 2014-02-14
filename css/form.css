@@ -317,3 +317,19 @@ aside {
 aside label {
 	cursor: help;
 }
+
+form h3 {
+	margin-bottom: 0;
+	line-height: 0.5em;
+}
+
+form h3 a {
+	display: inline-block;
+	float: right;
+	color: white;
+	text-decoration: none;
+}
+
+form h3 a:hover {
+	color: #F57B05;
+}

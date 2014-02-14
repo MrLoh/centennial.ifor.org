@@ -81,7 +81,7 @@ input[type="submit"] {
 	text-transform: uppercase;
 	width: 5em;
 	border-radius: 0 0 0.7em 0.7em;
-	margin: 0em 0 1em 12.5em;
+	margin: 0em 0 1em 12em;
 	border: solid white 3px;
 }
 
@@ -302,4 +302,10 @@ label.description {
 .float-right {
 	display: inline-block;
 	float: right;
+}
+main {
+	width: 36em;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
 }

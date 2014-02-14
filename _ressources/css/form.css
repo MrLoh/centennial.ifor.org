@@ -12,6 +12,7 @@ form section h1 {
 	font-size: 1.3em;
 	margin: 0 0 0 -1em;
 	padding: 0;
+	cursor: pointer;
 }
 
 form section h1 span {
@@ -50,29 +51,27 @@ p {
 }
 
 input {
-	background: inherit;
+	background: none;
+	box-shadow: none;
+	border-radius: 0;
 	font: inherit;
 	color: inherit;
 	border: none;
+	cursor: pointer;
+	margin: inherit;
 }
 
-input[type="text"], input[type="tel"], input[type="email"] {
+input[type="text"], input[type="tel"], input[type="email"],input[type="date"] {
 	border-bottom: solid white 0.1em;
 	width: 10em;
 }
 
-input[type="date"] {
-	background: none;
-	border-bottom: solid white 0.1em;
-	width: 10em;
-}
+
 input[type="date"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-input[type="radio"] {
-	background: none;
-}
+
 input[type="submit"] {
 	background: white;
 	color: #1F6C8F;
@@ -81,7 +80,7 @@ input[type="submit"] {
 	text-transform: uppercase;
 	width: 5em;
 	border-radius: 0 0 0.7em 0.7em;
-	margin: 0em 0 1em 15em;
+	margin: 0em 0 1em 12.5em;
 	border: solid white 3px;
 }
 
@@ -94,6 +93,7 @@ label {
 	font-size: 1em;
 	font-weight: 700;
 	font-style: italic;
+	cursor: pointer;
 }
 
 form section h2 {
@@ -203,7 +203,7 @@ noscript a {
 
 .tab-large {
 	display: inline-block;
-	width: 4.5em;
+	width: 2.5em;
 }
 
 .tab-6em {
@@ -219,6 +219,7 @@ label.simple {
 	font-size: 1em;
 	font-weight: 500;
 	font-style: normal;
+	margin-right: 1em;
 }
 
 .doubleckeck {
@@ -235,6 +236,10 @@ label.simple {
 	text-align: center;
 }
 
+button {
+	cursor: pointer;
+}
+
 button.next {
 	background: white;
 	border: solid white 0.2em;
@@ -246,7 +251,7 @@ button.next {
 	font-weight: 700;
 	text-transform: uppercase;
 	margin: 1.5em 0 -1em 0;
-	padding: 0 1em;
+	padding: 0.1em 1em;
 }
 
 button.next:hover {
@@ -259,3 +264,28 @@ i.done {
 	font-size: 1.4em;
 	float: right;
 }
+
+/*** custom checkboxes ***/
+
+input[type=checkbox], input[type=radio] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before, input[type=radio] + label:before {
+  font-family: FontAwesome;
+	font-style: normal;
+	font-weight: 100;
+  display: inline-block;
+	width: 1.2em;
+}
+input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+input[type=radio] + label:before { content: "\f10c"; } /* unchecked icon */
+input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+input[type=radio]:checked + label:before { content: "\f192"; } /* checked icon */
+label.description {
+	cursor: default;
+}
+
+.float-right {
+	display: inline-block;
+	float: right;
+}
+
+

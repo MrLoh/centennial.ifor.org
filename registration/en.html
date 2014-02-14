@@ -23,7 +23,8 @@
 					Please fill out one form for each person. For large group registrations please contact the Centennial Office.
 				</p>
 				<p>
-					<input type="text" name="first-name" id="first-name" placeholder="Click here to type!">
+					<input type="text" name="first-name" id="first-name" 
+					placeholder="Click here to type!">
 					<label for="first-name">First Name</label>
 				</p>
 				<p class="bottom-margin">
@@ -35,15 +36,10 @@
 					<label for="birthday">Date of Birth</label>
 				</p>
 				<p class="bottom-margin">
-					<label class="simple">
-						<input type="radio" name="gender" vaue="male"> 
-						male
-					</label>
-					<span class="tab-1em"></span>
-					<label class="simple">
-						<input type="radio" name="gender" value="femal"> 
-						female
-					</label>
+					<input type="radio" name="gender" vaue="male" id="gender-male"> 
+					<label for="gender-male" class="simple">male</label>
+					<input type="radio" name="gender" value="femal" id="gender-female">
+					<label for="gender-female" class="simple">female</label>
 				</p>
 				<p>
 					<input type="text" name="address" id="address">
@@ -124,19 +120,15 @@
 					The event on Friday evening, August 1, will offer simultaneous translation into German, English, French, and Spanish. During the workshops on Saturday, 2 August, there will be whispered and personal translation, for which we need interpreters.
 				</p>
 				<p class="bottom-margin">
-					<label for="languages">I am confident to communicate in the following languages:</label> <br>
-					<label class="simple">
-						<input type="checkbox" value="En" name="languages">English
-					</label>
-					<label class="simple">
-						<input type="checkbox" value="De" name="languages">German
-					</label>
-					<label class="simple">
-						<input type="checkbox" value="Fr" name="languages">French
-					</label>
-					<label class="simple">
-						<input type="checkbox" value="Es" name="languages">Spanish
-					</label>
+					<label class="description">I am confident to communicate in the following languages:</label> <br>
+					<input type="checkbox" name="lang-en" id="lang-en">
+					<label for="lang-en" class="simple">English</label>
+					<input type="checkbox" name="lang-de" id="lang-de">
+					<label for="lang-de" class="simple">German</label>
+					<input type="checkbox" name="lang-fr" id="lang-fr">
+					<label for="lang-fr" class="simple">French</label>
+					<input type="checkbox" name="lang-es" id="lang-es">
+					<label for="lang-es" class="simple">Spanish</label>
 				</p>
 				<p>
 					<input type="checkbox" name="interpreter" id="interpreter">
@@ -144,34 +136,26 @@
 				</p>
 				<div id="if-interpreter" class="hide">
 					<p>
-						<label for="from-lang" class="tab-3em">from:</label>
-						<label class="simple">
-							<input type="checkbox" value="En" name="from-lang">English
-						</label>
-						<label class="simple">
-							<input type="checkbox" value="De" name="from-lang">German
-						</label>
-						<label class="simple">
-							<input type="checkbox" value="Fr" name="from-lang">French
-						</label>
-						<label class="simple">
-							<input type="checkbox" value="Es" name="from-lang">Spanish<br>
-						</label>
-						<label class="simple">
-							<label for="to-lang" class="tab-3em">to:</label> 
-						</label>
-						<label class="simple">
-							<input type="checkbox" value="En" name="to-lang">English
-						</label>
-						<label class="simple">
-							<input type="checkbox" value="De" name="to-lang">German
-						</label>
-						<label class="simple">
-							<input type="checkbox" value="Fr" name="to-lang">French
-						</label>
-						<label class="simple">
-							<input type="checkbox" value="Es" name="to-lang">Spanish
-						</label>
+						<label class="description tab-3em">from:</label>
+						<input type="checkbox" name="from-lang-en" id="from-lang-en">
+						<label for="from-lang-en" class="simple">English</label>
+						<input type="checkbox" name="from-lang-de" id="from-lang-de">
+						<label for="from-lang-de" class="simple">German</label>
+						<input type="checkbox" name="from-lang-fr" id="from-lang-fr">
+						<label for="from-lang-fr" class="simple">French</label>
+						<input type="checkbox" name="from-lang-es" id="from-lang-es">
+						<label for="from-lang-es" class="simple">Spanish</label>
+					</p>
+					<p>
+						<label for="to-lang" class="description tab-3em">to:</label> 
+						<input type="checkbox" name="to-lang-en" id="to-lang-en">
+						<label for="to-lang-en" class="simple">English</label>
+						<input type="checkbox" name="to-lang-de" id="to-lang-de">
+						<label for="to-lang-de" class="simple">German</label>
+						<input type="checkbox" name="to-lang-fr" id="to-lang-fr">
+						<label for="to-lang-fr" class="simple">French</label>
+						<input type="checkbox" name="to-lang-es" id="to-lang-es">
+						<label for="to-lang-es" class="simple">Spanish</label>
 					</p>
 				</div>
 				<button class="next">next ></button>
@@ -184,43 +168,30 @@
 					Lunch and dinner will be served for &euro;6-&euro;9 per meal at the Landratsamt in Konstanz. A snack after the inter- faith celebration on Sunday is included in the registration fee for the weekend.
 				</p>
 				<p class="bottom-margin">
-					<label for="">I would like to book the following meals:</label><br>
-					<label class="simple">
-						<input type="checkbox" name="dinner-th">Thursday Dinner<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox" name="lunch-fr">Friday Lunch<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox" name="dinner-fr">Friday Dinner<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox" name="lunch-sa">Saturday Lunch<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox" name="dinner-sa">Saturday Dinner<br>
-					</label>
+					<label class="description">I would like to book the following meals:</label><br>
+					<input type="checkbox" name="dinner-th" id="dinner-th">
+					<label for="dinner-th" class="simple">Thursday Dinner</label><br>
+					<input type="checkbox" name="lunch-fr" id="lunch-fr">
+					<label for="lunch-fr" class="simple">Friday Lunch</label><br>
+					<input type="checkbox" name="dinner-fr" id="dinner-fr">
+					<label for="dinner-fr" class="simple">Friday Dinner</label><br>
+					<input type="checkbox" name="lunch-sa" id="lunch-sa">
+					<label for="lunch-sa" class="simple">Saturday Lunch</label><br>
+					<input type="checkbox" name="dinner-sa" id="dinner-sa">
+					<label for="dinner-sa" class="simple">Saturday Dinner</label>
 				</p>
 				<p>
-					<label>I have the following special food preferences:</label><br>
-					<label class="simple">
-						<input type="radio" name="food" value="omnivore" id="food-omnivore"
-						checked="checked">
-						I eat basically everything.<br>
-					</label>
-					<label class="simple">
-						<input type="radio" name="food" value="vegetarian" id="food-vegetarian">
-						I eat vegetarian.<br>
-					</label>
-					<label class="simple">
-						<input type="radio" name="food" value="vegan" id="food-vegan">
-						I eat vegan.<br>
-					</label>
-					<label class="simple">
-						<input type="radio" name="food" value="other" id="food-other">
-						I have the following preferences:
-					</label>
-			 		<input type="text" name="other-food" id="other-food">
+					<label class="description">I have the following special food preferences:</label><br>
+					<input type="radio" name="food" value="omnivore" id="food-omnivore">
+					<label for="food-omnivore" class="simple">I eat basically everything.</label><br>
+					<input type="radio" name="food" value="vegetarian" id="food-vegetarian">
+					<label for="food-vegetarian" class="simple">I eat vegetarian.</label><br>
+					<input type="radio" name="food" value="vegan" id="food-vegan">
+					<label for="food-vegan" class="simple">I eat vegan.</label><br>
+					<input type="radio" name="food" value="other" id="food-other">
+					<label for="food-other" class="simple">I have the following preferences:
+			 			<input type="text" name="other-food" id="other-food">
+			 		</label>
 				</p>
 				<button class="next">next ></button>
 				</div>
@@ -232,35 +203,21 @@
 					We need to estimate the attendace so we can plan. Please help us by indicating which events you will attend.
 				</p>
 				<p class="bottom-margin">
-					<label>I plan to participate in the following events:</label><br>
-					<label class="simple">
-						<input type="checkbox">
-						Nonviolence in Action - Friday afternoon<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox">
-						City Tour - Friday afternoon<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox">
-						Centennial Celebration - Friday evening<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox">
-						IFOR in Action - all day Saturday<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox">
-						Luka Bloom Concert - Saturday evening<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox">
-						Interfaith Celebration - Sunday morning<br>
-					</label>
-					<label class="simple">
-						<input type="checkbox">
-						Snack at the End (incl.) - Sunday noon<br>
-					</label>
+					<label class="description">I plan to participate in the following events:</label><br>
+					<input type="checkbox" name="prog-fr-1" id="prog-fr-1">
+					<label for="prog-fr-1" class="simple">Nonviolence in Action - Friday afternoon</label><br>
+					<input type="checkbox" name="prog-citytour" id="prog-citytour">
+					<label for="prog-citytour" class="simple">City Tour - Friday afternoon</label><br>
+					<input type="checkbox" name="prog-fr-2" id="prog-fr-2">
+					<label for="prog-fr-2" class="simple">Centennial Celebration - Friday evening</label><br>
+					<input type="checkbox" name="prog-sa-1" id="prog-sa-1">
+					<label for="prog-sa-1" class="simple">IFOR in Action - all day Saturday</label><br>
+					<input type="checkbox" name="prog-sa-2" id="prog-sa-2">
+					<label for="prog-sa-2" class="simple">Luka Bloom Concert - Saturday evening</label><br>
+					<input type="checkbox" name="prog-su-1" id="prog-su-1">
+					<label for="prog-su-1" class="simple">Interfaith Celebration - Sunday morning</label><br>
+					<input type="checkbox" name="prog-snack" id="prog-snack">
+					<label for="prog-snack" class="simple">Snack at the End (incl.) - Sunday noon</label>
 				</p>
 				<p class="info">
 					Details about the programme will be sent to those registered two months before the centennial and will also be available online.
@@ -283,27 +240,22 @@
 					The registration fee for the Centennial weekend (children under 16 are free) is &euro;50 for the whole weekend; for par- tial participation the fee is &euro;20 for Friday and Saturday each, and &euro;15 for Sunday. This fee includes participation in all programme events, the city tour, the exhibitions, the concert, and the shuttle service to the event on Saturday. Not included in this fee are food, accommodation and the costs for transportation within Konstanz. Please indi- cate the registration fee that applies to you and indicate how it will be paid for on the next page.
 				</p>
 				<p class="border-margin">
-					<label>I register for the following days:</label><br>
+					<label class="description">I register for the following days:</label><br>
 					<span id="fee-change">
-						<label class="simple">
-							<input type="checkbox" name="participation-fr" id="participation-fr">
-							Friday
-						</label>
-						<label class="simple">
-							<input type="checkbox" name="participation-sa" id="participation-sa">
-							Saturday
-						</label>
-						<label class="simple">
-							<input type="checkbox" name="participation-su" id="participation-su">
-							Sunday
-						</label>
-						<span class="tab-large"></span>
-						<label class="simple">
+						<input type="checkbox" name="participation-fr" id="participation-fr">
+						<label for="participation-fr" class="simple">Friday</label>
+						<input type="checkbox" name="participation-sa" id="participation-sa">
+						<label for="participation-sa" class="simple">Saturday</label>
+						<input type="checkbox" name="participation-su" id="participation-su">
+						<label for="participation-su" class="simple">Sunday</label>
+						<span class="float-right">
 							<input type="checkbox" value="u16" name="u16" id="u16">
-							I am under 16
-						</label>
+							<label for="u16" class="simple">I am under 16</label>
+						</span><br>
 					</span>
-					<label id="participation-fee" class="hide">And I will pay the registration fee<span id="fee" class="hidden"> of &euro; 0</span>.</label>
+					<label id="participation-fee" class="description hide">
+						And I will pay the registration fee<span id="fee" class="hidden"> of &euro; 0</span>.
+					</label>
 				</p>
 				<h2>Subsequent IFOR Council</h2>
 				<p class="info border-margin">
@@ -315,16 +267,11 @@
 				</p>
 				<div id="if-council" class="hide">
 					<p class="top-margin bottom-margin">
-						<label class="simple">
-							<input type="radio" name="participation-type" value="delegate" 
-							id="participation-type-delegate">
-							I am a delegate for:
-						</label>
+						<input type="radio" name="participation-type" value="delegate" id="participation-type-delegate">
+						<label for="participation-type-delegate" class="simple">I am a delegate for:</label>
 						<input type="text" name="delegating" id="delegating">.<br>
-						<label class="simple">
-							<input type="radio" name="participation-type" value="guest">
-							I am participating in the Council as a guest.
-						</label>
+						<input type="radio" name="participation-type" value="guest" id="participation-type-guest">
+						<label for="participation-type-guest" class="simple">I am participating in the Council as a guest.</label>
 					</p>
 					<p class="bottom-margin">
 						<input type="checkbox" name="no-centennial" id="no-centennial">
@@ -339,15 +286,11 @@
 						Participation in the council including 6 nights in a hotel with full board and fees costs &euro;750 (+&euro;360 for a single room). Participation in the Centennial including 2 nights in a hotel and the registration fee costs an additional &euro;290 (+&euro;120 for a single room). If you register for both, the all-in-one fee is &euro;1000. You can apply for financial assistance from IFOR at <a href="http://www.ifor.org/council">ifor.org/council</a>.
 					</p>
 					<p class="bottom-margin">
-						<label>Indicate how you will pay the participation fee.</label><br>
-						<label class="simple">
-							<input type="radio" name="council-payment" value="personal">
-							I will indicate below how I pay for the participation. <br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="council-payment" value="IFOR">
-							I will apply for financial assistance from IFOR.
-						</label>
+						<label class="description">Indicate how you will pay the participation fee.</label><br>
+						<input type="radio" name="council-pay" value="self" id="council-pay-self">
+						<label for="council-pay-self" class="simple">I will indicate below how I pay.</label><br>
+						<input type="radio" name="council-pay" value="IFOR" id="council-pay-IFOR">
+						<label for="council-pay-IFOR" class="simple">I will apply for financial assistance from IFOR.</label>
 					</p>
 					<p class="info">
 						Additional information about the Council will be sent to participants separately from the Centennial materials.
@@ -359,14 +302,10 @@
 				</p>
 				<p>
 					<label>Indicate who will pay your registration fee:</label><br>
-					<label class="simple">
-						<input type="radio" name="payment" value="selfpayment" id="selfpayment">
-						I will pay for myself. <br>
-					</label>
-					<label class="simple">
-						<input type="radio" name="payment" value="otherpayer" id="otherpayer">
-						Someone else will pay for me.
-					</label>
+					<input type="radio" name="payment" value="selfpayment" id="selfpayment">
+					<label for="selfpayment" class="simple">I will pay for myself.</label><br>
+					<input type="radio" name="payment" value="otherpayer" id="otherpayer">
+					<label for="otherpayer" class="simple">Someone else will pay for me.</label>
 				</p>
 				<div id="if-otherpayer" class="hide">
 					<p class="top-margin bottom-margin">
@@ -392,19 +331,13 @@
 						<input type="tel" name="payment-amount" id="payment-amount" class="short">
 					</p>
 					<p>
-						<label for="payment-method">Payment Method:</label><br>
-						<label class="simple">
-							<input type="radio" name="payment-method" value="paypal" id="paypal">
-							PayPal / Credit Card Payment<br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="payment-method" value="wire" id="wire">
-							Wire Transfer<br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="payment-method" value="cash" id="cash">
-							Cash Payment
-						</label>
+						<label class="description" >Payment Method:</label><br>
+						<input type="radio" name="payment-method" value="paypal" id="paypal">
+						<label for="paypal" class="simple">PayPal / Credit Card Payment</label><br>
+						<input type="radio" name="payment-method" value="wire" id="wire">
+						<label for="wire" class="simple">Wire Transfer</label><br>
+						<input type="radio" name="payment-method" value="cash" id="cash">
+						<label for="cash" class="simple">Cash Payment</label>
 					</p>
 					<div id="if-paypal" class="hide">
 						<p class="info">
@@ -432,16 +365,11 @@
 					During the high season it is difficult to find a room in Konstanz. Therefore IFOR has reserved rooms in different categories of accommodations for you.
 				</p>
 				<p>
-					<label for="accomodation-help">Do you want IFOR's help to find an accomodation?</label><br>
-					<label class="simple">
-						<input type="radio" name="accomodation-help" value="yes" id="accomodation-help-yes">
-						Yes
-					</label>
-					<span class="tab-1em"></span>
-					<label class="simple">
-						<input type="radio" name="accomodation-help" value="no" id="accomodation-help-no">
-						No
-					</label>
+					<label class="description">Do you want IFOR's help to find an accomodation?</label><br>
+					<input type="radio" name="accomodation-help" value="yes" id="accomodation-help-yes">
+					<label for="accomodation-help-yes" class="simple">Yes</label>
+					<input type="radio" name="accomodation-help" value="no" id="accomodation-help-no">
+					<label for="accomodation-help-no" class="simple">No</label>
 				</p>
 				<div id="if-accomodation-help-yes" class="hide">
 					<h2>Budget</h2>
@@ -449,43 +377,30 @@
 						Please choose the categorie you would like to reserve a room in.
 					</p>
 					<p>
-						<label>My budget per person and night is approximately:</label><br>
-						<label class="simple">
-							<input type="radio" name="budget" value="15">
-							&euro;15 per person and night – church hall (without breakfast)<br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="budget" value="30">
-							&euro;30 per person and night – guesthouse or basic hotel<br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="budget" value="40">
-							&euro;40 per person and night – middle class hotel<br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="budget" value="90">
-							&euro;90 per person and night – high class hotel
-						</label>
+						<label class="description">My budget per person and night is approximately:</label><br>
+						<input type="radio" name="budget" value="15" id="budget-15">
+						<label for="budget-15" class="simple" style="margin-right:0;">&euro;15 per person and night – church hall (without breakfast)</label><br>
+						<input type="radio" name="budget" value="30" id="budget-30">
+						<label for="budget-30" class="simple">&euro;30 per person and night – guesthouse or basic hotel</label><br>
+						<input type="radio" name="budget" value="40" id="budget-40">
+						<label for="budget-40" class="simple">&euro;40 per person and night – middle class hotel</label><br>
+						<input type="radio" name="budget" value="90" id="budget-90">
+						<label for="budget-90" class="simple">&euro;90 per person and night – high class hotel</label>
 					</p>
 					<h2>Double Rooms</h2>
 					<p class="info bottom-margin">
 						Participants will generally be accomodated in double rooms. If you want a single room surcharges of up to 70% will apply — even for delegates. The delegates for the IFOR Council meeting after the Centennial will be accommodated together.
 					</p>
 					<p>
-						<label>Please choose your room preference:</label><br>
-						<label class="simple">
-							<input type="radio" name="doubles" value="choice" id="doubles-choice">
-							I would like to share a room with:
-						</label>
-						<input type="text" name="roommate" id="rommate">.<br>
-						<label class="simple">
-							<input type="radio" name="doubles" value="IFOR">
-							IFOR may assign me a roommate.<br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="doubles" value="single">
-							I do not wish to share a room and will pay the surcharge.
-						</label>
+						<label class="description">Please choose your room preference:</label><br>
+						<input type="radio" name="doubles" value="choice" id="doubles-choice">
+						<label for="doubles-choice" class="simple">I would like to share a room with:
+							<input type="text" name="roommate" id="rommate">.
+						</label><br>
+						<input type="radio" name="doubles" value="IFOR" id="doubles-IFOR">
+						<label for="doubles-IFOR" class="simple">IFOR may assign me a roommate.<br></label>
+						<input type="radio" name="doubles" value="single" id="doubles-single">
+						<label for="doubles-single" class="simple">I do not wish to share a room and will pay the surcharge.</label>
 					</p>
 					<h2>Additional Wishes</h2>
 					<p class="info bottom-margin">
@@ -493,36 +408,27 @@
 					</p>
 					<p>
 						<label for="accomodation-friend-1">I would like to be in one accommodation with:</label>
-						<input type="text" name="accomodation-friend-1" id="accomodation-friend-1" 
-						class="newline">
-						<input type="text" name="accomodation-friend-2" id="accomodation-friend-2" 
-						class="newline">
+						<input type="text" name="accomodation-friend-1" id="accomodation-friend-1" class="newline">
+						<input type="text" name="accomodation-friend-2" id="accomodation-friend-2" class="newline">
 					</p>
 					<p>
 						<label for="accomodation-wishes">I have the following special accomodation wishes:</label>
-						<input type="text" name="accomodation-wishes" id="accomodation-wishes" 
-						class="newline">
+						<input type="text" name="accomodation-wishes" id="accomodation-wishes" class="newline">
 					</p>
 					<h2>Payment</h2>
 					<p class="info bottom-margin">
 						Please indicate wether you will pay personally or wether your organization will cover the costs.
 					</p>
 					<p class="bottom-margin">
-						<label class="simple">
-							<input type="radio" name="payer" value="orga" id="payer-orga">
-							I will pay for my own accommodation. <br>
-						</label>
-						<label class="simple">
-							<input type="radio" name="payer" value="self" id="payer-self">
-							My organization will cover the cost.
-						</label>
+						<input type="radio" name="payer" value="orga" id="payer-orga">
+						<label for="payer-orga" class="simple">I will pay for my own accommodation.</label><br>
+						<input type="radio" name="payer" value="self" id="payer-self">
+						<label for="payer-self" class="simple">My organization will cover the cost.</label>
 					</p>
 					<p>
-						<label>The billing address is:</label><br>
-						<label class="simple">
-							<input type="checkbox" name="samebilling" id="samebilling">
-							The same as my address above<br>
-						</label>
+						<label class="description">The billing address is:</label><br>
+						<input type="checkbox" name="samebilling" id="samebilling">
+						<label for="samebilling" class="simple">The same as my address above</label><br>
 					</p>
 					<div id="unless-samebilling">
 						<p>
@@ -568,21 +474,11 @@
 					<label for="arrival-day"><span class="tab-6em">Arrival:</span></label>
 					<input type="date" name="arrival-day" id="arrival-day"
 					value="2014-07-31" min="2014-07-27" max="2014-08-09">
-					<select name="departure-time" id="departure-time">
-						<option value="morning">morning</option>
-						<option value="evening">evening</option>
-						<option value="afternoon">afternoon</option>
-					</select>
 				</p>
 				<p>
 					<label for="departure-day"><span class="tab-6em">Departure:</span></label>
 					<input type="date" name="departure-day" id="departure-day"
 					value="2014-08-03" min="2014-07-27" max="2014-08-09">
-					<select name="departure-time" id="departure-time">
-						<option value="afternoon">afternoon</option>
-						<option value="evening">evening</option>
-						<option value="morning">morning</option>
-					</select>
 				</p>
 				<button class="next">next ></button>
 				</div>

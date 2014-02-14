@@ -7,6 +7,7 @@
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <!--	<link rel="stylesheet" href="../_ressources/css/styles.css">-->
 	<link rel="stylesheet" href="../_ressources/css/form.css">
+	<link rel="stylesheet" href="../_ressources/css/jqvalen.css">
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
@@ -15,24 +16,30 @@
 	</noscript>
 	<main class="form">
 		<h1 class="form-title">Registration</h1>
-		<form action="">
-			<section class="top">
+		<form action="" id="form">
+			<section class="top" id="sec-personal">
 				<h1 class="done"><span></span>Personal Information</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
 					Please fill out one form for each person. For large group registrations please contact the Centennial Office.
 				</p>
 				<p>
-					<input type="text" name="first-name" id="first-name" 
-					placeholder="Click here to type!">
+					<input type="text" name="first-name" id="first-name" placeholder="Click here to type!"
+					data-validation-engine="validate[required]"
+					data-errormessage-value-missing="We need your first name.">
 					<label for="first-name">First Name</label>
 				</p>
 				<p class="bottom-margin">
-					<input type="text" name="last-name" id="last-name">
+					<input type="text" name="last-name" id="last-name" 
+					data-validation-engine="validate[required]"
+					data-errormessage-value-missing="We need your last name.">
 					<label for="last-name">Last Name</label>
 				</p>
 				<p>
-					<input type="date" name="birthday" id="birthday">
+					<input type="date" name="birthday" id="birthday"
+					data-validation-engine="validate[required,custom[date]]"
+					data-errormessage-value-missing="We need your date of birth."
+					data-errormessage-custom-error="Date must be in format YYYY-MM-DD or from datepicker.">
 					<label for="birthday">Date of Birth</label>
 				</p>
 				<p class="bottom-margin">
@@ -42,7 +49,9 @@
 					<label for="gender-female" class="simple">female</label>
 				</p>
 				<p>
-					<input type="text" name="address" id="address">
+					<input type="text" name="address" id="address"
+					data-validation-engine="validate[required]"
+					data-errormessage-value-missing="We need your street name and house number.">
 					<label for="address">Street Address</label>
 				</p>
 				<p>
@@ -50,19 +59,28 @@
 					<label for="address">Street Address Line 2</label>
 				</p>
 				<p>
-					<input type="text" name="city" id="city">
+					<input type="text" name="city" id="city"
+					data-validation-engine="validate[required]"
+					data-errormessage-value-missing="We need the city you live in.">
 					<label for="city">City</label>
 				</p>
 				<p>
-					<input type="tel" name="post-code" id="post-code">
+					<input type="tel" name="post-code" id="post-code"
+					data-validation-engine="validate[required,custom[number]]"
+					data-errormessage-value-missing="We need your post / zip code. If there are none in your country enter '000'."
+					data-errormessage-custom-error="Must be a number. If your country does not use post / zip codes  just enter '000'.">
 					<label for="post-code">Post / ZIP Code</label>
 				</p>
 				<p>
-					<input type="text" name="state" id="state">
-					<label for="state">State / Province</label>
+					<input type="text" name="state" id="state"
+					data-validation-engine="validate[required]"
+					data-errormessage-value-missing="We need the federal state / state / province / county / department you live in.">
+					<label for="state">State / County</label>
 				</p>
 				<p>
-					<input type="text" name="country" id="country">
+					<input type="text" name="country" id="country"
+					data-validation-engine="validate[required]"
+					data-errormessage-value-missing="We need the country you live in.">
 					<label for="country">Country</label>
 				</p>
 				<h2>Contact Information</h2>
@@ -70,11 +88,15 @@
 					 We need your Email, to send you a registration confirmation. Please also enter at least one further contact information, so we can contact you in case of any questions. 
 				</p>
 				<p>
-					<input type="tel" name="tel" id="tel">
+					<input type="tel" name="tel" id="tel"
+					data-validation-engine="validate[custom[phone]]"
+					data-errormessage-custom-error="Must be a valid phone number.">
 					<label for="tel">Telephone</label>
 				</p>
 				<p>
-					<input type="tel" name="mobile" id="mobile">
+					<input type="tel" name="mobile" id="mobile"
+					data-validation-engine="validate[,custom[phone]]"
+					data-errormessage-custom-error="Must be a valid phone number.">
 					<label for="mobile">Mobile Phone</label>
 				</p>
 				<p>
@@ -82,13 +104,16 @@
 					<label for="skype">Skype Name</label>
 				</p>
 				<p>
-					<input type="email" name="email" id="email">
+					<input type="email" name="email" id="email"
+					data-validation-engine="validate[required,custom[email]]"
+					data-errormessage-value-missing="We need your eamil to send you a confirmation."
+					data-errormessage-custom-error="Must be a valid email like 'someone@nowhere.com'.">
 					<label for="email">Email</label>
 				</p>
-				<button class="next">next ></button>
+				<button class="next" id="val-1">next ></button>
 				</div>
 			</section>
-			<section>
+			<section id="sec-orga">
 				<h1><span></span>Organization &amp; Responsibilities</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
@@ -105,15 +130,16 @@
 				<div id="if-responsibilities" class="hide">
 					<p class="top-margin">
 						<label for="responsibility-1">Please enter those responsibilities, one per line: </label>
-						<input type="text" name="responsibility-1" id="responsibility-1" class="newline"> 
+						<input type="text" name="responsibility-1" id="responsibility-1" class="newline"
+						data-errormessage-value-missing="Indicate your responsibilities."> 
 						<input type="text" name="responsibility-2" id="responsibility-2" class="newline">
 						<input type="text" name="responsibility-3" id="responsibility-3" class="newline">
 					</p>
 				</div>
-				<button class="next">next ></button>
+				<button class="next" id="val-2">next ></button>
 				</div>
 			</section>
-			<section>
+			<section id="sec-lang">
 				<h1><span></span>Languages &amp; Interpretation</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
@@ -471,22 +497,25 @@
 					Konstanz can easily be reached by train. The local trans- portation system is very well developed. Parking space in the center is scarce and usually not free of charge. Travel information will be available online.
 				</p>
 				<p>
-					<label for="arrival-day"><span class="tab-6em">Arrival:</span></label>
-					<input type="date" name="arrival-day" id="arrival-day"
+					<label for="arrival"><span class="tab-6em">Arrival:</span></label>
+					<input type="date" name="arrival" id="arrival"
 					value="2014-07-31" min="2014-07-27" max="2014-08-09">
 				</p>
 				<p>
-					<label for="departure-day"><span class="tab-6em">Departure:</span></label>
-					<input type="date" name="departure-day" id="departure-day"
+					<label for="departure"><span class="tab-6em">Departure:</span></label>
+					<input type="date" name="departure" id="departure"
 					value="2014-08-03" min="2014-07-27" max="2014-08-09">
 				</p>
 				<button class="next">next ></button>
 				</div>
 			</section>
-			<input type="submit">
+			<input type="submit" id="submit">
 		</form>
 	</main>
 	￼￼<script src="../_ressources/js/jquery.min.js"></script>
+	￼￼<script src="../_ressources/js/jqvalen.min.js"></script>
+	<script src="../_ressources/js/jqvalen-en.min.js"></script>
 	￼￼<script src="../_ressources/js/form/interactions.js"></script>
+	￼￼<script src="../_ressources/js/form/validation.js"></script>
 </body>
 </html>

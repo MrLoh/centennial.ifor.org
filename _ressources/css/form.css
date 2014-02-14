@@ -58,12 +58,13 @@ input {
 	color: inherit;
 	border: none;
 	cursor: pointer;
-	margin: inherit;
+	margin-bottom: 0;
 }
 
 input[type="text"], input[type="tel"], input[type="email"],input[type="date"] {
 	border-bottom: solid white 0.1em;
-	width: 10em;
+	width: 12em;
+	cursor: text;
 }
 
 
@@ -118,6 +119,7 @@ form section h2 {
 input.newline {
 	display: block;
 	width: 20em;
+	margin-bottom: 0.3em;
 }
 
 ::-webkit-input-placeholder {
@@ -169,6 +171,7 @@ form section p a:hover {
 
 input.short {
 	width: 5em;
+	margin-bottom: 0em
 }
 
 
@@ -259,7 +262,7 @@ button.next:hover {
 	color: white;
 }
 
-i.done {
+i.status {
 	display: inline-block;
 	font-size: 1.4em;
 	float: right;
@@ -267,7 +270,13 @@ i.done {
 
 /*** custom checkboxes ***/
 
-input[type=checkbox], input[type=radio] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox], input[type=radio] { 
+	visibility: hidden; 
+	width:0; 
+	overflow:hidden; 
+	margin: 0; 
+	padding: 0;
+}
 input[type=checkbox] + label:before, input[type=radio] + label:before {
   font-family: FontAwesome;
 	font-style: normal;
@@ -275,17 +284,22 @@ input[type=checkbox] + label:before, input[type=radio] + label:before {
   display: inline-block;
 	width: 1.2em;
 }
-input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
-input[type=radio] + label:before { content: "\f10c"; } /* unchecked icon */
-input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
-input[type=radio]:checked + label:before { content: "\f192"; } /* checked icon */
+input[type=checkbox] + label:before { 
+	content: "\f096"; 
+}
+input[type=radio] + label:before { 
+	content: "\f10c"; 
+}
+input[type=checkbox]:checked + label:before { 
+	content: "\f046"; 
+}
+input[type=radio]:checked + label:before { 
+	content: "\f192"; 
+}
 label.description {
 	cursor: default;
 }
-
 .float-right {
 	display: inline-block;
 	float: right;
 }
-
-

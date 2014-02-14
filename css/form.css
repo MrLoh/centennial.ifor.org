@@ -314,3 +314,6 @@ aside {
 	width: 30em;
 	margin: 0 auto 2em auto;
 }
+aside label {
+	cursor: help;
+}

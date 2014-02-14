@@ -309,3 +309,8 @@ main {
 	padding: 0;
 	overflow: hidden;
 }
+
+aside {
+	width: 30em;
+	margin: 0 auto 2em auto;
+}

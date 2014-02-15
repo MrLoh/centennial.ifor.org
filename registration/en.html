@@ -20,7 +20,7 @@
 			<input type="checkbox" checked><label>Basic Structure</label><br>
 			<input type="checkbox" checked><label>Layout and Style</label><br>
 			<input type="checkbox" checked><label>Frontend Interactions</label><br>
-			<input type="checkbox"        ><label>Frontend Validation</label><br>
+			<input type="checkbox" checked><label>Frontend Validation</label><br>
 			<input type="checkbox"        ><label>Multilingual Versions</label><br>
 			<input type="checkbox"        ><label>Backend Validation</label><br>
 			<input type="checkbox"        ><label>Confirmation Mail</label><br>
@@ -123,7 +123,7 @@
 					data-errormessage-custom-error="Must be a valid email like 'someone@nowhere.com'.">
 					<label for="email">Email</label>
 				</p>
-				<button class="next" id="val-1">next ></button>
+				<button class="next">next ></button>
 				</div>
 			</section>
 			<section id="sec-orga">
@@ -200,7 +200,7 @@
 				<button class="next">next ></button>
 				</div>
 			</section>
-			<section>
+			<section id="sec-meals">
 				<h1><span></span>Meals</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
@@ -220,22 +220,31 @@
 					<label for="dinner-sa" class="simple">Saturday Dinner</label>
 				</p>
 				<p>
-					<label class="description">I have the following special food preferences:</label><br>
-					<input type="radio" name="food" value="omnivore" id="food-omnivore">
+					<label class="description">I have the following food preferences:</label><br>
+					<input type="radio" name="food" value="omnivore" id="food-omnivore"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Please indicate yor food preference.">
 					<label for="food-omnivore" class="simple">I eat basically everything.</label><br>
-					<input type="radio" name="food" value="vegetarian" id="food-vegetarian">
+					<input type="radio" name="food" value="vegetarian" id="food-vegetarian"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Please indicate yor food preference.">
 					<label for="food-vegetarian" class="simple">I eat vegetarian.</label><br>
-					<input type="radio" name="food" value="vegan" id="food-vegan">
+					<input type="radio" name="food" value="vegan" id="food-vegan"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Please indicate yor food preference.">
 					<label for="food-vegan" class="simple">I eat vegan.</label><br>
-					<input type="radio" name="food" value="other" id="food-other">
+					<input type="radio" name="food" value="other" id="food-other"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Please indicate yor food preference.">
 					<label for="food-other" class="simple">I have the following preferences:
-			 			<input type="text" name="other-food" id="other-food">
+			 			<input type="text" name="other-food" id="other-food"
+			 			data-errormessage-value-missing="What do you eat?">
 			 		</label>
 				</p>
 				<button class="next">next ></button>
 				</div>
 			</section>
-			<section>
+			<section id="sec-programme">
 				<h1><span></span>Programme Participatation</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
@@ -272,7 +281,7 @@
 				<button class="next">next ></button>
 				</div>
 			</section>
-			<section>
+			<section id="sec-fee">
 				<h1><span></span>Registration Fee</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
@@ -306,10 +315,13 @@
 				</p>
 				<div id="if-council" class="hide">
 					<p class="top-margin bottom-margin">
-						<input type="radio" name="participation-type" value="delegate" id="participation-type-delegate">
+						<input type="radio" name="participation-type" value="delegate" id="participation-type-delegate"
+						data-errormessage-value-missing="Please indicate wether you are a guest or a delegate.">
 						<label for="participation-type-delegate" class="simple">I am a delegate for:</label>
-						<input type="text" name="delegating" id="delegating">.<br>
-						<input type="radio" name="participation-type" value="guest" id="participation-type-guest">
+						<input type="text" name="delegating" id="delegating"
+						data-errormessage-value-missing="Please name the delegating organization.">.<br>
+						<input type="radio" name="participation-type" value="guest" id="participation-type-guest"
+						data-errormessage-value-missing="Please indicate wether you are a guest or a delegate.">
 						<label for="participation-type-guest" class="simple">I am participating in the Council as a guest.</label>
 					</p>
 					<p class="bottom-margin">
@@ -326,9 +338,11 @@
 					</p>
 					<p class="bottom-margin">
 						<label class="description">Indicate how you will pay the participation fee.</label><br>
-						<input type="radio" name="council-pay" value="self" id="council-pay-self">
+						<input type="radio" name="council-pay" value="self" id="council-pay-self"
+						data-errormessage-value-missing="Please indicate how you will pay.">
 						<label for="council-pay-self" class="simple">I will indicate below how I pay.</label><br>
-						<input type="radio" name="council-pay" value="IFOR" id="council-pay-IFOR">
+						<input type="radio" name="council-pay" value="IFOR" id="council-pay-IFOR"
+						data-errormessage-value-missing="Please indicate how you will pay.">
 						<label for="council-pay-IFOR" class="simple">I will apply for financial assistance from IFOR.</label>
 					</p>
 					<p class="info">
@@ -341,15 +355,20 @@
 				</p>
 				<p>
 					<label>Indicate who will pay your registration fee:</label><br>
-					<input type="radio" name="payment" value="selfpayment" id="selfpayment">
+					<input type="radio" name="payment" value="selfpayment" id="selfpayment"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Please indicate how your participation fee will be paid.">
 					<label for="selfpayment" class="simple">I will pay for myself.</label><br>
-					<input type="radio" name="payment" value="otherpayer" id="otherpayer">
+					<input type="radio" name="payment" value="otherpayer" id="otherpayer"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Please indicate how your participation fee will be paid.">
 					<label for="otherpayer" class="simple">Someone else will pay for me.</label>
 				</p>
 				<div id="if-otherpayer" class="hide">
 					<p class="top-margin bottom-margin">
 						<label for="payer">The following person / organization pays for me:</label>
-						<input type="text" name="payer" id="payer" class="newline">
+						<input type="text" name="payer" id="payer" class="newline"
+						data-errormessage-value-missing="Please indicate who pays for you.">
 					</p>
 				</div>
 				<div id="if-selfpayment" class="hide">
@@ -360,22 +379,28 @@
 					<div id="if-paying-for-others" class="hide">
 						<p class="bottom-margin">
 							<label for="paying-for-1">I pay for the following persons:</label>
-							<input type="text" name="paying-for-1" id="paying-for-1" class="newline">
+							<input type="text" name="paying-for-1" id="paying-for-1" class="newline"
+							data-errormessage-value-missing="Please indicate who you pay for.">
 							<input type="text" name="paying-for-2" id="paying-for-2" class="newline">
 							<input type="text" name="paying-for-2" id="paying-for-3" class="newline">
 						</p>
 					</div>
 					<p class="bottom-margin">
 						<label for="payment-amount">Payment Amount:</label> &euro;
-						<input type="tel" name="payment-amount" id="payment-amount" class="short">
+						<input type="tel" name="payment-amount" id="payment-amount" class="short"
+						data-errormessage-value-missing="Please indicate how much you will pay."
+						data-errormessage-custom-error="Must be an integer.">
 					</p>
 					<p>
 						<label class="description" >Payment Method:</label><br>
-						<input type="radio" name="payment-method" value="paypal" id="paypal">
+						<input type="radio" name="payment-method" value="paypal" id="paypal"
+						data-errormessage-value-missing="Please indicate your payment method.">
 						<label for="paypal" class="simple">PayPal / Credit Card Payment</label><br>
-						<input type="radio" name="payment-method" value="wire" id="wire">
+						<input type="radio" name="payment-method" value="wire" id="wire"
+						data-errormessage-value-missing="Please indicate your payment method.">
 						<label for="wire" class="simple">Wire Transfer</label><br>
-						<input type="radio" name="payment-method" value="cash" id="cash">
+						<input type="radio" name="payment-method" value="cash" id="cash"
+						data-errormessage-value-missing="Please indicate your payment method.">
 						<label for="cash" class="simple">Cash Payment</label>
 					</p>
 					<div id="if-paypal" class="hide">
@@ -397,7 +422,7 @@
 				<button class="next">next ></button>
 				</div>
 			</section>
-			<section>
+			<section id="sec-rooms">
 				<h1><span></span>Accomodations</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
@@ -405,9 +430,13 @@
 				</p>
 				<p>
 					<label class="description">Do you want IFOR's help to find an accomodation?</label><br>
-					<input type="radio" name="accomodation-help" value="yes" id="accomodation-help-yes">
+					<input type="radio" name="accomodation-help" value="yes" id="accomodation-help-yes"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Do you want help to find an accomodation?">
 					<label for="accomodation-help-yes" class="simple">Yes</label>
-					<input type="radio" name="accomodation-help" value="no" id="accomodation-help-no">
+					<input type="radio" name="accomodation-help" value="no" id="accomodation-help-no"
+					class="validate[required] radio"
+					data-errormessage-value-missing="Do you want help to find an accomodation?">
 					<label for="accomodation-help-no" class="simple">No</label>
 				</p>
 				<div id="if-accomodation-help-yes" class="hide">
@@ -417,13 +446,17 @@
 					</p>
 					<p>
 						<label class="description">My budget per person and night is approximately:</label><br>
-						<input type="radio" name="budget" value="15" id="budget-15">
+						<input type="radio" name="budget" value="15" id="budget-15"
+						data-errormessage-value-missing="Indicate your budget.">
 						<label for="budget-15" class="simple" style="margin-right:0;">&euro;15 per person and night – church hall (without breakfast)</label><br>
-						<input type="radio" name="budget" value="30" id="budget-30">
+						<input type="radio" name="budget" value="30" id="budget-30"
+						data-errormessage-value-missing="Indicate your budget.">
 						<label for="budget-30" class="simple">&euro;30 per person and night – guesthouse or basic hotel</label><br>
-						<input type="radio" name="budget" value="40" id="budget-40">
+						<input type="radio" name="budget" value="40" id="budget-40"
+						data-errormessage-value-missing="Indicate your budget.">
 						<label for="budget-40" class="simple">&euro;40 per person and night – middle class hotel</label><br>
-						<input type="radio" name="budget" value="90" id="budget-90">
+						<input type="radio" name="budget" value="90" id="budget-90"
+						data-errormessage-value-missing="Indicate your budget.">
 						<label for="budget-90" class="simple">&euro;90 per person and night – high class hotel</label>
 					</p>
 					<h2>Double Rooms</h2>
@@ -432,13 +465,17 @@
 					</p>
 					<p>
 						<label class="description">Please choose your room preference:</label><br>
-						<input type="radio" name="doubles" value="choice" id="doubles-choice">
+						<input type="radio" name="doubles" value="choice" id="doubles-choice"
+						data-errormessage-value-missing="Choose a room preference.">
 						<label for="doubles-choice" class="simple">I would like to share a room with:
-							<input type="text" name="roommate" id="rommate">.
+							<input type="text" name="roommate" id="roommate"
+							data-errormessage-value-missing="Name the person you want to share a double room with.">.
 						</label><br>
-						<input type="radio" name="doubles" value="IFOR" id="doubles-IFOR">
+						<input type="radio" name="doubles" value="IFOR" id="doubles-IFOR"
+						data-errormessage-value-missing="Choose a room preference.">
 						<label for="doubles-IFOR" class="simple">IFOR may assign me a roommate.<br></label>
-						<input type="radio" name="doubles" value="single" id="doubles-single">
+						<input type="radio" name="doubles" value="single" id="doubles-single"
+						data-errormessage-value-missing="Choose a room preference.">
 						<label for="doubles-single" class="simple">I do not wish to share a room and will pay the surcharge.</label>
 					</p>
 					<h2>Additional Wishes</h2>
@@ -459,23 +496,31 @@
 						Please indicate wether you will pay personally or wether your organization will cover the costs.
 					</p>
 					<p class="bottom-margin">
-						<input type="radio" name="payer" value="orga" id="payer-orga">
+						<input type="radio" name="payer" value="orga" id="payer-orga"
+						data-errormessage-value-missing="How will your accomodation be paid for?">
 						<label for="payer-orga" class="simple">I will pay for my own accommodation.</label><br>
-						<input type="radio" name="payer" value="self" id="payer-self">
+						<input type="radio" name="payer" value="self" id="payer-self"
+						data-errormessage-value-missing="How will your accomodation be paid for?">
 						<label for="payer-self" class="simple">My organization will cover the cost.</label>
 					</p>
 					<p>
 						<label class="description">The billing address is:</label><br>
-						<input type="checkbox" name="samebilling" id="samebilling">
-						<label for="samebilling" class="simple">The same as my address above</label><br>
 					</p>
+					<div id="if-payer-self" class="hide">
+						<p>
+							<input type="checkbox" name="samebilling" id="samebilling">
+							<label for="samebilling" class="simple">The same as my address above</label><br>
+						</p>
+					</div>
 					<div id="unless-samebilling">
 						<p>
-							<input type="text" name="billing-name" id="billing-name">
+							<input type="text" name="billing-name" id="billing-name"
+							data-errormessage-value-missing="Which organization or person receives the bill?">
 							<label for="billing-name">Name</label>
 						</p>
 						<p>
-							<input type="text" name="billing-address" id="billing-address">
+							<input type="text" name="billing-address" id="billing-address"
+							data-errormessage-value-missing="We need the street name and house number for the billing address.">
 							<label for="billing-address">Street Address</label>
 						</p>
 						<p>
@@ -483,19 +528,24 @@
 							<label for="billing-address-2">Street Address Line 2</label>
 						</p>
 						<p>
-							<input type="text" name="billing-city" id="billing-city">
+							<input type="text" name="billing-city" id="billing-city"
+							data-errormessage-value-missing="We need the city for the billing address.">
 							<label for="billing-city">City</label>
 						</p>
 						<p>
-							<input type="text" name="billing-post-code" id="billing-post-code">
+							<input type="text" name="billing-post-code" id="billing-post-code"
+							data-errormessage-value-missing="We need the post / zip code for the billing address."
+							data-errormessage-custom-error="Must be a number. If the country does not use post / zip codes just enter '000'.">
 							<label for="billing-post-code">Post / ZIP Code</label>
 						</p>
 						<p>
-							<input type="text" name="billing-state" id="billing-state">
+							<input type="text" name="billing-state" id="billing-state"
+							data-errormessage-value-missing="We need the federal state / state / province / county / department for the billing address.">
 							<label for="billing-state">State / Province</label>
 						</p>
 						<p>
-							<input type="text" name="billing-country" id="billing-country">
+							<input type="text" name="billing-country" id="billing-country"
+							data-errormessage-value-missing="We need the country for the billing address.">
 							<label for="billing-country">Country</label>
 						</p>
 					</div>
@@ -503,7 +553,7 @@
 				<button class="next">next ></button>
 				</div>
 			</section>
-			<section class="bottom">
+			<section class="bottom" id="sec-arrive">
 				<h1><span></span>Arrival &amp; Departure</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
@@ -512,12 +562,16 @@
 				<p>
 					<label for="arrival"><span class="tab-6em">Arrival:</span></label>
 					<input type="date" name="arrival" id="arrival"
-					value="2014-07-31" min="2014-07-27" max="2014-08-09">
+					value="2014-07-31" min="2014-07-27" max="2014-08-09"
+					class="validate[custom[date]]"
+					data-errormessage-custom-error="Date must be in format YYYY-MM-DD or from datepicker.">
 				</p>
 				<p>
 					<label for="departure"><span class="tab-6em">Departure:</span></label>
 					<input type="date" name="departure" id="departure"
-					value="2014-08-03" min="2014-07-27" max="2014-08-09">
+					value="2014-08-03" min="2014-07-27" max="2014-08-09"
+					class="validate[custom[date]]"
+					data-errormessage-custom-error="Date must be in format YYYY-MM-DD or from datepicker.">
 				</p>
 				<button class="next">next ></button>
 				</div>

@@ -63,12 +63,55 @@ $(document).ready(function(){
 	});
 	
 	//Section Lang
-	var secLang = ["#from-lang-de", "#to-lang-de"];
 	$("#sec-lang .next").click(function() {
-		validateSectionNext(secLang, this);
+		validateSectionNext([], this);
 	});
 	$("#sec-lang h1").click(function() {
-		validateSection(secLang, this);
+		validateSection([], this);
+	});
+	
+	//Section Meals
+	var secMeals = ["#food-omnivore","#food-vegetarian","#food-vegan","#food-other","#other-food"];
+	$("#sec-meals .next").click(function() {
+		validateSectionNext(secMeals, this);
+	});
+	$("#sec-meals h1").click(function() {
+		validateSection(secMeals, this);
+	});
+	
+	//Section Programme
+	$("#sec-programme .next").click(function() {
+		validateSectionNext([], this);
+	});
+	$("#sec-programme h1").click(function() {
+		validateSection([], this);
+	});
+	
+	//Section Fee
+	var secFee = ["#participation-type-delegate","#participation-type-guest", "#council-pay-self","#council-pay-IFOR","#delegating","#selfpayment","#otherpayer","#paying-for-1","#payer","#payment-amount","#paypal","#wire","#cash"];
+	$("#sec-fee .next").click(function() {
+		validateSectionNext(secFee, this);
+	});
+	$("#sec-fee h1").click(function() {
+		validateSection(secFee, this);
+	});
+	
+	//Section Rooms
+	var secRooms = ["#accomodation-help-yes","#accomodation-help-no","#budget-15","#budget-30","#budget-40","#budget-90","#doubles-choice","#doubles-IFOR","#doubles-single","#payer-orga","#payer-self","#roommate","#billing-name","#billing-address","#billing-city","#billing-post-code","#billing-state","#billing-country"];
+	$("#sec-rooms .next").click(function() {
+		validateSectionNext(secRooms, this);
+	});
+	$("#sec-rooms h1").click(function() {
+		validateSection(secRooms, this);
+	});
+	
+	//Section Arrive
+	var secArrive = ["#arrival","#departure"];
+	$("#sec-arrive .next").click(function() {
+		validateSectionNext(secArrive, this);
+	});
+	$("#sec-arrive h1").click(function() {
+		validateSection(secArrive, this);
 	});
 	
 	$(".formErrorContent").click(hide());

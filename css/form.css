@@ -63,7 +63,7 @@ input {
 
 input[type="text"], input[type="tel"], input[type="email"],input[type="date"] {
 	border-bottom: solid white 0.1em;
-	width: 12em;
+	width: 11.5em;
 	cursor: text;
 }
 

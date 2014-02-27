@@ -42,6 +42,10 @@ function validateSectionNext(fields, that) {
 
 
 $(document).ready(function(){
+	
+	$("#submit").click(function() {
+		$(".section-content").slideDown();
+	});
 	$("#form").validationEngine();
 	
 	//Section Personal
@@ -115,9 +119,4 @@ $(document).ready(function(){
 	});
 	
 	$(".formErrorContent").click(hide());
-
-	$("$submit").click(function() {
-		event.preventDefault();
-		$("#sec-arrive").slideDown();
-	});
 });

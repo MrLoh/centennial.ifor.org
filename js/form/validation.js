@@ -43,11 +43,11 @@ function validateSectionNext(fields, that) {
 
 $(document).ready(function(){
 	
+	$("#form").validationEngine();
 	$("#submit").click(function() {
 		$(".section-content").slideDown();
 	});
-	$("#form").validationEngine();
-	
+
 	//Section Personal
 	var secPersonal = ["#first-name","#last-name","#birthday","#address","#city","#post-code","#state","#country","#email"];
 	$("#sec-personal .next").click(function() {

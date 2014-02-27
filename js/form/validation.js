@@ -115,4 +115,9 @@ $(document).ready(function(){
 	});
 	
 	$(".formErrorContent").click(hide());
+
+	$("$submit").click(function() {
+		event.preventDefault();
+		$("#sec-arrive").slideDown();
+	});
 });

@@ -72,6 +72,8 @@ $(document).ready(function(){
 	$("#participation-type-delegate").change(function() {
 		$("#delegating").focus();
 		$("#delegating").addClass("validate[required]");
+		var orga = $("#organization").val();
+		$("#delegating").val(orga);
 	});
 	$("#participation-type-guest").change(function() {
 		$("#delegating").removeClass("validate[required]");
@@ -180,24 +182,30 @@ $(document).ready(function(){
 	
 	//Toggle Same as Above
 	$("#payer-self").change(function() {
-		$("#samebilling").click();
-		$("#if-payer-self").slideUp();
+		$("#if-payer-self").slideDown();
 		
 	});
 	$("#payer-orga").change(function() {
-		$("#if-payer-self").slideDown();
+		$("#if-payer-self").slideUp();
+		$("#unless-samebilling").slideDown();
+		var orga = $("#organization").val();
+		if($("#delegating").val() != "") {
+			orga = $("#delegating").val();
+		}
+		$("#billing-name").val(orga);
+		$("#billing-name").focus();
 	});
 	
 	
 	//Toggle Billing Address
 	$("#samebilling").change(function() {
 		$("#unless-samebilling").slideToggle();
-		$("#billing-name").removeClass("validate[required]");
-		$("#billing-address").removeClass("validate[required]");
-		$("#billing-city").removeClass("validate[required]");
-		$("#billing-post-code").removeClass("validate[required,custom[number]");
-		$("#billing-state").removeClass("validate[required]");
-		$("#billing-country").removeClass("validate[required]");
+		$("#billing-name").toggleClass("validate[required]");
+		$("#billing-address").toggleClass("validate[required]");
+		$("#billing-city").toggleClass("validate[required]");
+		$("#billing-post-code").toggleClass("validate[required,custom[number]");
+		$("#billing-state").toggleClass("validate[required]");
+		$("#billing-country").toggleClass("validate[required]");
 	});
 	
 	//Toggle Sections
@@ -213,15 +221,4 @@ $(document).ready(function(){
 	//Guide
 	$("form section h1").first().next().slideToggle();
 	$("form section h1").first().find("span").toggleClass("turn");
-	
-	//	$("button.next").click(function() {
-	//		event.preventDefault();
-	//		$(".section-content").slideUp();
-	//		$(".section-content").parent().find("h1").find("span").removeClass("turn");
-	//		$(this).parent().parent().next().find(".section-content").slideDown();
-	//		$(this).parent().parent().next().find("h1").find("span").addClass("turn");
-	//		
-	//		$(this).parent().parent().find("h1 i").addClass("fa-check-circle");
-	//	});	
-	
 });

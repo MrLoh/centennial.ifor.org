@@ -207,6 +207,10 @@ $(document).ready(function(){
 		$("#billing-state").toggleClass("validate[required]");
 		$("#billing-country").toggleClass("validate[required]");
 	});
+
+	$("#invitation").change(function() {
+		$("#if-invitation").slideToggle();
+	});
 	
 	//Toggle Sections
 	$(".section-content").hide();

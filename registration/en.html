@@ -29,7 +29,7 @@
 		
 	<main class="form">
 		<h1 class="form-title">Registration</h1>
-		<form action="" id="form">
+		<form action="register.php" method="GET" id="form">
 			<section class="top" id="sec-personal">
 				<h1 class="done"><span></span>Personal Information</h1>
 				<div class="section-content">
@@ -56,9 +56,9 @@
 					<label for="birthday">Date of Birth</label>
 				</p>
 				<p class="bottom-margin">
-					<input type="radio" name="gender" vaue="male" id="gender-male"> 
+					<input type="radio" name="gender" value="male" id="gender-male"> 
 					<label for="gender-male" class="simple">male</label>
-					<input type="radio" name="gender" value="femal" id="gender-female">
+					<input type="radio" name="gender" value="female" id="gender-female">
 					<label for="gender-female" class="simple">female</label>
 				</p>
 				<p>
@@ -208,8 +208,6 @@
 				</p>
 				<p class="bottom-margin">
 					<label class="description">I would like to book the following meals:</label><br>
-					<input type="checkbox" name="dinner-th" id="dinner-th">
-					<label for="dinner-th" class="simple">Thursday Dinner</label><br>
 					<input type="checkbox" name="lunch-fr" id="lunch-fr">
 					<label for="lunch-fr" class="simple">Friday Lunch</label><br>
 					<input type="checkbox" name="dinner-fr" id="dinner-fr">
@@ -245,7 +243,7 @@
 				</div>
 			</section>
 			<section id="sec-programme">
-				<h1><span></span>Programme Participatation</h1>
+				<h1><span></span>Programme Participation</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
 					We need to estimate the attendace so we can plan. Please help us by indicating which events you will attend.
@@ -272,7 +270,7 @@
 				</p>
 				<h2>Art Event</h2>
 				<p class="info bottom-margin">
-					On Friday and Saturday, Jan Piet van den Berg will create a sculpture in the centre of Konstanz with centenniel participants. Each participant is asked to bring a piece of cloth 100cm x 60cm in size.
+					On Saturday, Jan Piet van den Berg will create a sculpture in the centre of Konstanz with centenniel participants. Each participant is asked to bring a piece of cloth 100cm x 60cm in size.
 				</p>
 				<p>
 					<input type="checkbox" name="cloth" id="cloth">
@@ -285,7 +283,7 @@
 				<h1><span></span>Registration Fee</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
-					The registration fee for the Centennial weekend (children under 16 are free) is &euro;50 for the whole weekend; for partial participation the fee is &euro;20 for Friday and Saturday each, and &euro;15 for Sunday. This fee includes participation in all programme events, the city tour, the exhibitions, the concert, and the shuttle service to the event on Saturday. Not included in this fee are food, accommodation, and the costs for transportation within Konstanz. Please indicate the registration fee which applies to you and indicate how it will be paid for on the next page.
+					The registration fee for the Centennial weekend (children under 16 are free) is &euro;50 for the whole weekend; for partial participation the fee is &euro;20 for Friday and Saturday each, and &euro;15 for Sunday. This fee includes participation in all programme events, the city tour, the exhibitions, the concert, and the shuttle service to the direct nonviolent action on Friday. Not included in this fee are food, accommodation, and the costs for transportation within Konstanz. Please indicate the registration fee which applies to you and indicate how it will be paid for on the next page.
 				</p>
 				<p class="border-margin">
 					<label class="description">I register for the following days:</label><br>
@@ -382,7 +380,7 @@
 							<input type="text" name="paying-for-1" id="paying-for-1" class="newline"
 							data-errormessage-value-missing="Please indicate who you pay for.">
 							<input type="text" name="paying-for-2" id="paying-for-2" class="newline">
-							<input type="text" name="paying-for-2" id="paying-for-3" class="newline">
+							<input type="text" name="paying-for-3" id="paying-for-3" class="newline">
 						</p>
 					</div>
 					<p class="bottom-margin">
@@ -471,7 +469,7 @@
 							<input type="text" name="roommate" id="roommate"
 							data-errormessage-value-missing="Name the person you want to share a double room with.">.
 						</label><br>
-						<input type="radio" name="doubles" value="IFOR" id="doubles-IFOR"
+						<input type="radio" name="doubles" value="IFOR-pick" id="doubles-IFOR"
 						data-errormessage-value-missing="Choose a room preference.">
 						<label for="doubles-IFOR" class="simple">IFOR may assign me a roommate.<br></label>
 						<input type="radio" name="doubles" value="single" id="doubles-single"
@@ -566,13 +564,22 @@
 					class="validate[custom[date]]"
 					data-errormessage-custom-error="Date must be in format YYYY-MM-DD or from datepicker.">
 				</p>
-				<p>
+				<p class="bottom-margin">
 					<label for="departure"><span class="tab-6em">Departure:</span></label>
 					<input type="date" name="departure" id="departure"
 					value="2014-08-03" min="2014-07-27" max="2014-08-09"
 					class="validate[custom[date]]"
 					data-errormessage-custom-error="Date must be in format YYYY-MM-DD or from datepicker.">
 				</p>
+				<p>
+					<input type="checkbox" name="invitation" id="invitation">
+					<label for="invitation" class="simple">I need an official invitation for my visa application.</label>
+				</p>
+				<div id="if-invitation" class="hide">
+					<p class="info">
+						We will send you an official invitation via email as soon as possible. For special requirements, please contact us via email to <a href="mailto:registration@ifor.org">registration@ifor.org</a>. 
+					</p>
+				</div>
 				<button class="next">next ></button>
 				</div>
 			</section>
@@ -583,6 +590,6 @@
 	<script src="../js/jqvalen.min.js"></script>
 	<script src="../js/jqvalen-en.min.js"></script>
 	<script src="../js/form/interactions.js"></script>
-	<script src="../js/form/validation.js"></script>
+	<script src="../js/form/validation.js_"></script>
 </body>
 </html>

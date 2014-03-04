@@ -13,7 +13,7 @@ function get($name, $fallback = false) {
 	} elseif ( $var == "on" ) {
 		return true;
 	} else {
-		return $var." ";
+		return addslashes($var." ");
 	}
 }
 
@@ -45,6 +45,13 @@ function puts($var, $false = "no") {
 	echo english_out($var, $false)."<br>";
 }
 
+function in_array_binary_string($needle, $haystack) {
+	if ( in_array($needle, $haystack) ) {
+		return ", 1";
+	} else {
+		return ", 0";
+	}
+}
 
 
 //================================================================
@@ -80,8 +87,8 @@ if ( $responsibility ) {
 	$responsibility_2 = get("responsibility-2");
 	$responsibility_3 = get("responsibility-3");
 	$responsibilities = array($responsibility_1);
-	if($responsibility_2) { array_push($responsibilities, $responsibility_2); };
-	if($responsibility_3) { array_push($responsibilities, $responsibility_3); };
+	if ( $responsibility_2 ) { array_push($responsibilities, $responsibility_2); };
+	if ( $responsibility_3 ) { array_push($responsibilities, $responsibility_3); };
 }
 
 // LANGUAGES & INTERPRETATION
@@ -91,12 +98,12 @@ $lang_en = get("lang-en");
 $lang_de = get("lang-de");
 $lang_fr = get("lang-fr");
 $lang_es = get("lang-es");
-if( $lang_en ) { array_push($languages, "English"); };
-if( $lang_de ) { array_push($languages, "German"); };
-if( $lang_fr ) { array_push($languages, "French"); };
-if( $lang_es ) { array_push($languages, "Spanish"); };
+if ( $lang_en ) { array_push($languages, "English"); };
+if ( $lang_de ) { array_push($languages, "German"); };
+if ( $lang_fr ) { array_push($languages, "French"); };
+if ( $lang_es ) { array_push($languages, "Spanish"); };
 $interpreter = get("interpreter");
-if( $interpreter ) {
+if ( $interpreter ) {
 	$from_lang_en = get("from-lang-en");
 	$from_lang_de = get("from-lang-de");
 	$from_lang_fr = get("from-lang-fr");
@@ -107,37 +114,37 @@ if( $interpreter ) {
 	$to_lang_es = get("to-lang-es");
 	$interprets = array();
 	if( $from_lang_en ) {
-		if( $to_lang_de ) { array_push($interprets, "from English to German"); };
-		if( $to_lang_fr ) { array_push($interprets, "from English to French"); };
-		if( $to_lang_es ) { array_push($interprets, "from English to Spanish"); };
+		if ( $to_lang_de ) { array_push($interprets, "from English to German"); };
+		if ( $to_lang_fr ) { array_push($interprets, "from English to French"); };
+		if ( $to_lang_es ) { array_push($interprets, "from English to Spanish"); };
 	}
-	if( $from_lang_de ) {
-		if( $to_lang_en ) { array_push($interprets, "from German to English"); };
-		if( $to_lang_fr ) { array_push($interprets, "from German to French"); };
-		if( $to_lang_es ) { array_push($interprets, "from German to Spanish"); };
+	if ( $from_lang_de ) {
+		if ( $to_lang_en ) { array_push($interprets, "from German to English"); };
+		if ( $to_lang_fr ) { array_push($interprets, "from German to French"); };
+		if ( $to_lang_es ) { array_push($interprets, "from German to Spanish"); };
 	}
-	if( $from_lang_fr ) {
-		if( $to_lang_en ) { array_push($interprets, "from French to English"); };
-		if( $to_lang_de ) { array_push($interprets, "from French to German"); };
-		if( $to_lang_es ) { array_push($interprets, "from French to Spanish"); };
+	if ( $from_lang_fr ) {
+		if ( $to_lang_en ) { array_push($interprets, "from French to English"); };
+		if ( $to_lang_de ) { array_push($interprets, "from French to German"); };
+		if ( $to_lang_es ) { array_push($interprets, "from French to Spanish"); };
 	}
-	if( $from_lang_es ) {
-		if( $to_lang_en ) { array_push($interprets, "from Spanish to English"); };
-		if( $to_lang_de ) { array_push($interprets, "from Spanish to German"); };
-		if( $to_lang_fr ) { array_push($interprets, "from Spanish to French"); };
+	if ( $from_lang_es ) {
+		if ( $to_lang_en ) { array_push($interprets, "from Spanish to English"); };
+		if ( $to_lang_de ) { array_push($interprets, "from Spanish to German"); };
+		if ( $to_lang_fr ) { array_push($interprets, "from Spanish to French"); };
 	}
 }
 
 // MEALS
 
 $meals = array();
-if( get("lunch-fr") ) { array_push($meals, "Friday Lunch"); };
-if( get("dinner-fr") ) { array_push($meals, "Friday Dinner"); };
-if( get("lunch-sa") ) { array_push($meals, "Saturday Lunch"); };
-if( get("dinner-sa") ) { array_push($meals, "Saturday Dinner"); };
+if ( get("lunch-fr") ) { array_push($meals, "Friday Lunch"); };
+if ( get("dinner-fr") ) { array_push($meals, "Friday Dinner"); };
+if ( get("lunch-sa") ) { array_push($meals, "Saturday Lunch"); };
+if ( get("dinner-sa") ) { array_push($meals, "Saturday Dinner"); };
 
 $food = get("food");
-if ( $food == "other" ) { $food = get("other-food"); }
+if ( $food == "other " ) { $food = get("other-food"); }
 
 // PROGRAMME PARTICIPATION
 
@@ -200,7 +207,7 @@ if ( $payment == "otherpayer " ) {
 $council = get("council");
 if ( $council ) {
 	$delegating = get("participation-type");
-	if ( $delegating == "delegate") { $delegating = get("delegating"); };
+	if ( $delegating == "delegate ") { $delegating = get("delegating"); };
 	$council_only = get("no-centennial");
 	$council_payment = get("council-pay");
 }
@@ -223,7 +230,7 @@ if ( $accomodation_help == "yes") {
 if ( $accomodation_help ) {
 	$budget = get("budget");
 	$doubles = get("doubles");
-	if ( $doubles == "choice" ) { $doubles = get("roommate"); };
+	if ( $doubles == "choice " ) { $doubles = get("roommate"); };
 	$accomodation_friend_1 = get("accomodation-friend-1");
 	$accomodation_friend_2 = get("accomodation-friend-2");
 	$accomodation_wishes = get("accomodation-wishes");
@@ -255,6 +262,7 @@ $needs_invitation = get("invitation");
 
 
 // VALIDATION
+
 include("config.php");
 $SQL = mysqli_connect($DB_HOST,$DB_USER,$DB_PASS,$DB_NAME) or die("MYSQL con failed: ".mysqli_error($SQL));
 
@@ -283,13 +291,175 @@ if ( $first_name == false or $last_name == false ) {
 	}
 }
 
+// SAVE TO DATABASE 
+
 if ( $valid ) {
-	$query = " INSERT INTO registration (id, first_name, last_name, birthday, gender, address, address_2, city, post_code, state, country, tel, mobile, skype, email, languages, organization, responsibility, interpreter, meals, food, participation, cloth, days, u16, fee, paying_method, payment_amount, paying_for, council_participitation, accomodation_help, arrival, departure, invitation) 
-	           VALUES ('$id', '$first_name', '$last_name', '$birthday', '$gender', '$address', '$address_2', '$city', '$post_code', '$state', '$country', '$tel', '$mobile', '$skype', '$email', '".english_out($languages)."', '$organization', '".english_out($responsibility)."', '".english_out($interpreter)."', '".english_out($meals)."', '$food', '".english_out($participation)."', '".english_out($cloth)."', '".english_out($days)."', '".english_out($u16)."', '$fee', '$payment_method', '$payment_amount', '".english_out($paying_for)."','".english_out($council_participitation)."', '".english_out($accomodation_help)."', '$arrival', '$departure', '".english_out($needs_invitation)."') ";
+
+	$error = "";
+	$success = false;
+	function error_db_handling($result) {
+		global $query;
+		global $success;
+		global $error;
+		global $SQL;
+		if ( $result == 0 ) { 
+			$error = "We have some problem saving to our database. We are working to fix it. Please send us a mail with this error code to registration@ifor.org: <br>";
+			$error .= $SQL->error;
+			$error .= "<br> Query: ".$query; 
+			$success = false;
+		} elseif ( $result == 1 ) { 
+			$success = true; 
+		};
+	}
+
+	// REGISTRATION DB
+	$query = " INSERT INTO registration (id, first_name, last_name, birthday, gender, address, address_2, city, post_code, state, country, tel, mobile, skype, email, languages, organization, responsibility, interpreter, meals, food, participation, cloth, days, u16, fee, paying_method, payment_amount, paying_for, council_participitation, accomodation_help, arrival, departure, invitation) VALUES ('$id', '$first_name', '$last_name', '$birthday', '$gender', '$address', '$address_2', '$city', '$post_code', '$state', '$country', '$tel', '$mobile', '$skype', '$email', '".english_out($languages)."', '$organization', '".english_out($responsibility)."', '".english_out($interpreter)."', '".english_out($meals)."', '$food', '".english_out($participation)."', '".english_out($cloth)."', '".english_out($days)."', '".english_out($u16)."', '$fee', '$payment_method', '$payment_amount', '".english_out($paying_for)."','".english_out($council_participitation)."', '".english_out($accomodation_help)."', '$arrival', '$departure', '".english_out($needs_invitation)."') ";
 	$result = $SQL->query($query);
-	if ( $result == 0 ) { $error = $SQL->error; };
-	if ( $result == 1 ) { $success = "saved to database"; };
+	error_db_handling($result);
+
+	// RESPONSIBILITIES DB
+	if ( $success and $responsibility ) {
+		$query = " INSERT INTO responsibilities (id, name, responsibility_1, responsibility_2, responsibility_3) VALUES ('$id', '$name', '$responsibility_1', '$responsibility_2', '$responsibility_3') ";
+		$result = $SQL->query($query);
+		error_db_handling($result);
+	}
+
+	// INTERPRETATION DB
+	if ( $success and $interpreter ) {
+		$interpr_binary_list = ""; 
+		function construct_interpretation_query($test_str) {
+			global $interpr_binary_list;
+			global $interprets;
+			$interpr_binary_list .= in_array_binary_string($test_str, $interprets);
+		}
+		construct_interpretation_query("from English to German");
+		construct_interpretation_query("from English to French");
+		construct_interpretation_query("from English to Spanish");
+		construct_interpretation_query("from German to English");
+		construct_interpretation_query("from German to French");
+		construct_interpretation_query("from German to Spanish");
+		construct_interpretation_query("from French to English");
+		construct_interpretation_query("from French to German");
+		construct_interpretation_query("from French to Spanish");
+		construct_interpretation_query("from Spanish to English");
+		construct_interpretation_query("from Spanish to German");
+		construct_interpretation_query("from Spanish to French");
+		$query = " INSERT INTO interpretation (id, name, en_de, en_fr, en_es, de_en, de_fr, de_es, fr_en, fr_de, fr_es, es_en, es_de, es_fr) VALUES ('$id', '$name' $interpr_binary_list) ";
+		$result = $SQL->query($query);
+		error_db_handling($result);
+	}
+
+	// PARTICIPATION DB 
+	if ( $success and $interpreter ) {
+		$partic_binary_list = "";
+		function construct_participation_query($test_str) {
+			global $partic_binary_list;
+			global $participation;
+			$partic_binary_list .= in_array_binary_string($test_str, $participation);
+		}
+		construct_participation_query("Nonviolence in Action");
+		construct_participation_query("City Tour");
+		construct_participation_query("Celebration");
+		construct_participation_query("IFOR in Action");
+		construct_participation_query("Concert");
+		construct_participation_query("Interfaith Celebration");
+		construct_participation_query("Snack");
+		if ( $cloth ) {
+			$partic_binary_list .= ", 1";
+		} else {
+			$partic_binary_list .= ", 0";
+		}
+		$query = " INSERT INTO participation (id, friday, tour, celeb, saturday, concert, faith, snack, cloth) VALUES ('$id' $partic_binary_list) ";
+		$result = $SQL->query($query);
+		error_db_handling($result);
+	}
+
+	// LANGUAGES DB
+	if ( $success and $interpreter ) {
+		$lang_binary_list = "";
+		function construct_language_query($lang) {
+			global $languages;
+			global $lang_binary_list;
+			global $participation;
+			if ( in_array($lang, $languages) ) {
+				$lang_binary_list .= ", 1";
+				$lang_binary_list .= in_array_binary_string("City Tour", $participation);
+				$lang_binary_list .= in_array_binary_string("Nonviolence in Action", $participation);
+				$lang_binary_list .= in_array_binary_string("Celebration", $participation);
+				$lang_binary_list .= in_array_binary_string("IFOR in Action", $participation);
+				$lang_binary_list .= in_array_binary_string("Interfaith Celebration", $participation);
+			} else {
+				$lang_binary_list .= ", 0, 0, 0, 0, 0, 0";
+			}
+		}
+		construct_language_query("English");
+		construct_language_query("German");
+		construct_language_query("French");
+		construct_language_query("Spanish");
+		$query = " INSERT INTO languages (id, en, tour_en, friday_en, celeb_en, saturday_en, faith_en, de, tour_de, friday_de, celeb_de, saturday_de, faith_de, fr, tour_fr, friday_fr, celeb_fr, saturday_fr, faith_fr, es, tour_es, friday_es, celeb_es, saturday_es, faith_es) VALUES ('$id' $lang_binary_list) ";
+		$result = $SQL->query($query);
+		error_db_handling($result);
+	}
+
+	// FOOD DB
+	if ( $success ) {
+		function construct_food_query() {
+			global $meals;
+			$binary_list = ", 1";
+			$binary_list .= in_array_binary_string("Friday Lunch", $meals);
+			$binary_list .= in_array_binary_string("Friday Dinner", $meals);
+			$binary_list .= in_array_binary_string("Saturday Lunch", $meals);
+			$binary_list .= in_array_binary_string("Saturday Dinner", $meals);
+			return $binary_list;
+		}
+		$zero_binary_list = ", 0, 0, 0, 0, 0";
+		if ( $food == "omnivore " ) {
+			$food_binary_list = construct_food_query();
+			$food_binary_list .= $zero_binary_list;
+			$food_binary_list .= $zero_binary_list;
+			$food_binary_list .= ", ''";
+		} elseif ( $food == "vegetarian " ) {
+			$food_binary_list = $zero_binary_list;
+			$food_binary_list .= construct_food_query();
+			$food_binary_list .= $zero_binary_list;
+			$food_binary_list .= ", ''";
+		} elseif ( $food == "vegan " ) {
+			$food_binary_list = $zero_binary_list;
+			$food_binary_list .= $zero_binary_list;
+			$food_binary_list .= construct_food_query();
+			$food_binary_list .= ", ''";
+		} else {
+			$food_binary_list = $zero_binary_list;
+			$food_binary_list .= $zero_binary_list;
+			$food_binary_list .= $zero_binary_list;
+			$food_binary_list .= ", '$food'";
+		}
+		$query = " INSERT INTO food (id, omni, lu_fr_omni, di_fr_omni, lu_sa_omni, di_sa_omni, vegy, lu_fr_vegy, di_fr_vegy, lu_sa_vegy, di_sa_vegy, vega, lu_fr_vega, di_fr_vega, lu_sa_vega, di_sa_vega, other) VALUES ('$id' $food_binary_list) ";
+		$result = $SQL->query($query);
+		error_db_handling($result);
+	}
+
+	// ACCOMODATION DB
+	if ( $success and $accomodation_help ) {
+		$query = " INSERT INTO accomodation (id, name, email, budget, doubles, accomodation_friend_1, accomodation_friend_2, accomodation_wishes, billing_name, billing_address, billing_address_2, billing_city, billing_post_code, billing_state, billing_country) VALUES ('$id', '$name', '$email', '$budget', '$doubles', '$accomodation_friend_1', '$accomodation_friend_2', '$accomodation_wishes', '$billing_name', '$billing_address', '$billing_address_2', '$billing_city', '$billing_post_code', '$billing_state', '$billing_country') ";
+		$result = $SQL->query($query);
+		error_db_handling($result);
+	}
+
+	// COUNCIL DB
+	if ( $success and $council ) {
+		if ( $council_payment == "IFOR " ) {
+			$council_financial_aid = true;
+		} elseif ( $council_payment == "self " ) {
+			$council_financial_aid = false; 
+		}
+		$query = " INSERT INTO council (id, name, email, delegating, financial_aid, council_only) VALUES ('$id', '$name', '$email', '$delegating', '".english_out($council_financial_aid)."', '".english_out($council_only)."') ";
+		$result = $SQL->query($query);
+		error_db_handling($result);
+	}
 }
+
+
 
 
 mysql_close($con);
@@ -311,16 +481,12 @@ mysql_close($con);
 <body>
 	<p>
 		<?php 
-		puts($email);
-		puts($name);
-		puts($payment);
-		puts($payment_method); 
-		if ( !$valid ) {
+		// puts($email);
+		// puts($name);
+		if ( !$valid or !$success) {
 			puts($error);
 		} else {
-			puts($query);
-			puts($result);
-			puts($error);
+			puts("success");
 		}
 		 ?>
 	</p>

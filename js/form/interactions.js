@@ -90,7 +90,6 @@ $(document).ready(function(){
 		$("#if-otherpayer").slideUp();
 		$("#if-selfpayment").slideToggle();
 		$("#payer").removeClass("validate[required]");
-		$("#payment-amount").addClass("validate[required,custom[number]]");
 		$("#paypal").addClass("validate[required] radio");
 		$("#wire").addClass("validate[required] radio");
 		$("#cash").addClass("validate[required] radio");
@@ -99,7 +98,6 @@ $(document).ready(function(){
 		$("#if-selfpayment").slideUp();
 		$("#if-otherpayer").slideToggle();
 		$("#payer").addClass("validate[required]");
-		$("#payment-amount").removeClass("validate[required,custom[number]");
 		$("#paypal").removeClass("validate[required] radio");
 		$("#wire").removeClass("validate[required] radio");
 		$("#cash").addClass("validate[required] radio");

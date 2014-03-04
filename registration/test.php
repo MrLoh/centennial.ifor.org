@@ -15,7 +15,6 @@ $birthday = "03-03-1989";
 $gender = "male";
 
 include("config.php");
-
 $SQL = mysqli_connect($DB_HOST,$DB_USER,$DB_PASS,$DB_NAME) or die("MYSQL con failed: ".mysqli_error($SQL));
 
 $query = " SELECT * FROM registration WHERE id='$id' ";

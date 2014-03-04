@@ -74,8 +74,8 @@ $id = idify($name.$email);
 // ORGANIZATION & RESPONSIBILITIES
 
 $organization = get("organization");
-$responsibilities = get("responsibilities");
-if ( $responsibilities ) {
+$responsibility = get("responsibilities");
+if ( $responsibility ) {
 	$responsibility_1 = get("responsibility-1");
 	$responsibility_2 = get("responsibility-2");
 	$responsibility_3 = get("responsibility-3");
@@ -130,13 +130,11 @@ if( $interpreter ) {
 
 // MEALS
 
-$lunch = get("lunch-fr");
 $meals = array();
 if( get("lunch-fr") ) { array_push($meals, "Friday Lunch"); };
 if( get("dinner-fr") ) { array_push($meals, "Friday Dinner"); };
 if( get("lunch-sa") ) { array_push($meals, "Saturday Lunch"); };
 if( get("dinner-sa") ) { array_push($meals, "Saturday Dinner"); };
-
 
 $food = get("food");
 if ( $food == "other" ) { $food = get("other-food"); }
@@ -159,6 +157,11 @@ $cloth = get("cloth");
 $fee_fr = get("participation-fr");
 $fee_sa = get("participation-sa");
 $fee_su = get("participation-su");
+$days = array();
+if( $fee_fr ) { array_push($days, "Friday"); };
+if( $fee_sa ) { array_push($days, "Saturday"); };
+if( $fee_su ) { array_push($days, "Sunday"); };
+
 $u16 = get("u16");
 
 if ( $u16 ) {
@@ -174,14 +177,15 @@ else {
 }
 
 $payment = get("payment");
-if ( $payment == "selfpayment" ) {
+$payment_amount = get("payment-amount");
+$paying_for = array();
+if ( $payment == "otherpayer " ) {
 	$payer = get("payer");
-} elseif ( $payment == "otherpayer") {
-	$payment_amount = get("payment-amount");
+	$payment_method = $payer;
+} elseif ( $payment == "selfpayment ") {
 	$payment_method = get("payment-method");
 	$paying_for_others = get("paying-for-others");
 	if ( $paying_for_others ) {
-		$paying_for = array();
 		$paying_for_1 = get("paying-for-1");
 		$paying_for_2 = get("paying-for-2");
 		$paying_for_3 = get("paying-for-3");
@@ -200,6 +204,12 @@ if ( $council ) {
 	$council_only = get("no-centennial");
 	$council_payment = get("council-pay");
 }
+
+$council_participitation = "no";
+if ( $council ) { 
+	$council_participitation = "yes"; 
+	if ( $council_only ) { $council_participitation = "only council"; };
+};
 
 // ACCOMODATIONS
 
@@ -253,15 +263,15 @@ $valid = false;
 if ( $first_name == false or $last_name == false ) {
 	$valid = false;
 	$error = "Youre name is incomplete!";
-// } elseif ( $address == false or $post_code == false or $city == false or $country == false ) {
-// 	$valid = false;
-// 	$error = "Youre address is incomplete!";
+} elseif ( $address == false or $post_code == false or $city == false or $country == false ) {
+	$valid = false;
+	$error = "Youre address is incomplete!";
 } elseif ( $email == false ) {
 	$valid = false;
 	$error = "You didn't specify and email!";
-// } elseif ( $payment == false ) {
-// 	$valid = false;
-// 	$error = "You didn't specify how you're fee will be paid!";
+} elseif ( $payment == false ) {
+	$valid = false;
+	$error = "You didn't specify how you're fee will be paid!";
 } else {
 	$query = " SELECT * FROM registration WHERE id='$id' ";
 	$result = $SQL->query($query);
@@ -274,9 +284,11 @@ if ( $first_name == false or $last_name == false ) {
 }
 
 if ( $valid ) {
-	$query = " INSERT INTO registration (id, first_name, last_name, birthday, gender, address, address_2, city, post_code, state, country, tel, mobile, skype, email) 
-	           VALUES ('$id', '$first_name', '$last_name', '$birthday', '$gender', '$address', '$address_2', '$city', '$post_code', '$state', '$country', '$tel', '$mobile', '$skype', '$email') ";
+	$query = " INSERT INTO registration (id, first_name, last_name, birthday, gender, address, address_2, city, post_code, state, country, tel, mobile, skype, email, languages, organization, responsibility, interpreter, meals, food, participation, cloth, days, u16, fee, paying_method, payment_amount, paying_for, council_participitation, accomodation_help, arrival, departure, invitation) 
+	           VALUES ('$id', '$first_name', '$last_name', '$birthday', '$gender', '$address', '$address_2', '$city', '$post_code', '$state', '$country', '$tel', '$mobile', '$skype', '$email', '".english_out($languages)."', '$organization', '".english_out($responsibility)."', '".english_out($interpreter)."', '".english_out($meals)."', '$food', '".english_out($participation)."', '".english_out($cloth)."', '".english_out($days)."', '".english_out($u16)."', '$fee', '$payment_method', '$payment_amount', '".english_out($paying_for)."','".english_out($council_participitation)."', '".english_out($accomodation_help)."', '$arrival', '$departure', '".english_out($needs_invitation)."') ";
 	$result = $SQL->query($query);
+	if ( $result == 0 ) { $error = $SQL->error; };
+	if ( $result == 1 ) { $success = "saved to database"; };
 }
 
 
@@ -301,9 +313,13 @@ mysql_close($con);
 		<?php 
 		puts($email);
 		puts($name);
-		puts($birthday);
-		puts($gender); 
+		puts($payment);
+		puts($payment_method); 
 		if ( !$valid ) {
+			puts($error);
+		} else {
+			puts($query);
+			puts($result);
 			puts($error);
 		}
 		 ?>

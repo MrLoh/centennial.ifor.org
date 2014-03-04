@@ -363,6 +363,13 @@
 					data-errormessage-value-missing="Please indicate how your participation fee will be paid.">
 					<label for="otherpayer" class="simple">Someone else will pay for me.</label>
 				</p>
+				<p class="bottom-margin">
+					<label for="payment-amount">Payment Amount:</label> &euro;
+					<input type="tel" name="payment-amount" id="payment-amount" 
+					class="validate[required,custom[number]] short"
+					data-errormessage-value-missing="Please indicate the fee that you will pay or that will be payed for you."
+					data-errormessage-custom-error="Must be an integer.">
+				</p>
 				<div id="if-otherpayer" class="hide">
 					<p class="top-margin bottom-margin">
 						<label for="payer">The following person / organization pays for me:</label>
@@ -384,12 +391,6 @@
 							<input type="text" name="paying-for-3" id="paying-for-3" class="newline">
 						</p>
 					</div>
-					<p class="bottom-margin">
-						<label for="payment-amount">Payment Amount:</label> &euro;
-						<input type="tel" name="payment-amount" id="payment-amount" class="short"
-						data-errormessage-value-missing="Please indicate how much you will pay."
-						data-errormessage-custom-error="Must be an integer.">
-					</p>
 					<p>
 						<label class="description" >Payment Method:</label><br>
 						<input type="radio" name="payment-method" value="paypal" id="paypal"
@@ -591,6 +592,6 @@
 	<script src="../js/jqvalen.min.js"></script>
 	<script src="../js/jqvalen-en.min.js"></script>
 	<script src="../js/form/interactions.js"></script>
-	<script src="../js/form/validation.js_"></script>
+	<script src="../js/form/validation.js"></script>
 </body>
 </html>

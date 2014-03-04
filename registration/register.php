@@ -459,9 +459,6 @@ if ( $valid ) {
 	}
 }
 
-
-
-
 mysql_close($con);
 ?>
 
@@ -471,7 +468,7 @@ mysql_close($con);
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>IFOR Centennial Registration</title>
 	<script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/form.css">

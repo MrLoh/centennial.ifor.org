@@ -1,8 +1,8 @@
 <?php 
 function idify($str) {
 	$str = preg_replace('/[^A-Za-z0-9\-]/', '', $str);
-	$str = strtoupper(preg_replace('/\s+/','',$str));
-	$str = str_rot13($str);
+	$str = strtolower(preg_replace('/\s+/','',$str));
+	// $str = str_rot13($str);
 	return $str;
 }
 
@@ -68,6 +68,8 @@ $tel = get("tel");
 $mobile = get("mobile");
 $skype = get("skype");
 $email = get("email");
+
+$id = idify($name.$email);
 
 // ORGANIZATION & RESPONSIBILITIES
 
@@ -243,29 +245,38 @@ $needs_invitation = get("invitation");
 
 
 // VALIDATION
+include("config.php");
+$SQL = mysqli_connect($DB_HOST,$DB_USER,$DB_PASS,$DB_NAME) or die("MYSQL con failed: ".mysqli_error($SQL));
 
-$con = mysql_connect("localhost","root","root") or die("MYSQL con failed: ".mysql_error());
-$db = mysql_select_db("centennial",$con) or die("DB Select Error: ".mysql_error());
+$valid = false;
 
-
-if ( $first_name == false or $last_name == false or $address == false or $city == false or $email == false or $food == false or $payment == false ) {
+if ( $first_name == false or $last_name == false ) {
 	$valid = false;
+	$error = "Youre name is incomplete!";
+// } elseif ( $address == false or $post_code == false or $city == false or $country == false ) {
+// 	$valid = false;
+// 	$error = "Youre address is incomplete!";
+} elseif ( $email == false ) {
+	$valid = false;
+	$error = "You didn't specify and email!";
+// } elseif ( $payment == false ) {
+// 	$valid = false;
+// 	$error = "You didn't specify how you're fee will be paid!";
 } else {
-	$query = " SELECT email, first_name, last_name FROM registration WHERE email='$email' ";
-	$result = mysql_query($query, $con) or die(mysql_error());;
-	while ( $row = mysql_fetch_array($result) ) {
-		$valid = $row[0] . $row[1];
-	}
-	if ( $result ) {
-		$valid = $result;
+	$query = " SELECT * FROM registration WHERE id='$id' ";
+	$result = $SQL->query($query);
+	if ( $result->num_rows > 0 ) {
+		$valid = false;
+		$error = "We already have a registration with the same name and email address!";
 	} else {
 		$valid = true;
 	}
 }
 
 if ( $valid ) {
-	$query = " INSERT INTO registration (email, first_name, last_name, birthday, gender) VALUES ('$email', '$first_name', '$last_name', '$birthday', '$gender') ";
-	$result = mysql_query($query, $con) or die(mysql_error());;
+	$query = " INSERT INTO registration (id, first_name, last_name, birthday, gender, address, address_2, city, post_code, state, country, tel, mobile, skype, email) 
+	           VALUES ('$id', '$first_name', '$last_name', '$birthday', '$gender', '$address', '$address_2', '$city', '$post_code', '$state', '$country', '$tel', '$mobile', '$skype', '$email') ";
+	$result = $SQL->query($query);
 }
 
 
@@ -292,7 +303,9 @@ mysql_close($con);
 		puts($name);
 		puts($birthday);
 		puts($gender); 
-		puts($valid);
+		if ( !$valid ) {
+			puts($error);
+		}
 		 ?>
 	</p>
 </body>

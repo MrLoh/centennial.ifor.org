@@ -1,4 +1,11 @@
 <?php 
+function idify($str) {
+	$str = preg_replace('/[^A-Za-z0-9\-]/', '', $str);
+	$str = strtoupper(preg_replace('/\s+/','',$str));
+	$str = str_rot13($str);
+	return $str;
+}
+
 function get($name, $fallback = false) {
 	$var = htmlspecialchars($_GET[$name]);
 	if ( $var == "" or is_null($var) or $var == false ) {
@@ -38,12 +45,15 @@ function puts($var, $false = "no") {
 	echo english_out($var, $false)."<br>";
 }
 
+
+
 //================================================================
 
 // PERSONAL
 
 $first_name = get("first-name");
 $last_name = get("last-name");
+$name = $first_name . " " . $last_name;
 $birthday = get("birthday");
 $gender = get("gender", "none");
 
@@ -93,26 +103,26 @@ if( $interpreter ) {
 	$to_lang_de = get("to-lang-de");
 	$to_lang_fr = get("to-lang-fr");
 	$to_lang_es = get("to-lang-es");
-	$translates = array();
+	$interprets = array();
 	if( $from_lang_en ) {
-		if( $to_lang_de ) { array_push($translates, "from English to German"); };
-		if( $to_lang_fr ) { array_push($translates, "from English to French"); };
-		if( $to_lang_es ) { array_push($translates, "from English to Spanish"); };
+		if( $to_lang_de ) { array_push($interprets, "from English to German"); };
+		if( $to_lang_fr ) { array_push($interprets, "from English to French"); };
+		if( $to_lang_es ) { array_push($interprets, "from English to Spanish"); };
 	}
 	if( $from_lang_de ) {
-		if( $to_lang_en ) { array_push($translates, "from German to English"); };
-		if( $to_lang_fr ) { array_push($translates, "from German to French"); };
-		if( $to_lang_es ) { array_push($translates, "from German to Spanish"); };
+		if( $to_lang_en ) { array_push($interprets, "from German to English"); };
+		if( $to_lang_fr ) { array_push($interprets, "from German to French"); };
+		if( $to_lang_es ) { array_push($interprets, "from German to Spanish"); };
 	}
 	if( $from_lang_fr ) {
-		if( $to_lang_en ) { array_push($translates, "from French to English"); };
-		if( $to_lang_de ) { array_push($translates, "from French to German"); };
-		if( $to_lang_es ) { array_push($translates, "from French to Spanish"); };
+		if( $to_lang_en ) { array_push($interprets, "from French to English"); };
+		if( $to_lang_de ) { array_push($interprets, "from French to German"); };
+		if( $to_lang_es ) { array_push($interprets, "from French to Spanish"); };
 	}
 	if( $from_lang_es ) {
-		if( $to_lang_en ) { array_push($translates, "from Spanish to English"); };
-		if( $to_lang_de ) { array_push($translates, "from Spanish to German"); };
-		if( $to_lang_fr ) { array_push($translates, "from Spanish to French"); };
+		if( $to_lang_en ) { array_push($interprets, "from Spanish to English"); };
+		if( $to_lang_de ) { array_push($interprets, "from Spanish to German"); };
+		if( $to_lang_fr ) { array_push($interprets, "from Spanish to French"); };
 	}
 }
 
@@ -207,7 +217,7 @@ if ( $accomodation_help ) {
 	$accomodation_wishes = get("accomodation-wishes");
 	$payer = get("payer");
 	if ( get("samebilling") ) {
-		$billing_name = $first_name . " " . $last_name;
+		$billing_name = $name;
 		$billing_address = $address;
 		$billing_address_2 = $address_2;
 		$billing_city = $city;
@@ -232,6 +242,34 @@ $departure = get("departure");
 $needs_invitation = get("invitation");
 
 
+// VALIDATION
+
+$con = mysql_connect("localhost","root","root") or die("MYSQL con failed: ".mysql_error());
+$db = mysql_select_db("centennial",$con) or die("DB Select Error: ".mysql_error());
+
+
+if ( $first_name == false or $last_name == false or $address == false or $city == false or $email == false or $food == false or $payment == false ) {
+	$valid = false;
+} else {
+	$query = " SELECT email, first_name, last_name FROM registration WHERE email='$email' ";
+	$result = mysql_query($query, $con) or die(mysql_error());;
+	while ( $row = mysql_fetch_array($result) ) {
+		$valid = $row[0] . $row[1];
+	}
+	if ( $result ) {
+		$valid = $result;
+	} else {
+		$valid = true;
+	}
+}
+
+if ( $valid ) {
+	$query = " INSERT INTO registration (email, first_name, last_name, birthday, gender) VALUES ('$email', '$first_name', '$last_name', '$birthday', '$gender') ";
+	$result = mysql_query($query, $con) or die(mysql_error());;
+}
+
+
+mysql_close($con);
 ?>
 
 
@@ -244,58 +282,17 @@ $needs_invitation = get("invitation");
 	<script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/form.css">
+	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-	<h1>Hello <?php echo $first_name.$last_name ?></h1>
 	<p>
 		<?php 
-		puts("birthday: ".$birthday);
-		puts("gender: ".$gender); 
-		echo("responsibilities: "); puts($responsibilities, "none"); 
-		echo("languages: "); puts($languages, "none"); 
-		puts("interpreter: ".$interpreter); 
-		echo("translates: "); puts($translates, "none"); 
-		puts($accomodation_help);
-		puts("budget: ".$budget);
+		puts($email);
+		puts($name);
+		puts($birthday);
+		puts($gender); 
+		puts($valid);
 		 ?>
 	</p>
 </body>
-
-
-<!-- 
-
-
-ROOM
-
-roommate
-
-accomodation-friend-1
-accomodation-friend-2
-
-accomodation-wishes
-
-
-billing-name
-billing-address
-billing-address-2
-billing-city
-billing-post-code
-billing-state
-billing-country
-
-ARRIVE
-
-arrival
-departure
-
-
- -->
-
-
-
-
-
-
-
-

@@ -58,6 +58,12 @@ $(document).ready(function(){
 		$("#fee").text(getFee());
 		$("#participation-fee").fadeIn();
 	});
+
+	$("#u16").change(function() {
+		$("#payment-amount").toggleClass("validate[required,custom[number]]");
+		$("#selfpayment").toggleClass("validate[required] radio");
+		$("#otherpayer").toggleClass("validate[required] radio");
+	});
 	
 	//Toggle Council
 	$("#council").change(function() {
@@ -97,10 +103,10 @@ $(document).ready(function(){
 	$("#otherpayer").change(function() {
 		$("#if-selfpayment").slideUp();
 		$("#if-otherpayer").slideToggle();
-		$("#payer").addClass("validate[required]");
+		$("#paying-person").addClass("validate[required]");
 		$("#paypal").removeClass("validate[required] radio");
 		$("#wire").removeClass("validate[required] radio");
-		$("#cash").addClass("validate[required] radio");
+		$("#cash").removeClass("validate[required] radio");
 	});
 	
 	//Toggle Paying For Others
@@ -127,8 +133,11 @@ $(document).ready(function(){
 	});
 	
 	//Toggle Accomodation Help
-	$("#accomodation-help-yes").change(function() {
-		$("#if-accomodation-help-yes").slideDown("slow");
+	$("#accommodation-help-yes").change(function() {
+		$("#if-accommodation-help-yes").slideDown("slow");
+		if($("#council").is(":checked")) {
+			$("#unless-council").hide();;
+		}
 		$("#budget-15").addClass("validate[required] radio");
 		$("#budget-30").addClass("validate[required] radio");
 		$("#budget-40").addClass("validate[required] radio");
@@ -144,9 +153,10 @@ $(document).ready(function(){
 		$("#billing-post-code").addClass("validate[required,custom[number]");
 		$("#billing-state").addClass("validate[required]");
 		$("#billing-country").addClass("validate[required]");
+
 	});
-	$("#accomodation-help-no").change(function() {
-		$("#if-accomodation-help-yes").slideUp();
+	$("#accommodation-help-no").change(function() {
+		$("#if-accommodation-help-yes").slideUp();
 		$("#budget-15").removeClass("validate[required] radio");
 		$("#budget-30").removeClass("validate[required] radio");
 		$("#budget-40").removeClass("validate[required] radio");

@@ -6,7 +6,7 @@ body {
 	color: white;
 }
 
-form section h1 {
+section h1 {
 	text-transform: uppercase;
 	font-weight: 900;
 	font-size: 1.3em;
@@ -15,7 +15,7 @@ form section h1 {
 	cursor: pointer;
 }
 
-form section h1 span {
+section h1 span {
 	width: 1em;
 	height: 1.3em;
 	text-align: center;
@@ -23,7 +23,7 @@ form section h1 span {
 	transition: all 0.4s ease;
 }
 
-form section {
+section {
 	background: #1F6C8F;
 	padding: 0.7em 2em 0.7em 3em;
 	margin: -3px auto;
@@ -31,16 +31,16 @@ form section {
 	width: 30em;
 }
 
-form section.top-bottom {
+section.top-bottom {
 	border-radius: 2em;
 }
 
-form section.top {
+section.top {
 	border-radius: 2em 2em 0 0;
 	padding-top: 1em;
 }
 
-form section.bottom {
+section.bottom {
 	border-radius: 0 0 2em 2em;
 	padding-bottom: 1em;
 }
@@ -97,7 +97,7 @@ label {
 	cursor: pointer;
 }
 
-form section h2 {
+section h2 {
 	font-size: 1em;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -114,6 +114,13 @@ form section h2 {
 	font-weight: 900;
 	width: 15em;
 	margin: 0 auto;
+}
+
+.form-title-2 {
+	display: block;
+	font-size: 1.2em;
+	width: 25em;
+	margin: 2em auto;
 }
 
 input.newline {
@@ -159,13 +166,13 @@ p.info {
 
 
 
-form section p a {
+section p a {
 	text-decoration: none;
 	font-weight: 900;
 	color: #F57B05;
 }
 
-form section p a:hover {
+section p a:hover {
 	color: white;
 }
 
@@ -338,3 +345,17 @@ form h3 a:hover {
 	color: #F57B05;
 }
 
+a.redirect {
+	display: block;
+	color: white;
+	font-weight: 900;
+	font-size: 1.2em;
+	text-decoration: none;
+	text-align: right;
+	width: 25em;
+	margin: 0.5em auto;
+
+}
+a.redirect:hover {
+	color: #1F6C8F;
+}

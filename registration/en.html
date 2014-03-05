@@ -16,18 +16,6 @@
 		Your browser has disabled JavaScript. For a seamless form-submission experience it is highly recommended, that you turn it on. For instructions how to enable JavaScript in your browser, go to <a href="http://enable-javascript.com">enable-javascript.com</a>.
 	</noscript>
 	
-	<aside class="status">
-			<label>This form is not completed yet!</label><br>
-			<input type="checkbox" checked><label>Basic Structure</label><br>
-			<input type="checkbox" checked><label>Layout and Style</label><br>
-			<input type="checkbox" checked><label>Frontend Interactions</label><br>
-			<input type="checkbox" checked><label>Frontend Validation</label><br>
-			<input type="checkbox" checked><label>Backend Validation</label><br>
-			<input type="checkbox" checked><label>Backend Logic</label><br>
-			<input type="checkbox"        ><label>Confirmation Mail</label><br>
-			<input type="checkbox"        ><label>Multilingual Versions</label><br>
-		</aside>
-		
 	<main class="form">
 		<h1 class="form-title">Registration</h1>
 		<form action="register.php" method="GET" id="form">
@@ -120,11 +108,11 @@
 				<p>
 					<input type="email" name="email" id="email"
 					class="validate[required,custom[email]]"
-					data-errormessage-value-missing="We need your eamil to send you a confirmation."
+					data-errormessage-value-missing="We need your email to send you a confirmation."
 					data-errormessage-custom-error="Must be a valid email like 'someone@nowhere.com'.">
 					<label for="email">Email</label>
 				</p>
-				<button class="next">next ></button>
+				<button onclick="return false" class="next">next ></button>
 				</div>
 			</section>
 			<section id="sec-orga">
@@ -150,7 +138,7 @@
 						<input type="text" name="responsibility-3" id="responsibility-3" class="newline">
 					</p>
 				</div>
-				<button class="next" id="val-2">next ></button>
+				<button onclick="return false" class="next" id="val-2">next ></button>
 				</div>
 			</section>
 			<section id="sec-lang">
@@ -198,7 +186,7 @@
 						<label for="to-lang-es" class="simple">Spanish</label>
 					</p>
 				</div>
-				<button class="next">next ></button>
+				<button onclick="return false" class="next">next ></button>
 				</div>
 			</section>
 			<section id="sec-meals">
@@ -220,9 +208,9 @@
 				</p>
 				<p>
 					<label class="description">I have the following food preferences:</label><br>
-					<input type="radio" name="food" value="omnivore" id="food-omnivore"
+					<input type="radio" name="food" value="everything" id="food-omnivore"
 					class="validate[required] radio"
-					data-errormessage-value-missing="Please indicate yor food preference.">
+					data-errormessage-value-missing="Please indicate your food preferences.">
 					<label for="food-omnivore" class="simple">I eat basically everything.</label><br>
 					<input type="radio" name="food" value="vegetarian" id="food-vegetarian"
 					class="validate[required] radio"
@@ -240,14 +228,14 @@
 			 			data-errormessage-value-missing="What do you eat?">
 			 		</label>
 				</p>
-				<button class="next">next ></button>
+				<button onclick="return false" class="next">next ></button>
 				</div>
 			</section>
 			<section id="sec-programme">
 				<h1><span></span>Programme Participation</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
-					We need to estimate the attendace so we can plan. Please help us by indicating which events you will attend.
+					We need to estimate the attendance so we can plan. Please help us by indicating which events you will attend.
 				</p>
 				<p class="bottom-margin">
 					<label class="description">I plan to participate in the following events:</label><br>
@@ -277,14 +265,14 @@
 					<input type="checkbox" name="cloth" id="cloth">
 					<label for="cloth">I will bring a piece of cloth.</label>
 				</p>
-				<button class="next">next ></button>
+				<button onclick="return false" class="next">next ></button>
 				</div>
 			</section>
 			<section id="sec-fee">
 				<h1><span></span>Registration Fee</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
-					The registration fee for the Centennial weekend (children under 16 are free) is &euro;50 for the whole weekend; for partial participation the fee is &euro;20 for Friday and Saturday each, and &euro;15 for Sunday. This fee includes participation in all programme events, the city tour, the exhibitions, the concert, and the shuttle service to the direct nonviolent action on Friday. Not included in this fee are food, accommodation, and the costs for transportation within Konstanz. Please indicate the registration fee which applies to you and indicate how it will be paid for on the next page.
+					The registration fee for the Centennial weekend (children under 16 are free) is &euro;50 for the whole weekend; for partial participation the fee is &euro;20 for Friday and Saturday each, and &euro;15 for Sunday. This fee includes participation in all programme events, the city tour, the exhibitions, the concert, and the shuttle service to the direct nonviolent action on Friday. Not included in this fee are food, accommodation, and the costs for transportation within Konstanz. Please indicate the registration fee which applies to you and indicate how it will be paid for.
 				</p>
 				<p class="border-margin">
 					<label class="description">I register for the following days:</label><br>
@@ -304,7 +292,7 @@
 						And I will pay the registration fee<span id="fee" class="hidden"> of &euro; 0</span>.
 					</label>
 				</p>
-				<h2>Subsequent IFOR Council</h2>
+				<h2>IFOR Council</h2>
 				<p class="info border-margin">
 					After the Centennial, the IFOR Council will take place from August 3-9. Only delegates and invited guests can participate in the Council.
 				</p>
@@ -315,12 +303,12 @@
 				<div id="if-council" class="hide">
 					<p class="top-margin bottom-margin">
 						<input type="radio" name="participation-type" value="delegate" id="participation-type-delegate"
-						data-errormessage-value-missing="Please indicate wether you are a guest or a delegate.">
+						data-errormessage-value-missing="Please indicate whether you are a guest or a delegate.">
 						<label for="participation-type-delegate" class="simple">I am a delegate for:</label>
 						<input type="text" name="delegating" id="delegating"
 						data-errormessage-value-missing="Please name the delegating organization.">.<br>
 						<input type="radio" name="participation-type" value="guest" id="participation-type-guest"
-						data-errormessage-value-missing="Please indicate wether you are a guest or a delegate.">
+						data-errormessage-value-missing="Please indicate whether you are a guest or a delegate.">
 						<label for="participation-type-guest" class="simple">I am participating in the Council as a guest.</label>
 					</p>
 					<p class="bottom-margin">
@@ -329,7 +317,7 @@
 					</p>
 					<div id="if-no-centennial" class="hide">
 						<p class="doubleckeck bottom-margin">
-							Just to doublecheck, you indicated that you will <b>not</b> come to the Centennial from August 1-3.
+							Just to double check, you indicated that you will <b>not</b> come to the Centennial from August 1-3.
 						</p>
 					</div>
 					<p class="info bottom-margin">
@@ -367,13 +355,13 @@
 					<label for="payment-amount">Payment Amount:</label> &euro;
 					<input type="tel" name="payment-amount" id="payment-amount" 
 					class="validate[required,custom[number]] short"
-					data-errormessage-value-missing="Please indicate the fee that you will pay or that will be payed for you."
+					data-errormessage-value-missing="Please indicate the fee that you will pay or that will be paid for you."
 					data-errormessage-custom-error="Must be an integer.">
 				</p>
 				<div id="if-otherpayer" class="hide">
 					<p class="top-margin bottom-margin">
-						<label for="payer">The following person / organization pays for me:</label>
-						<input type="text" name="payer" id="payer" class="newline"
+						<label for="paying-person">The following person / organization pays for me:</label>
+						<input type="text" name="paying-person" id="paying-person" class="newline"
 						data-errormessage-value-missing="Please indicate who pays for you.">
 					</p>
 				</div>
@@ -419,49 +407,51 @@
 						</p>
 					</div>
 				</div>
-				<button class="next">next ></button>
+				<button onclick="return false" class="next">next ></button>
 				</div>
 			</section>
 			<section id="sec-rooms">
-				<h1><span></span>Accomodations</h1>
+				<h1><span></span>Accommodations</h1>
 				<div class="section-content">
 				<p class="info bottom-margin">
-					During the high season it is difficult to find a room in Konstanz. Therefore IFOR has reserved rooms in different categories of accommodations for you.
+					During the high season it is difficult to find a room in Konstanz. Therefore IFOR has reserved rooms in different categories of accommodations for you. If you are a council member, you will be accommodated with the other council participants, so please select 'Yes' here. 
 				</p>
 				<p>
-					<label class="description">Do you want IFOR's help to find an accomodation?</label><br>
-					<input type="radio" name="accomodation-help" value="yes" id="accomodation-help-yes"
+					<label class="description">Do you want IFOR's help to find an accommodation?</label><br>
+					<input type="radio" name="accommodation-help" value="yes" id="accommodation-help-yes"
 					class="validate[required] radio"
-					data-errormessage-value-missing="Do you want help to find an accomodation?">
-					<label for="accomodation-help-yes" class="simple">Yes</label>
-					<input type="radio" name="accomodation-help" value="no" id="accomodation-help-no"
+					data-errormessage-value-missing="Do you want help to find an accommodation?">
+					<label for="accommodation-help-yes" class="simple">Yes</label>
+					<input type="radio" name="accommodation-help" value="no" id="accommodation-help-no"
 					class="validate[required] radio"
-					data-errormessage-value-missing="Do you want help to find an accomodation?">
-					<label for="accomodation-help-no" class="simple">No</label>
+					data-errormessage-value-missing="Do you want help to find an accommodation?">
+					<label for="accommodation-help-no" class="simple">No</label>
 				</p>
-				<div id="if-accomodation-help-yes" class="hide">
-					<h2>Budget</h2>
-					<p class="info bottom-margin">
-						Please choose the category you would like to reserve a room in.
-					</p>
-					<p>
-						<label class="description">My budget per person and night is approximately:</label><br>
-						<input type="radio" name="budget" value="15" id="budget-15"
-						data-errormessage-value-missing="Indicate your budget.">
-						<label for="budget-15" class="simple" style="margin-right:0;">&euro;15 per person and night – church hall (without breakfast)</label><br>
-						<input type="radio" name="budget" value="30" id="budget-30"
-						data-errormessage-value-missing="Indicate your budget.">
-						<label for="budget-30" class="simple">&euro;30 per person and night – guesthouse or basic hotel</label><br>
-						<input type="radio" name="budget" value="40" id="budget-40"
-						data-errormessage-value-missing="Indicate your budget.">
-						<label for="budget-40" class="simple">&euro;40 per person and night – middle class hotel</label><br>
-						<input type="radio" name="budget" value="90" id="budget-90"
-						data-errormessage-value-missing="Indicate your budget.">
-						<label for="budget-90" class="simple">&euro;90 per person and night – high class hotel</label>
-					</p>
+				<div id="if-accommodation-help-yes" class="hide">
+					<div id="unless-council">
+						<h2>Budget</h2>
+						<p class="info bottom-margin">
+							Please choose the category you would like to reserve a room in.
+						</p>
+						<p>
+							<label class="description">My budget per person and night is approximately:</label><br>
+							<input type="radio" name="budget" value="15" id="budget-15"
+							data-errormessage-value-missing="Indicate your budget.">
+							<label for="budget-15" class="simple" style="margin-right:0;">&euro;15 per person and night – church hall (without breakfast)</label><br>
+							<input type="radio" name="budget" value="30" id="budget-30"
+							data-errormessage-value-missing="Indicate your budget.">
+							<label for="budget-30" class="simple">&euro;30 per person and night – guesthouse or basic hotel</label><br>
+							<input type="radio" name="budget" value="40" id="budget-40"
+							data-errormessage-value-missing="Indicate your budget.">
+							<label for="budget-40" class="simple">&euro;40 per person and night – middle class hotel</label><br>
+							<input type="radio" name="budget" value="90" id="budget-90"
+							data-errormessage-value-missing="Indicate your budget.">
+							<label for="budget-90" class="simple">&euro;90 per person and night – high class hotel</label>
+						</p>
+					</div>
 					<h2>Double Rooms</h2>
 					<p class="info bottom-margin">
-						Participants will generally be accomodated in double rooms. If you want a single room, surcharges of up to 70% will apply — even for delegates. The delegates for the IFOR Council meeting after the Centennial will be accommodated together.
+						Participants will generally be accommodated in double rooms. If you want a single room, surcharges of up to 70% will apply — even for delegates. The delegates for the IFOR Council meeting after the Centennial will be accommodated together.
 					</p>
 					<p>
 						<label class="description">Please choose your room preference:</label><br>
@@ -480,27 +470,27 @@
 					</p>
 					<h2>Additional Wishes</h2>
 					<p class="info bottom-margin">
-						If you would like to be accomodated in the same building as a friend, you can indicate this below. You can also indicate other special wishes here like family accommodations, requiring a lift in the hotel, allergies, diet, or something alike.
+						If you would like to be accommodated in the same building as a friend, you can indicate this below (in case of differing budget categories You will leave the choice of accommodation to IFOR). You can also indicate other special wishes here like family accommodations, requiring a lift in the hotel, allergies, diet, or something alike.
 					</p>
 					<p>
-						<label for="accomodation-friend-1">I would like to be in one accommodation with:</label>
-						<input type="text" name="accomodation-friend-1" id="accomodation-friend-1" class="newline">
-						<input type="text" name="accomodation-friend-2" id="accomodation-friend-2" class="newline">
+						<label for="accommodation-friend-1">I would like to be in one accommodation with:</label>
+						<input type="text" name="accommodation-friend-1" id="accommodation-friend-1" class="newline">
+						<input type="text" name="accommodation-friend-2" id="accommodation-friend-2" class="newline">
 					</p>
 					<p>
-						<label for="accomodation-wishes">I have the following special accomodation wishes:</label>
-						<input type="text" name="accomodation-wishes" id="accomodation-wishes" class="newline">
+						<label for="accommodation-wishes">I have the following special accommodation wishes:</label>
+						<input type="text" name="accommodation-wishes" id="accommodation-wishes" class="newline">
 					</p>
 					<h2>Payment</h2>
 					<p class="info bottom-margin">
-						Please indicate whether you will pay personally or whether your organization will cover the costs of your accomodations.
+						Please indicate whether you will pay personally or whether your organization will cover the costs of your accommodations.
 					</p>
 					<p class="bottom-margin">
 						<input type="radio" name="payer" value="self" id="payer-self"
-						data-errormessage-value-missing="How will your accomodation be paid for?">
+						data-errormessage-value-missing="How will your accommodation be paid for?">
 						<label for="payer-self" class="simple">I will pay for my own accommodation.</label><br>
 						<input type="radio" name="payer" value="orga" id="payer-orga"
-						data-errormessage-value-missing="How will your accomodation be paid for?">
+						data-errormessage-value-missing="How will your accommodation be paid for?">
 						<label for="payer-orga" class="simple">My organization will cover the cost.</label>
 					</p>
 					<p>
@@ -550,7 +540,7 @@
 						</p>
 					</div>
 				</div>
-				<button class="next">next ></button>
+				<button onclick="return false" class="next">next ></button>
 				</div>
 			</section>
 			<section class="bottom" id="sec-arrive">
@@ -582,7 +572,7 @@
 						We will send you an official invitation via email as soon as possible. For special requirements, please contact us via email to <a href="mailto:registration@ifor.org">registration@ifor.org</a>. 
 					</p>
 				</div>
-				<button class="next">next ></button>
+				<button onclick="return false" class="next">next ></button>
 				</div>
 			</section>
 			<input type="submit" id="submit">

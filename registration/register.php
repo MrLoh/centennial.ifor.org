@@ -13,7 +13,7 @@ function get($name, $fallback = false) {
 	} elseif ( $var == "on" ) {
 		return true;
 	} else {
-		return addslashes($var." ");
+		return addslashes($var);
 	}
 }
 
@@ -24,7 +24,7 @@ function english_out($var, $false = "no"){
 			if ( $i == count($var)-1 ) {
 				$out .= $var[$i];
 			} elseif ( $i == count($var)-2 ) {
-				$out .= $var[$i].", and ";
+				$out .= $var[$i]." and ";
 			} else {
 				$out .= $var[$i].", ";
 			}
@@ -62,10 +62,12 @@ $first_name = get("first-name");
 $last_name = get("last-name");
 $name = $first_name . " " . $last_name;
 $birthday = get("birthday");
-$gender = get("gender", "none");
+$gender = get("gender", "no gender");
 
 $address = get("address");
 $address_2 = get("address-2");
+$address_full = $address;
+if ( !empty($address_2) ) { $address_full .= ", ".$address_2; };
 $city = get("city");
 $post_code = get("post-code");
 $state = get("state");
@@ -75,6 +77,12 @@ $tel = get("tel");
 $mobile = get("mobile");
 $skype = get("skype");
 $email = get("email");
+
+$contact = array();
+if ( $tel ) { array_push($contact, $tel); };
+if ( $tel ) { array_push($contact, $mobile); };
+if ( $tel ) { array_push($contact, $skype); };
+if ( $tel ) { array_push($contact, $email); };
 
 $id = idify($name.$email);
 
@@ -144,7 +152,7 @@ if ( get("lunch-sa") ) { array_push($meals, "Saturday Lunch"); };
 if ( get("dinner-sa") ) { array_push($meals, "Saturday Dinner"); };
 
 $food = get("food");
-if ( $food == "other " ) { $food = get("other-food"); }
+if ( $food == "other" ) { $food = get("other-food"); }
 
 // PROGRAMME PARTICIPATION
 
@@ -155,7 +163,7 @@ if( get("prog-fr-2") ) { array_push($participation, "Celebration"); };
 if( get("prog-sa-1") ) { array_push($participation, "IFOR in Action"); };
 if( get("prog-sa-2") ) { array_push($participation, "Concert"); };
 if( get("prog-su-1") ) { array_push($participation, "Interfaith Celebration"); };
-if( get("prog-snack") ) { array_push($participation, "Snack"); };
+if( get("prog-snack") ) { array_push($participation, "the snack on Sunday"); };
 
 $cloth = get("cloth");
 
@@ -186,10 +194,10 @@ else {
 $payment = get("payment");
 $payment_amount = get("payment-amount");
 $paying_for = array();
-if ( $payment == "otherpayer " ) {
-	$payer = get("payer");
-	$payment_method = $payer;
-} elseif ( $payment == "selfpayment ") {
+if ( $payment == "otherpayer" ) {
+	$paying_person = get("paying-person");
+	$payment_method = $paying_person;
+} elseif ( $payment == "selfpayment") {
 	$payment_method = get("payment-method");
 	$paying_for_others = get("paying-for-others");
 	if ( $paying_for_others ) {
@@ -207,7 +215,7 @@ if ( $payment == "otherpayer " ) {
 $council = get("council");
 if ( $council ) {
 	$delegating = get("participation-type");
-	if ( $delegating == "delegate ") { $delegating = get("delegating"); };
+	if ( $delegating == "delegate") { $delegating = get("delegating"); };
 	$council_only = get("no-centennial");
 	$council_payment = get("council-pay");
 }
@@ -220,20 +228,23 @@ if ( $council ) {
 
 // ACCOMODATIONS
 
-$accomodation_help = get("accomodation-help");
-if ( $accomodation_help == "yes") { 
-	$accomodation_help = true;
-} elseif ( $accomodation_help == "no" ) {
-	$accomodation_help = false;
+$accommodation_help = get("accommodation-help");
+if ( $accommodation_help == "yes") { 
+	$accommodation_help = true;
+} elseif ( $accommodation_help == "no" ) {
+	$accommodation_help = false;
 }
 
-if ( $accomodation_help ) {
+if ( $accommodation_help ) {
 	$budget = get("budget");
 	$doubles = get("doubles");
-	if ( $doubles == "choice " ) { $doubles = get("roommate"); };
-	$accomodation_friend_1 = get("accomodation-friend-1");
-	$accomodation_friend_2 = get("accomodation-friend-2");
-	$accomodation_wishes = get("accomodation-wishes");
+	if ( $doubles == "choice" ) { $doubles = get("roommate"); };
+	$accommodation_friend_1 = get("accommodation-friend-1");
+	$accommodation_friend_2 = get("accommodation-friend-2");
+	$accommodation_friends = array();
+	if ( $accommodation_friend_1 ) { array_push($accommodation_friends, $accommodation_friend_1); };
+	if ( $accommodation_friend_2 ) { array_push($accommodation_friends, $accommodation_friend_2); };
+	$accommodation_wishes = get("accommodation-wishes");
 	$payer = get("payer");
 	if ( get("samebilling") ) {
 		$billing_name = $name;
@@ -252,6 +263,8 @@ if ( $accomodation_help ) {
 		$billing_state = get("billing-state");
 		$billing_country = get("billing-country");
 	}
+	$billing_address_full = $billing_address;
+	if ( !empty($billing_address_2) ) { $billing_address_full .= ", ".$billing_address_2; };
 }
 
 // ARRIVAL & DEPARTURE
@@ -270,21 +283,21 @@ $valid = false;
 
 if ( $first_name == false or $last_name == false ) {
 	$valid = false;
-	$error = "Youre name is incomplete!";
+	$error = "Your name is incomplete!";
 } elseif ( $address == false or $post_code == false or $city == false or $country == false ) {
 	$valid = false;
-	$error = "Youre address is incomplete!";
+	$error = "Your address is incomplete!";
 } elseif ( $email == false ) {
 	$valid = false;
 	$error = "You didn't specify and email!";
-} elseif ( $payment == false ) {
+} elseif ( !$u16 and $payment == false ) {
 	$valid = false;
 	$error = "You didn't specify how you're fee will be paid!";
 } else {
 	$query = " SELECT * FROM registration WHERE id='$id' ";
 	$result = $SQL->query($query);
 	if ( $result->num_rows > 0 ) {
-		$valid = false;
+		$valid = true;
 		$error = "We already have a registration with the same name and email address!";
 	} else {
 		$valid = true;
@@ -304,8 +317,8 @@ if ( $valid ) {
 		global $SQL;
 		if ( $result == 0 ) { 
 			$error = "We have some problem saving to our database. We are working to fix it. Please send us a mail with this error code to registration@ifor.org: <br>";
-			$error .= $SQL->error;
-			$error .= "<br> Query: ".$query; 
+			$error2 = $SQL->error;
+			$error2 .= "<br> Query:".$query; 
 			$success = false;
 		} elseif ( $result == 1 ) { 
 			$success = true; 
@@ -313,7 +326,7 @@ if ( $valid ) {
 	}
 
 	// REGISTRATION DB
-	$query = " INSERT INTO registration (id, first_name, last_name, birthday, gender, address, address_2, city, post_code, state, country, tel, mobile, skype, email, languages, organization, responsibility, interpreter, meals, food, participation, cloth, days, u16, fee, paying_method, payment_amount, paying_for, council_participitation, accomodation_help, arrival, departure, invitation) VALUES ('$id', '$first_name', '$last_name', '$birthday', '$gender', '$address', '$address_2', '$city', '$post_code', '$state', '$country', '$tel', '$mobile', '$skype', '$email', '".english_out($languages)."', '$organization', '".english_out($responsibility)."', '".english_out($interpreter)."', '".english_out($meals)."', '$food', '".english_out($participation)."', '".english_out($cloth)."', '".english_out($days)."', '".english_out($u16)."', '$fee', '$payment_method', '$payment_amount', '".english_out($paying_for)."','".english_out($council_participitation)."', '".english_out($accomodation_help)."', '$arrival', '$departure', '".english_out($needs_invitation)."') ";
+	$query = " INSERT INTO registration (id, first_name, last_name, birthday, gender, address, address_2, city, post_code, state, country, tel, mobile, skype, email, languages, organization, responsibility, interpreter, meals, food, participation, cloth, days, u16, fee, paying_method, payment_amount, paying_for, council_participitation, accommodation_help, arrival, departure, invitation) VALUES ('$id', '$first_name', '$last_name', '$birthday', '$gender', '$address', '$address_2', '$city', '$post_code', '$state', '$country', '$tel', '$mobile', '$skype', '$email', '".english_out($languages)."', '$organization', '".english_out($responsibility)."', '".english_out($interpreter)."', '".english_out($meals)."', '$food', '".english_out($participation)."', '".english_out($cloth)."', '".english_out($days)."', '".english_out($u16)."', '$fee', '$payment_method', '$payment_amount', '".english_out($paying_for)."','".english_out($council_participitation)."', '".english_out($accommodation_help)."', '$arrival', '$departure', '".english_out($needs_invitation)."') ";
 	$result = $SQL->query($query);
 	error_db_handling($result);
 
@@ -363,7 +376,7 @@ if ( $valid ) {
 		construct_participation_query("IFOR in Action");
 		construct_participation_query("Concert");
 		construct_participation_query("Interfaith Celebration");
-		construct_participation_query("Snack");
+		construct_participation_query("the snack on Sunday");
 		if ( $cloth ) {
 			$partic_binary_list .= ", 1";
 		} else {
@@ -413,17 +426,17 @@ if ( $valid ) {
 			return $binary_list;
 		}
 		$zero_binary_list = ", 0, 0, 0, 0, 0";
-		if ( $food == "omnivore " ) {
+		if ( $food == "everything" ) {
 			$food_binary_list = construct_food_query();
 			$food_binary_list .= $zero_binary_list;
 			$food_binary_list .= $zero_binary_list;
 			$food_binary_list .= ", ''";
-		} elseif ( $food == "vegetarian " ) {
+		} elseif ( $food == "vegetarian" ) {
 			$food_binary_list = $zero_binary_list;
 			$food_binary_list .= construct_food_query();
 			$food_binary_list .= $zero_binary_list;
 			$food_binary_list .= ", ''";
-		} elseif ( $food == "vegan " ) {
+		} elseif ( $food == "vegan" ) {
 			$food_binary_list = $zero_binary_list;
 			$food_binary_list .= $zero_binary_list;
 			$food_binary_list .= construct_food_query();
@@ -440,17 +453,17 @@ if ( $valid ) {
 	}
 
 	// ACCOMODATION DB
-	if ( $success and $accomodation_help ) {
-		$query = " INSERT INTO accomodation (id, name, email, budget, doubles, accomodation_friend_1, accomodation_friend_2, accomodation_wishes, billing_name, billing_address, billing_address_2, billing_city, billing_post_code, billing_state, billing_country) VALUES ('$id', '$name', '$email', '$budget', '$doubles', '$accomodation_friend_1', '$accomodation_friend_2', '$accomodation_wishes', '$billing_name', '$billing_address', '$billing_address_2', '$billing_city', '$billing_post_code', '$billing_state', '$billing_country') ";
+	if ( $success and $accommodation_help ) {
+		$query = " INSERT INTO accommodation (id, name, email, budget, doubles, accommodation_friend_1, accommodation_friend_2, accommodation_wishes, billing_name, billing_address, billing_address_2, billing_city, billing_post_code, billing_state, billing_country) VALUES ('$id', '$name', '$email', '$budget', '$doubles', '$accommodation_friend_1', '$accommodation_friend_2', '$accommodation_wishes', '$billing_name', '$billing_address', '$billing_address_2', '$billing_city', '$billing_post_code', '$billing_state', '$billing_country') ";
 		$result = $SQL->query($query);
 		error_db_handling($result);
 	}
 
 	// COUNCIL DB
 	if ( $success and $council ) {
-		if ( $council_payment == "IFOR " ) {
+		if ( $council_payment == "IFOR" ) {
 			$council_financial_aid = true;
-		} elseif ( $council_payment == "self " ) {
+		} elseif ( $council_payment == "self" ) {
 			$council_financial_aid = false; 
 		}
 		$query = " INSERT INTO council (id, name, email, delegating, financial_aid, council_only) VALUES ('$id', '$name', '$email', '$delegating', '".english_out($council_financial_aid)."', '".english_out($council_only)."') ";
@@ -460,6 +473,111 @@ if ( $valid ) {
 }
 
 mysql_close($con);
+
+
+if ( $success ) {
+	
+	// COMPILE CONFIRMATION TEXT
+
+	$confirm = "Dear $name, \n\n";
+	$confirm .= "Your registration for the IFOR Centennial has successfully been submitted. We have stored the following information in our database: \n\n";
+
+	$confirm .= "You are $name, born $birthday, $gender. ";
+	$confirm .= "You live at $address_full, $city, $post_code, $state, $country. ";
+	$confirm .= "We can contact you at ".english_out($contact).". ";
+	$confirm .= "You speak ".english_out($languages).".\n\n";
+
+	if ( !empty($organization) or $responsibility or $interpreter ) {
+		if ( !empty($organization) ) { $confirm .= "You come from $organization. "; };
+		if ( $responsibility ) { $confirm .= "You have overtaken the following responsibilities: ". english_out($responsibilities).". "; };
+		if ( $interpreter ) { $confirm .= "You are willing to translate ".english_out($interprets)."."; };
+		$confirm .= "\n\n";
+	}
+
+	if ( !empty($meals) ) { $confirm .= "You have booked ".english_out($meals)." and eat $food. \n\n"; };
+
+	if ( !empty($participation) ) { 
+		$confirm .= "You will participate in ".english_out($participation).""; 
+		if ( $cloth ) { $confirm .= ", and will bring a piece of cloth"; };
+		$confirm .= ". \n\n";
+	};
+
+		if ( $council ) {
+		$confirm .= "You will attend the IFOR Council from August 3-9 as a ";
+		if ( $delegating == "guest" ) { 
+			$confirm .= "guest. ";
+		} else {
+			$confirm .= "delegate for $delegating. "; 
+		}
+		if ( $council_only ) { $confirm .= "You will not attend the Centennial but are just coming for the Council. "; };
+		if ( $council_payment == "IFOR" ) {
+			$confirm .= "You will apply for financial aid from IFOR. Please visit www.ifor.org/council for more information. ";
+		} elseif ( $council_payment == "self" ) {
+			if ( $council_only ) {
+				$confirm .= "You will pay the full participation fee for the Council of €750 (+€360 for a single room). This includes 6 nights in a hotel with full board and all participation fees. ";
+			} else {
+				$confirm .= "You will pay the full participation fee for the Council and Centennial of €1000 (+€480 for a single room). This includes 8 nights in a hotel with full board and all participation fees. ";
+			}
+		}
+		$confirm .= "\n\n";
+	}
+
+	if ( !$u16 ) {
+		$confirm .= "Your Centennial participation fee";
+		if ( !empty($days) ) { $confirm .= " for ".english_out($days); };
+		$confirm .= " is €$fee. ";
+		if ( $payment == "otherpayer" ) {
+			$confirm .= "Please make sure the full indicated amount of €$payment_amount will be paid for you by $payment_method. ";
+		} elseif ( $payment == "selfpayment" ) {
+			if ( $payment_method == "wire" ) {
+				$confirm .= "Please wire the full amount of €$payment_amount to the following account: BIC: INGBNL2A, IBAN: NL11 INGB 0002 7041 82, indicating “IFOR Centennial 2014” as the subject. ";
+			} elseif ( $payment_method == "paypal" ) {
+				$confirm .= "Please visit www.centennial.ifor.org/payment to pay the full amount of €$payment_amount with credit card / PayPal.";
+			} elseif ( $payment_method == "cash" ) {
+				$confirm .= "Make sure you will be able to pay the full amount of €$payment_amount in cash at the registration desk in Konstanz. ";
+			}
+		if ( $paying_for_others ) { $confirm .= "This includes the fees for ".english_out($paying_for).", whom you also indicated to pay for. "; }
+		}
+		$confirm .= "\n\n";
+	}
+
+	if ( $accommodation_help ) {
+		if ( $council ) {
+			$confirm .= "You will be accommodated together with the other Council members. ";
+		} else {
+			$confirm .= "IFOR will help you find an accommodation within your budget of €$budget. ";
+		}
+		if ( $doubles == "single" ) {
+			$confirm .= "You will get a single room and are willing to pay a surcharge of up to 70% for that. ";
+		} else {
+			$confirm .= "You will be accommodated in a double room with ";
+			if ( $doubles == "IFOR" ) { 
+				$confirm .= "a random person, whom IFOR will choose for you. "; 
+			} else {
+				$confirm .= "$doubles, if possible. ";
+			}
+		}
+		if ( !empty($accommodation_friends) ) { $confirm .= "We will try to accommodate you in one hotel together with ".english_out($accommodation_friends).". You leave the choice of accommodation to IFOR in the case of differing budget categories from these people. "; };
+		if ( !empty($accommodation_wishes) ) { $confirm .= "We will try to fulfill your following wishes: $accommodation_wishes. "; };
+		$confirm .= "We will send the bill for the accommodation to $billing_name, $billing_address_full, $billing_city, $billing_post_code, $billing_state, $billing_country.\n\n";
+	}
+
+	$confirm .= "You indicated that you will arrive on $arrival and leave on $departure. \n\n";
+
+	if ( $needs_invitation ) { $confirm .= "We will send you an official invitation for your visa application. If you have any special requirements for that, please send an email to registration@ifor.org. \n\n"; };
+
+	$confirm .= "With best wishes,\n";
+	$confirm .= "The Centennial Team";
+
+	// SEND CONFIRMATION MAIL
+	$mail_headers = "From: IFOR Centennial Registration <registration@ifor.org>";
+	$mail_to = $email;
+	$mail_subject = "IFOR Centennial Registration";
+	mail($mail_to, $mail_subject, $confirm, $headers);
+}
+
+
+
 ?>
 
 
@@ -476,15 +594,26 @@ mysql_close($con);
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-	<p>
+	<main class="form">
 		<?php 
-		// puts($email);
-		// puts($name);
 		if ( !$valid or !$success) {
-			puts($error);
+			echo "<h1>Registration Failed!</h1>";
+			echo "<h2>$error<h2>";
+			echo "<p>$error2</p>";
 		} else {
-			puts("success");
+			echo "<h1 class='form-title'>You have Registered.</h1>";
+			echo "<h2 class='form-title-2'>Your data was saved in our database and we have sent the following confirmation email to $email.</h2>";
+			echo "<section class='top-bottom' style='margin-bottom: 1em; padding-bottom: 2.5em; padding-top: 2.5em;'>";
+			echo "<p>".nl2br($confirm)."</p>";
+			echo "</section>";
+			echo "<a class='redirect' href='http://www.centennial.ifor.org'>Go back to the Centennial homepage.</a>";
+			if ( $payment_method == "paypal" ) {
+				echo "<a class='redirect' href='http://www.centennial.ifor.org/payment'>Pay now via credit card / PayPal.</a>";
+			}
+			if ( $council_payment == "IFOR" ) {
+				echo "<a class='redirect' href='http://www.ifor.org/council'>Apply for financial aid for the IFOR Council now.</a>";
+			}
 		}
 		 ?>
-	</p>
+	</main>
 </body>

@@ -551,7 +551,7 @@ if ( $success ) {
 			$confirm .= "You will get a single room and are willing to pay a surcharge of up to 70% for that. ";
 		} else {
 			$confirm .= "You will be accommodated in a double room with ";
-			if ( $doubles == "IFOR" ) { 
+			if ( $doubles == "IFOR-pick" ) { 
 				$confirm .= "a random person, whom IFOR will choose for you. "; 
 			} else {
 				$confirm .= "$doubles, if possible. ";

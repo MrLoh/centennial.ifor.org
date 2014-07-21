@@ -56,6 +56,11 @@ body {
 		bottom: -220px;
 		z-index: -90;
 	}
+	&.mobile-press {
+		position: absolute;
+		bottom: -250px;
+		z-index: -80;
+	}
 }
 
 a {
@@ -64,7 +69,7 @@ a {
 }
 
 @media (max-width: $breakpoint-4) {
-	.mobile {
+	.mobile, .mobile-press {
 		display: block;
 	}
 	.desktop {
@@ -73,7 +78,7 @@ a {
 }
 
 @media (min-width: $breakpoint-4) {
-	.mobile {
+	.mobile, .mobile-press {
 		display: none;
 	}
 	.desktop {
@@ -199,9 +204,16 @@ section {
 			font-style: normal;
 			padding-top: 0.7em;
 			margin-bottom: -0.5em;
+			@media screen and (max-width: $breakpoint-4) {
+				font-size: 1.4em;
+				margin-top: -0.5em;
+			}
 		}
 		h2 {
 			font-size: 1.5em;
+			@media screen and (max-width: $breakpoint-4) {
+				font-size: 1.2em;
+			}
 		}
 	}
 	.specifications {
@@ -222,6 +234,9 @@ section {
 		p {
 			margin: 0;
 		}
+		@media screen and (max-width: $breakpoint-4) {
+			font-size: 0.8em;
+		}
 	}
 	img {
 		width: 5em;
@@ -231,9 +246,20 @@ section {
 		@include span-columns(12);
 		margin-top: 6em;
 		margin-bottom: 10em;
+		@media screen and (max-width: $breakpoint-4) {
+			box-shadow: 0 0 5px 3px rgba(black, 0.3);
+			font-size: 0.5em;
+			background-color: $blue;
+			padding: 5em 0;
+			color: white;
+			text-shadow: none;
+		}
 		li {
 			font-size: 1.5em;
 			margin-bottom: 1.5em;
+			@media screen and (max-width: $breakpoint-4) {
+				margin-bottom: 2em;
+			}
 			h3 {
 				color: $orange;
 				font-size: 1.4em;
@@ -397,7 +423,7 @@ section {
 		border: 0.2em solid $orange;
 		box-shadow: 0 0 5px rgba(black, .3), inset 0 0 5px rgba(black, .3);
 		@media screen and (max-width: $breakpoint-4) {
-			font-size: 1.5em;
+			font-size: 1.3em;
 		}
 		&:hover {
 			background: $orange;
@@ -429,6 +455,11 @@ footer {
 		}
 	}
 	&.mobile {
+		position: relative;
+		margin-top: 450px;
+		height: 6em;
+	}
+	&.mobile-press {
 		position: relative;
 		margin-top: 450px;
 		height: 6em;

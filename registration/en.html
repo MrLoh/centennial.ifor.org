@@ -5,7 +5,6 @@
 	<title>IFOR Centennial Registration</title>
 	<script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<!--	<link rel="stylesheet" href="../_ressources/css/styles.css">-->
 	<link rel="stylesheet" href="../css/form.css">
 	<link rel="stylesheet" href="../css/jqvalen.css">
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -68,9 +67,8 @@
 				</p>
 				<p>
 					<input type="tel" name="post-code" id="post-code"
-					class="validate[required,custom[number]]"
-					data-errormessage-value-missing="We need your post / zip code. If there are none in your country enter '000'."
-					data-errormessage-custom-error="Must be a number. If your country does not use post / zip codes  just enter '000'.">
+					class="validate[required]"
+					data-errormessage-value-missing="We need your post / zip code. If there are none in your country enter '000'.">
 					<label for="post-code">Post / ZIP Code</label>
 				</p>
 				<p>
@@ -354,9 +352,8 @@
 				<p class="bottom-margin">
 					<label for="payment-amount">Payment Amount:</label> &euro;
 					<input type="tel" name="payment-amount" id="payment-amount" 
-					class="validate[required,custom[number]] short"
-					data-errormessage-value-missing="Please indicate the fee that you will pay or that will be paid for you."
-					data-errormessage-custom-error="Must be an integer.">
+					class="validate[required] short"
+					data-errormessage-value-missing="Please indicate the fee that you will pay or that will be paid for you.">
 				</p>
 				<div id="if-otherpayer" class="hide">
 					<p class="top-margin bottom-margin">

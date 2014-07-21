@@ -1,0 +1,438 @@
+@import "reset";
+@import "bourbon/bourbon";
+$max-width: em(1680);
+// @import "visualgrid";
+@import "neat/neat";
+$blue: rgb(55,129,167);
+$orange: rgb(255,137,0);
+$back: #191919;
+
+$breakpoint-1: 1500px;
+$breakpoint-2: 1300px;
+$breakpoint-3: 1000px;
+$breakpoint-4: 800px;
+
+body {
+	@include outer-container;
+	font-family: open-sans, 'Helvetica', 'Arial', sans-serif;
+	font-weight: 500;
+	line-height: 1.3;
+	background: $back;
+	color: white;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.background {
+	@include span-columns(12);
+	@include outer-container;
+	overflow: hidden;
+	z-index: -99;
+	@include box-shadow(0 0 15px 5px rgba(black, .3));
+	img {
+		position: relative;
+		width: 100%;
+		margin-bottom: -10em;
+		@media screen and (max-width: $breakpoint-1) {
+			width: 120%;
+			left: -10%;
+			margin-bottom: 0em;
+		}
+		@media screen and (max-width: $breakpoint-2) {
+			width: 150%;
+			left: -25%
+		}
+		@media screen and (max-width: $breakpoint-3) {
+			width: 180%;
+			left: -35%
+		}
+		@media screen and (max-width: $breakpoint-4) {
+			width: 260%;
+			left: -100%
+		}
+	}
+	&.mobile {
+		position: absolute;
+		bottom: -220px;
+		z-index: -90;
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+@media (max-width: $breakpoint-4) {
+	.mobile {
+		display: block;
+	}
+	.desktop {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-4) {
+	.mobile {
+		display: none;
+	}
+	.desktop {
+		display: block;
+	}
+}
+
+header {
+	@include position(fixed, 0 0 0 0px);
+	width: 100%;
+	z-index: 99;
+	nav {
+		width: 100%;
+		max-width: 1680px;
+		background: $orange;
+		@include box-shadow(0 0 5px 3px rgba(black, 0.3));
+		margin: 0 auto;
+		padding: 0 1em;
+
+		font-size: 1.9em;
+		line-height: 2.5em;
+		font-weight: 600;
+		text-transform: uppercase;
+		&.mobile {
+			font-size: 0.85em;
+		}
+		span {
+			text-align: left;
+			display: inline-block;
+			img {
+				height: 1.3em;
+				margin-top: -0.3em;
+			}
+		}
+		ul {
+			display: inline-block;
+			float: right;
+			text-align: right;
+			list-style-type: none;
+			li {
+				display: inline;
+				padding-left: 1em;
+			}
+		}
+		a:hover {
+			border-bottom: 2px solid white;
+			border-top: 2px solid white;
+		}
+	}
+}
+
+main {
+	position: absolute;
+	top: 50px;
+	height: 2600px;
+	@media screen and (max-width: $breakpoint-4) {
+		height: auto;
+	}
+}
+
+section {
+	@include span-columns(12);
+	@include outer-container;
+}
+
+#hero {
+	margin-top: 5em;
+	color: $blue;
+	font-weight: 900;
+	text-align: center;
+	text-shadow: 0 0 2px rgba(black, 0.35);
+	.logo {
+		@include span-columns(12);
+		@include outer-container;
+		img {
+			@include span-columns(4);
+			@include shift(4);
+			@include pad;
+			height: 20em;
+			@media screen and (max-width: $breakpoint-4) {
+				@include span-columns(7);
+				@include shift(2.5);
+				height: 10em;
+				margin-top: -5em;
+			}
+		}
+	}
+	h1 {
+		@include span-columns(12);
+		@include pad;
+		font-size: 3em;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: $orange;
+		margin-top: -1.5em;
+		margin-bottom: 1em;
+		@media screen and (max-width: $breakpoint-4) {
+			font-size: 1.5em;
+		}
+	}
+	.details {
+		@include span-columns(6);
+		@include shift(3);
+		font-size: 2em;
+		font-style: italic;
+		@media screen and (max-width: $breakpoint-1) {
+			@include span-columns(8);
+			@include shift(2);
+		}
+		@media screen and (max-width: $breakpoint-2) {
+			@include span-columns(10);
+			@include shift(1);
+		}
+		@media screen and (max-width: $breakpoint-4) {
+			font-size: 1em;
+			margin-top: -1em;
+			@include span-columns(12);
+			@include shift(0);
+			padding: 0 1em;
+		}
+		h1 {
+			font-size: 2em;
+			font-style: normal;
+			padding-top: 0.7em;
+			margin-bottom: -0.5em;
+		}
+		h2 {
+			font-size: 1.5em;
+		}
+	}
+	.specifications {
+		@include span-columns(6 of 6);
+		@media screen and (max-width: $breakpoint-1) {
+			@include span-columns(6 of 8);
+			@include shift(1);
+		}
+		@media screen and (max-width: $breakpoint-2+25) {
+			@include span-columns(8 of 10);
+			@include shift(1);
+		}
+	}
+	.date, .location {
+		@include span-columns(3 of 6);
+		margin-top: 2em;
+		text-align: center;
+		p {
+			margin: 0;
+		}
+	}
+	img {
+		width: 5em;
+		height: 5em;
+	}
+	.people {
+		@include span-columns(12);
+		margin-top: 6em;
+		margin-bottom: 10em;
+		li {
+			font-size: 1.5em;
+			margin-bottom: 1.5em;
+			h3 {
+				color: $orange;
+				font-size: 1.4em;
+			}
+			h4 {
+				font-style: italic;
+			}
+			h5 {
+				margin-top: 0.5em;
+				font-weight: 600;
+				font-size: 1.2em;
+			}
+		}
+	}
+}
+
+#about {
+	position: relative;
+	margin-top: 6em;
+	margin-bottom: 6em;
+	font-size: 1.2em;
+	background: $blue;
+	@include box-shadow(0 0 5px 3px rgba(black, 0.3));
+	@media screen and (max-width: $breakpoint-4) {
+		font-size: 0.8em;
+		margin-top: 9em;
+	}
+	.tabs {
+		@include span-columns(11);
+		@include shift(1);
+		margin-top: -2em;
+		@media screen and (max-width: $breakpoint-4) {
+			margin-top: -3em;
+			margin-left: -0.8em;
+		}
+		h2 {
+			font-weight: 700;
+			text-transform: uppercase;
+			line-height: 1.5em;
+			display: inline-block;
+			margin-right: -0.5em;
+			background: $blue;
+			border-radius: 1em 2.5em 0 0;
+			@include box-shadow(0 0 5px 3px rgba(black, 0.3));
+			padding: 0.3em 1.5em 0 1em;
+			position: relative;
+			cursor: pointer;
+			@media screen and (max-width: $breakpoint-4) {
+				@include transform(rotate(20deg));
+				border-radius: 1em;
+				margin-right: -4.5em;
+				height: 7em;
+				padding: 0.3em 2em 0 1em;
+			}
+			&:first-child {
+				z-index: 4;
+			}
+			&:nth-child(2) {
+				z-index: 3;
+			}
+			&:nth-child(3) {
+				z-index: 2;
+			}
+			&.top, &:hover {
+				z-index: 5;
+			}
+		}
+	}
+	article {
+		@include span-columns(12);
+		background: $blue;
+		margin-top: -0.4em;
+		z-index: 10;
+		position: relative;
+		@media screen and (max-width: $breakpoint-4) {
+			margin-top: -4em;
+		}
+		p {
+			@include span-columns(8);
+			@include shift(1);
+			padding: 2em 2em 2em 0;
+			line-height: 1.6;
+			@media screen and (max-width: $breakpoint-1) {
+				@include span-columns(9);
+				@include shift(1);
+			}
+			@media screen and (max-width: $breakpoint-4) {
+				@include span-columns(10);
+				padding: 1em 0 0 0;
+			}
+		}
+	}
+	#endorser {
+		@include span-columns(11);
+		@include shift(1);
+		margin-top: 2em;
+		margin-bottom: 4em;
+		@media screen and (max-width: $breakpoint-4) {
+			@include span-columns(12);
+			@include shift(0);
+			text-align: center;
+			margin-top: 3em;
+		}
+		h1 {
+			font-size: 2.5em;
+			font-weight: 400;
+			text-transform: uppercase;
+			margin-bottom: 0.4em;
+			@media screen and (max-width: $breakpoint-4) {
+				@include span-columns(10 of 12);
+				@include shift(1);
+				font-size: 1.8em;
+				text-align: left;
+			}
+		}
+		img {
+			width: 8em;
+			margin-right: 1.5em;
+			border-radius: 100%;
+			border: 0.25em solid white;
+			cursor: pointer;
+			@media screen and (max-width: $breakpoint-4) {
+				width: 5.5em;
+				margin: 0 0.2em;
+			}
+		}
+		h2 {
+			font-size: 1.2em;
+			margin-top: 1em;
+			margin-bottom: 0.5em;
+			@media screen and (max-width: $breakpoint-4) {
+				@include span-columns(10 of 12);
+				@include shift(1);
+				text-align: left;
+			}
+		}
+		p {
+			@include span-columns(4 of 11);
+			@media screen and (max-width: $breakpoint-4) {
+				@include span-columns(10 of 12);
+				@include shift(1);
+				text-align: left;
+			}
+		}
+	}
+}
+
+#register {
+	text-align: center;
+	@media screen and (max-width: $breakpoint-4) {
+		margin-bottom: 8em;
+	}
+	a {
+		color: $orange;
+		font-size: 2em;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-shadow: 0 0 5px rgba(black, 0.35);
+		padding: 0.2em 0.6em;
+		border-radius: 1em;
+		border: 0.2em solid $orange;
+		box-shadow: 0 0 5px rgba(black, .3), inset 0 0 5px rgba(black, .3);
+		@media screen and (max-width: $breakpoint-4) {
+			font-size: 1.5em;
+		}
+		&:hover {
+			background: $orange;
+			color: #ddd;
+			box-shadow: 0 0 5px rgba(black, .3);
+			text-shadow: none;
+		}
+	}
+}
+
+footer {
+	@include span-columns(12);
+	width: 100%;
+	max-width: 1680px;
+	position: fixed;
+	bottom: 0;
+	background: $orange;
+	height: 5em;
+	z-index: 99;
+	@include box-shadow(0 0 15px 5px rgba(black, .6));
+	p {
+		@include span-columns(10);
+		@include shift(1);
+		font-size: 1.5em;
+		text-align: right;
+		padding-top: 1em;
+		@media screen and (max-width: $breakpoint-4) {
+			font-size: 1em;
+		}
+	}
+	&.mobile {
+		position: relative;
+		margin-top: 450px;
+		height: 6em;
+	}
+}
+
+

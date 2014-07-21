@@ -1,4 +1,6 @@
 <?php 
+header('Content-Type: text/html; charset=UTF-8');
+
 function idify($str) {
 	$str = preg_replace('/[^A-Za-z0-9\-]/', '', $str);
 	$str = strtolower(preg_replace('/\s+/','',$str));
@@ -278,6 +280,7 @@ $needs_invitation = get("invitation");
 
 include("config.php");
 $SQL = mysqli_connect($DB_HOST,$DB_USER,$DB_PASS,$DB_NAME) or die("MYSQL con failed: ".mysqli_error($SQL));
+$SQL->set_charset("utf8");
 
 $valid = false;
 
@@ -297,7 +300,7 @@ if ( $first_name == false or $last_name == false ) {
 	$query = " SELECT * FROM registration WHERE id='$id' ";
 	$result = $SQL->query($query);
 	if ( $result->num_rows > 0 ) {
-		$valid = true;
+		$valid = false;
 		$error = "We already have a registration with the same name and email address!";
 	} else {
 		$valid = true;
@@ -573,7 +576,7 @@ if ( $success ) {
 	$mail_headers = "From: IFOR Centennial Registration <registration@ifor.org>";
 	$mail_to = $email;
 	$mail_subject = "IFOR Centennial Registration";
-	mail($mail_to, $mail_subject, $confirm, $headers);
+	mail($mail_to, $mail_subject, $confirm, $mail_headers);
 }
 
 
@@ -606,12 +609,12 @@ if ( $success ) {
 			echo "<section class='top-bottom' style='margin-bottom: 1em; padding-bottom: 2.5em; padding-top: 2.5em;'>";
 			echo "<p>".nl2br($confirm)."</p>";
 			echo "</section>";
-			echo "<a class='redirect' href='http://www.centennial.ifor.org'>Go back to the Centennial homepage.</a>";
+			echo "<a class='redirect' href='http://centennial.ifor.org'>Go back to the Centennial homepage.</a>";
 			if ( $payment_method == "paypal" ) {
-				echo "<a class='redirect' href='http://www.centennial.ifor.org/payment'>Pay now via credit card / PayPal.</a>";
+				echo "<a class='redirect' href='../payment/index.php?amount=$payment_amount&first_name=$first_name&last_name=$last_name&address=$address&address_2=$address_2&city=$city&post_code=$post_code&email=$email'>Pay now via credit card / PayPal.</a>";
 			}
 			if ( $council_payment == "IFOR" ) {
-				echo "<a class='redirect' href='http://www.ifor.org/council'>Apply for financial aid for the IFOR Council now.</a>";
+				echo "<a class='redirect' href='http://ifor.org/council'>Apply for financial aid for the IFOR Council now.</a>";
 			}
 		}
 		 ?>

@@ -2,7 +2,7 @@ body {
 	font-family: open-sans, 'Helvetica', 'Arial', sans-serif;
 	font-size: 16px;
 	font-weight: 500;
-	background: #F57B05;
+	background: rgb(255,137,0);
 	color: white;
 }
 
@@ -24,7 +24,7 @@ section h1 span {
 }
 
 section {
-	background: #1F6C8F;
+	background: rgb(55,129,167);
 	padding: 0.7em 2em 0.7em 3em;
 	margin: -3px auto;
 	border: solid white 3px;
@@ -73,9 +73,9 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 
-input[type="submit"] {
+#submit {
 	background: white;
-	color: #1F6C8F;
+	color: rgb(55,129,167);
 	font-size: 2em;
 	font-weight: 900;
 	text-transform: uppercase;
@@ -85,8 +85,8 @@ input[type="submit"] {
 	border: solid white 3px;
 }
 
-input[type="submit"]:hover {
-	background: #F57B05;
+#submit:hover {
+	background: rgb(255,137,0);
 	color: white;
 }
 
@@ -132,25 +132,25 @@ input.newline {
 ::-webkit-input-placeholder {
 	font-style: italic;
 	font-weight: 500;
-	color: #F57B05;
+	color: rgb(255,137,0);
 }
 
 :-moz-placeholder { /* Firefox 18- */
 	font-style: italic;
 	font-weight: 500;
-	color: #F57B05;
+	color: rgb(255,137,0);
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
 	font-style: italic;
 	font-weight: 500;
-	color: #F57B05;
+	color: rgb(255,137,0);
 }
 
 :-ms-input-placeholder {  
 	font-style: italic;
 	font-weight: 500;
-	color: #F57B05;
+	color: rgb(255,137,0);
 }
 
 p.info {
@@ -169,7 +169,7 @@ p.info {
 section p a {
 	text-decoration: none;
 	font-weight: 900;
-	color: #F57B05;
+	color: rgb(255,137,0);
 }
 
 section p a:hover {
@@ -255,7 +255,7 @@ button.next {
 	border: solid white 0.2em;
 	border-radius: 0.5em;
 	box-shadow: none;
-	color: #1F6C8F;
+	color: rgb(55,129,167);
 	font-family: inherit;
 	font-size: 1em;
 	font-weight: 700;
@@ -265,6 +265,26 @@ button.next {
 }
 
 button.next:hover {
+	background: none;
+	color: white;
+}
+
+.button {
+	background: white;
+	border: solid white 0.2em;
+	border-radius: 0.5em;
+	box-shadow: none;
+	color: rgb(55,129,167);
+	font-family: inherit;
+	font-size: 1em;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin: 1.5em 0 -1em 0;
+	padding: 0.1em 1em;
+	text-decoration: none;
+}
+
+.button:hover {
 	background: none;
 	color: white;
 }
@@ -338,11 +358,11 @@ form h3 a {
 }
 
 form h3 a:hover {
-	color: #F57B05;
+	color: rgb(255,137,0);
 }
 
 .fa-exclamation-triangle {
-	color: #F57B05;
+	color: rgb(255,137,0);
 }
 
 a.redirect {
@@ -357,5 +377,5 @@ a.redirect {
 
 }
 a.redirect:hover {
-	color: #1F6C8F;
+	color: rgb(55,129,167);
 }

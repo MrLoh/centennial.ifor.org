@@ -3,91 +3,156 @@
 <head>
 	<meta charset="UTF-8">
 	<title>IFOR Centennial</title>
-	<link rel="stylesheet" href="_ressources/css/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
 	<script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
-<body id="skrollr-body">
-	<div class="background">
-		<img src="/_ressources/img/background.jpg" alt="Background Image">
+<body>
+	<div class="background" id="bcg">
+		<img src="img/back.jpg">
 	</div>
 	<header>
-		<div class="logo">
-			<img src="_ressources/img/logo.svg" alt="Background">
-		</div>
-		<nav>
+		<nav class="desktop"
+		data-0="font-size: 2em"
+		data-30="font-size: 1.2em"
+		>
+			<span>
+				<a href="http://centennial.ifor.org"><img src="img/logo.svg"> IFOR Centennial</a>
+			</span>
 			<ul>
-				<li><a href="">Location</a></li>
-				<li><a href="">Programme</a></li>
+				<li><a href="programme/">Programme</a></li>
+				<li><a href="registration/">Register</a></li>
+				<li><a href="press/">Press</a></li>
 			</ul>
-			<button><a href="registration/">Register now</a></button>
+		</nav>
+		<nav class="mobile">
+			<span>
+				<a href="http://centennial.ifor.org"><img src="img/logo.svg"></a>
+			</span>
+			<ul>
+				<li><a href="programme/">Programme</a></li>
+				<li><a href="registration/">Register</a></li>
+				<li><a href="press/">Press</a></li>
+			</ul>
 		</nav>
 	</header>
-	<main>
-		<section class="tagline">
-			<p>
-				Join us to celebrate the 100th birthday of the <br>
-				International Fellowship of Reconciliation <br>
-				in Konstanz from August 1 to 3, 2014
-			</p>	
-		</section>
-		<section class="about clearfix">
-			<p class="hyphenate">
-				<b>About IFOR:</b><br><br>
-				The International Fellowship of Reconciliation (IFOR) was founded in 1914 in response to the horrors of war in Europe. IFOR has taken a consistent stance against war and its preparation throughout its history. Perceiving the need for healing and reconciliation in the world, the founders of IFOR formulated a vision of the human community based upon the belief that love in action has the power to transform unjust political, social, and economic structures.
-			</p>
-			<p class="hyphenate">
-			<b>About the Centennial:</b><br><br>
-Reflecting on the violence of the past and addressing the challenges of today, approximately 150 delegates from IFOR member organizations across the globe will gather in Konstanz, Germany 100 years after the outbreak of World War I. Worldrenowned nonviolence experts, representatives from like-minded peace organizations, and members of the general public will join IFOR in mourning past violent conflicts, celebrating nonviolent achievements, and envisioning the future.
-			</p>
-		</section>
-		
-		<section class="endorsement clearfix">
-			<div class="center">
-				<h1>Endorsed By:</h1>
-				<article class="endorser">
-					<img src="_ressources/img/mairead.jpg" alt="Photo Mairead" class="fl">
-					<div class="fl">
-						<h2>Mairead Corrigan Maguire</h2>
-						<p class="hyphenate">
-							Nobel Peace Prize laureate, cofounder of peacePEOPLE, peace activist in Northern Ireland and Israel/Palestine
-						</p>
+	<main id="skrollr-body";
+	data-0="top: 50px"
+	data-2000="top: -1700px"
+	>
+		<section id="hero">
+			<div class="logo">
+				<img src="img/logo_orange.svg"><br>
+			</div>
+			<h1>
+				100 Years for Nonviolence
+			</h1>
+			<div class="details">
+				<p class="desktop">
+					Join us to celebrate the 100th birthday of the <br>
+					International Fellowship of Reconciliation
+				</p>
+				<p class="mobile">
+					Join us to celebrate the 100th birthday of the International Fellowship of Reconciliation
+				</p>
+				<div class="specifications">
+					<div class="location">
+						<img class="svg" src="img/icons/location.svg">
+						<p>Konstanz, Germany</p>
 					</div>
-				</article>
-				<article class="endorser">
-					<img src="_ressources/img/sulak.jpg" alt="Photo Sulak" class="fr">
-					<div  class="fr">
-						<h2>Sulak Sivaraksa</h2>
-						<p class="hyphenate">
-						Cofounder of the International Network of Engaged Buddhists (INEB), Thai peace and environment activist
-						</p>
+					<div class="date">
+						<img class="svg" src="img/icons/date.svg">
+						<p>1-3 August 2014</p>
 					</div>
-				</article>
-				<article class="endorser">
-					<img src="_ressources/img/adolfo.jpg" alt="Photo Adolfo" class="fl">
-					<div class="fl">
-						<h2>Adolfo Pérez Esquivel</h2>
-						<p class="hyphenate">
-							Nobel Peace Prize laureate, Founder of Servicio de Paz y Justicia (SERPAJ), Argentinian peace activist
-						</p>
-					</div>
-				</article>
-				<article class="endorser">
-					<img src="_ressources/img/hildegard.jpg" alt="Photo Hildegard" class="fr">
-					<div  class="fr">
-						<h2>Hildegard Goss-Mayr</h2>
-						<p class="hyphenate">
-							Honorary IFOR President, nonviolent trainer in Eastern Europe, Latin America, Philippines and Madagascar
-						</p>
-					</div>
-				</article>
+				</div>
 			</div>
 		</section>
+		<section id="about"
+		data-0="margin-top: 12em"
+		data-500="margin-top: 12em"
+		data-0-end="margin-top: 0em; margin-bottom: 12em;"
+		>
+			<div class="tabs">
+				<h2 class="centennial">The Centennial</h2>
+				<h2 class="believes">IFOR's Beliefs</h2>
+				<h2 class="history">IFOR's History</h2>
+			</div>
+			<article class="centennial">
+				<p>
+					Reflecting on the violence of the past and addressing the challenges of today, approximately 150 delegates from IFOR member organizations across the globe will gather in Konstanz, Germany 100 years after the outbreak of World War I. World- renowned nonviolence experts, representatives from like-minded peace organizations, and members of the general public will join IFOR in mourning, celebration, and envisioning the future.
+				</p>
+			</article>
+			<article class="believes">
+				<p>
+					The commandment of love is shared by all great spiritual traditions. IFOR welcomes everyone who seeks to promote peace and reconciliation, truth, mercy and justice in all dimensions of life. Members of IFOR are committed to active nonviolence, which includes resistance to injustice, respect of the enemy, acceptance of diversity and dialogue. They are convinced that nonviolence is the way to transformation on personal, social, economic and political levels and thus is hope for the world.
+				</p>
+			</article>
+			<article class="history">
+				<p>
+					Founded in 1914 in response to the horrors of war in Europe, IFOR has taken a consistent stance against war and its preparation throughout its history. Perceiving the need for healing and reconciliation in the world, the founders of IFOR formulated a vision of the human community based upon the belief that love in action has the power to transform unjust political, social, and economicstructures.
+				</p>
+			</article>
+			<div id="endorser">
+				<h1>Endorsed By</h1>
+				<img src="img/endorser/mairead.jpg" class="mairead">
+				<img src="img/endorser/adolfo.jpg" class="adolfo">
+				<img src="img/endorser/hildegard.jpg" class="hildegard">
+				<img src="img/endorser/sulak.jpg" class="sulak">
+				<div class="mairead">
+					<h2>Mairead Corrigan Maguire</h2>
+					<p>
+						Nobel Peace Prize laureate, cofounder of peacePEOPLE, peace activist in Northern Ireland and Israel/Palestine
+					</p>
+				</div>
+				<div class="adolfo">
+					<h2>Adolfo Pérez Esquivel</h2>
+					<p>
+						Nobel Peace Prize laureate, Founder of Servicio de Paz y Justicia (SERPAJ), Argentinian peace activist
+					</p>
+				</div>
+				<div class="hildegard">
+					<h2>Hildegard Goss-Mayr</h2>
+					<p>
+						Honorary IFOR President, nonviolent trainer in Eastern Europe, Latin America, Philippines and Madagascar
+					</p>
+				</div>
+				<div class="sulak">
+					<h2>Sulak Sivaraksa</h2>
+					<p>
+						Cofounder of the International Network of Engaged Buddhists (INEB), Thai peace and environment activist
+					</p>
+				</div>
+			</div>
+		</section>
+		<div class="background mobile">
+			<img src="img/back.jpg">
+		</div>
+		<section id="register">
+			<a href="registration/">Register now</a>
+		</section>
 	</main>
-<!--Load Scripts-->
-<script type="text/javascript" src="skrollr.min.js"></script>
-<script type="text/javascript">
-	var s = skrollr.init();
-</script>
+	<footer class="desktop"
+	data-0="bottom: -1000px"
+	data-900-end="bottom: 0px"
+	>
+		<p>
+			contact us at <a href="mailto:centennial@ifor.org">centennial@ifor.org</a>
+		</p>
+	</footer>
+	<footer class="mobile">
+		<p>
+			contact us at <a href="mailto:centennial@ifor.org">centennial@ifor.org</a>
+		</p>
+	</footer>
+
+	<script type="text/javascript" src="js/skrollr.min.js"> </script>
+	<script type="text/javascript">
+		var mobile = window.matchMedia("(max-width: 800px)").matches;
+		if(!mobile) { var s = skrollr.init({forceHeight:false}) };
+	</script>
+	<script type="text/javascript" src="js/jquery.min.js"> </script>
+	<script type="text/javascript" src="js/main.js"> </script>
 </body>
 </html>
